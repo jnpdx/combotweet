@@ -1,0 +1,29 @@
+Favorites don't work in AIR
+
+options should be in options.js
+
+get_tweets shouldn't need type - should discern from pan.tweet_type
+
+remove_panel doesn't show a panel afterwards in AIR
+
+follow button on user info +
+	should allow users to choose which accts to follow user with +
+	needs styling
+
+should have syntax for auto-open of panes, like ?search=beerandblog +
+
+Need DM button on timeline and replies page
+
+user names with underscores don't work with regex code
+	
+Clicking on user name opens window and browser in AIR
+
+Display # of tweets added on refresh
+
+Images should be loaded from local directory - not web in AIR
+
+Greasemonkey script to expand urls/etc
+
+Wordpress plugin - stores $_SESSION data in user table
+
+

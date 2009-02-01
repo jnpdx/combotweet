@@ -1,0 +1,103 @@
+body {
+	
+	font-family: 'Lucida Grande';
+	
+}
+
+div#canvas {
+	
+	width: 320px;
+	border: 1px solid #aaa;
+	
+}
+
+div#global_buttons img {
+	
+	height: 32px;
+	width: 32px;
+	float: right;
+	
+	
+}
+
+img.close_panel {
+	
+	height: 16px;
+	width: 16px;
+	
+}
+
+div#global_buttons {
+	
+	float: left;
+	clear: both;
+	
+}
+
+div#login_form {
+	
+	width: 300px;
+	padding: 10px;
+	display: none;
+	
+}
+
+div#nav_buttons {
+	
+	clear: both;
+	
+}
+
+span#header_desc {
+	
+	display: none;
+	
+}
+
+div#header h1 {
+	
+	font-size: 16px;
+	
+}
+
+div.tweet {
+	
+	border-bottom: 1px dashed #aaa;
+	padding: 4px;
+	
+}
+
+div.last_update {
+	
+	font-size: .8em;
+	font-style: italic;
+	color: #666;
+	
+}
+
+span.tweet_meta {
+	
+	font-size: .8em;
+	font-style: italic;
+	color: #666;
+	display: block;
+	
+}
+
+img.avatar {
+	
+	float: left;
+	width: 32px;
+	height: 32px;
+	padding: 4px;
+	
+}
+
+img#loader {
+	
+	float: right;
+	
+}
+
+
+
