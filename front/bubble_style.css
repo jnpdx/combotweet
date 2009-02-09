@@ -537,6 +537,12 @@ div.user_stats {
 	
 }
 
+#notify_window div.user_tweets ul {
+	
+	padding-left: 20px;
+	
+}
+
 #notify_window div.user_tweets ul li {
 	
 	padding-bottom: 10px;
