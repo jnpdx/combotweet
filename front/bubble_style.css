@@ -1,8 +1,58 @@
+/* Reset
+   
+   Based on work by Eric Meyer:
+   * meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/  */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+
+}
+
+
+body { line-height: 1.5; background: #fff; margin:1.5em 0; }
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight:400; }
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+
+a img { border: none; }
+
+/* Typography */
+
 body {
-	
-	font-family: 'Lucida Grande';
-	line-height: 1.2em;
-	
+
+	font-size: 100%;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+    color: #262626;
+
+}
+
+strong, em, b, i {
+
+    font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+
+
+}
+
+h1, h2, h3, h4, h5, h6, address {
+
+    font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+
+}
+
 }
 
 a {
@@ -10,6 +60,15 @@ a {
 	text-decoration: none;
 	
 }
+
+p {
+
+	margin: 0 0 1.5em;
+
+}
+
+
+/* DIV */
 
 div#header {
 	
@@ -36,15 +95,15 @@ img#canvas_bg {
 
 div#header h1 {
 	
-	font-style: italic;
-	
+	letter-spacing: -2px;
+		
 }
 
 span#header_desc {
 	
-	color: #aaa;
+	color: #777;
 	font-size: .8em;
-	
+
 }
 
 img#loader {
@@ -61,7 +120,7 @@ div#canvas {
 
 	width: 600px;
 	margin: 10px auto 30px auto;
-	padding: 10px;
+	padding: 20px;
 	background: white;
 	
 }
@@ -107,16 +166,15 @@ div.tweet_left {
 
 div.the_tweet {
 	
-	background: #eee;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border: 1px solid #aaa;
+	background: #f8f8f8;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	
 }
 
 div.the_tweet:hover {
 	
-	background: #ccc;
+	background: #efefef;
 	
 }
 
@@ -133,6 +191,7 @@ div.reply_icon,div.favorite_icon,div.retweet_icon {
 	font-size: .8em;
 	font-style: italic;
 	cursor: pointer;
+	margin-top: 1.5em;
 	
 }
 
@@ -154,8 +213,8 @@ div.tweet a.user_name {
 div.the_tweet {
 	
 	float: left;
-	padding: 4px 10px 4px 10px;
-	width: 500px;
+	padding: 10px 15px 15px 15px;
+	width: 495px;
 	
 }
 
@@ -167,9 +226,10 @@ span.tweet_text {
 
 span.tweet_meta {
 	
+	margin-top: 1.75em;
 	color: #aaa;
 	font-style: italic;
-	font-size: .8em;
+	font-size: .75em;
 	float: left;
 	
 }
@@ -208,7 +268,7 @@ span.dm_notify_box {
 textarea.tweet_input {
 	
 	width: 100%;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	
 }
 
@@ -216,7 +276,7 @@ input.tweet_submit {
 	
 	float: right;
 	width: 200px;
-	height: 30px;
+	height: 60px;
 	margin-top: 4px;
 	
 }
@@ -231,23 +291,41 @@ div.more_tweets {
 
 div.nav_button, div.tweet_type_button {
 	
-	border: 1px solid #aaa;
-	background: #eee;
-	padding: 4px 10px;
+	background: #f3f3f3;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #aaa;
+	padding: 4px 15px;
 	float: left;
 	cursor: pointer;
-	width: 72px;
 	overflow: hidden;
-	height: 22px;
-	
+	color: #777;
+	margin-left: -1px;
+	margin-right: -1px;
+
+}
+
+div.nav_button:hover, div.tweet_type_button:hover {
+
+	background: #ccc;
+
 }
 
 div.button_highlighted {
 	
+	color: #000;
+	border: 1px solid #aaa;
+	border-bottom: 1px solid #fff;
 	width: auto;
 	background: #fff;
-	border-bottom: 1px solid #fff;
+	margin-left: 1px;
+	margin-right: 1px;	
 	
+}
+
+div.button_highlighted:hover {
+
+	background: #fff;
+
 }
 
 div.nav_button {
