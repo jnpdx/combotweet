@@ -289,7 +289,7 @@ function get_search_tweets($tweet_type,$location,$location_dist, $page,$since) {
 		
 		$tweet_type = urlencode($tweet_type);
 		
-		return file_get_contents("http://search.twitter.com/search.json?rpp=40&q=$tweet_type&page=$page$since_req");
+		return file_get_contents("http://search.twitter.com/search.json?rpp=20&q=$tweet_type&page=$page$since_req");
 		
 }
 

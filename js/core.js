@@ -1235,6 +1235,8 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		//alert("parsing tweets for panel" + panel_id + "with data " + data);
 	
 		//alert("parsing tweet type:" + type);
+		
+		//alert("page: " + page_num)
 	
 		if (type == 'direct_sent') {
 			type = 'direct';
@@ -1489,9 +1491,11 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			}
 			
 			if (type != 'direct') {
-				tweet_div += '<div id="retweet_' + tweet.id + '" class="retweet_icon" ';
-				tweet_div +=  'onclick="retweet_button(\'' + panel_id + '\',' + tweet.id + ",'" + from_sn + "')\">";
-				tweet_div += '<img src="' + URL_BASE + 'images/Recycle.png" alt="Retweet" title="Retweet" /></div>';
+				if (!is_search) {
+					tweet_div += '<div id="retweet_' + tweet.id + '" class="retweet_icon" ';
+					tweet_div +=  'onclick="retweet_button(\'' + panel_id + '\',' + tweet.id + ",'" + from_sn + "')\">";
+					tweet_div += '<img src="' + URL_BASE + 'images/Recycle.png" alt="Retweet" title="Retweet" /></div>';
+				}
 			}
 			
 			tweet_div += '<div class="the_tweet_right"></div>';

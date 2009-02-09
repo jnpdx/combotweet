@@ -75,7 +75,7 @@ if (isset($_GET['search'])) {
 <?php if (!$GLOBALS['mobile']): ?>
 	<?php if ($_SERVER['HTTP_HOST'] != "twitter.tagal.us"): ?>
 		<script type="text/javascript">
-			var VERSION = <?=VERSION?>;
+			var VERSION = '<?=VERSION?>';
 			document.write('<link href="' + CSS_FILE + '?v=' + VERSION + '" media="screen, projection" rel="stylesheet" type="text/css" />');
 		</script>
 	<?php else: ?>
