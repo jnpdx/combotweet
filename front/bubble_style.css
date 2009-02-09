@@ -166,7 +166,7 @@ div.tweet_left {
 
 div.the_tweet {
 	
-	background: #f8f8f8;
+	background: #e8e8e8;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	
@@ -174,7 +174,7 @@ div.the_tweet {
 
 div.the_tweet:hover {
 	
-	background: #efefef;
+	background: #dfdfdf;
 	
 }
 
@@ -276,7 +276,7 @@ input.tweet_submit {
 	
 	float: right;
 	width: 200px;
-	height: 60px;
+	height: 40px;
 	margin-top: 4px;
 	
 }
