@@ -64,7 +64,7 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
 
-	<?php if ($_SERVER['HTTP_HOST'] == "mtxs.local:8888"): ?>
+	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.local:8888"): ?>
 	<script type="text/javascript" src="js/core.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
 	<script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script>
