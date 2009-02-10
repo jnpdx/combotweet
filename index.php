@@ -54,15 +54,19 @@ if (isset($_GET['search'])) {
 		<?php endforeach; ?>
 		<?php endif; ?>
 	</script>
-
 	<script type="text/javascript">
 	var MOBILE = <?php if ($GLOBALS['mobile']) { echo 'true'; } else { echo 'false'; } ?>;
 	</script>
 
-	<script type="text/javascript" src="js/httpauth.js"></script>
-	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
+	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="js/shortcut.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.0-min.js"></script>
+	
+	<script type="text/javascript" src="js/httpauth.js"></script>
+	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
 
 	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.local:8888"): ?>
 	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>

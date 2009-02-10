@@ -60,8 +60,7 @@ if (window.mt_options) {
 
 /********************************** GLOBALS *************************************/
 
-
-
+var selected_tweet = null;
 
 var tw_panels = new Array();
 
@@ -113,7 +112,83 @@ function doc_ready_functions() {
 	
 	}
 	
+	bind_shortcuts();
+	
 }
+
+function bind_shortcuts() {
+	
+		shortcut.add("up",function() {
+			
+			goto_previous_tweet();
+			//alert("up")
+			
+		});
+		
+		shortcut.add("down",function() {
+			
+			goto_next_tweet();
+			//alert('down')
+			
+		});
+	
+}
+
+/******** GOTO *******/
+
+
+function get_selected_tweet() {
+	
+	if (selected_tweet == null) {
+		
+		//selected_tweet = $('#panels').find('.tweet:first').find('.tweet_id').val();
+		selected_tweet = 0;
+		
+	}
+		
+	return selected_tweet;
+	
+}
+
+function goto_previous_tweet() {
+	t = get_selected_tweet();
+	
+	if (selected_tweet != 0) {
+		selected_tweet = t - 1
+	}
+	
+	scroll_to_tweet(selected_tweet);
+
+}
+
+function goto_next_tweet() {
+	
+	if (selected_tweet == null) {
+		t = -1;
+	} else {
+		t = get_selected_tweet();
+	}
+	
+	selected_tweet = t + 1
+	
+	scroll_to_tweet(selected_tweet);
+	
+	
+}
+
+function scroll_to_tweet(index) {
+
+
+	$.scrollTo( $('.tweet:eq(' + index + ')'), 400, {
+		
+		offset: { left: 0, top: -90 }
+		
+	} );	
+	
+	console.log("going to tweet " + index)
+	
+}
+
  
 /********************************** OBJECTS **************************************/
 
@@ -125,6 +200,8 @@ function Data_Panel(pan_id,type,t_user,t_pass,info) {
 	this.user = t_user;
 	this.pass = t_pass;
 	this.gen_info = info;
+	
+	this.selected_tweet = null;
 	
 	this.auth = make_base_auth(t_user,t_pass);
 	
@@ -1378,7 +1455,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				
 			}
 			
-			var tweet_div = '<div class="tweet ' + favorite_class_note + '" id="panel_' + panel_id + 'tweet_' + tweet.id + '">';
+			var tweet_div = '<div class="' + tweet.id + ' tweet ' + favorite_class_note + '" id="panel_' + panel_id + 'tweet_' + tweet.id + '">';
 			
 			tweet_div += '<div class="tweet_top"></div>';
 			tweet_div += '<div class="tweet_left"></div>';		
