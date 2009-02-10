@@ -90,17 +90,13 @@ if (isset($_GET['search'])) {
 
 </head>
 <body>
-
-<div id="canvas">
-	<img id="canvas_bg" src="images/bird_bg.png" alt="" style="display: none;"/>
-	
-		<!--	
 			<div id="header">
 				
-				<h1>ComboTweet</h1>
-				<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.<br/>  <strong><a href="about">Learn more</a></strong></span>
-			</div>
-		-->
+				<div id="identifier">
+					<h1>ComboTweet</h1>
+					<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.  <strong><a href="about">Learn more</a></strong></span>
+					<br class="clear_both"/>
+				</div>
 			
 			<img src="images/loader.gif" id="loader" alt="loading..."/>
 			<div id="nav_buttons_wrapper">
@@ -132,8 +128,10 @@ if (isset($_GET['search'])) {
 				<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
 				</form>
 			</div>
+		</div> <!-- end header -->
 
 
+	<div id="canvas">
 
 			<div id="panels">
 
@@ -143,6 +141,7 @@ if (isset($_GET['search'])) {
 	
 	
 </div>
+
 
 <div id="footer">
 	(c) 2009 - John Nastos
