@@ -102,10 +102,15 @@ if (isset($_GET['search'])) {
 			<div id="nav_buttons_wrapper">
 
 					<div id="global_buttons">
-						<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
-						<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
-						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
+				
+						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
+				
+				
+						<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
+				
+						<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
+				
 					</div>
 
 					<div id="nav_buttons">
@@ -114,22 +119,24 @@ if (isset($_GET['search'])) {
 					<br class="clear_both" />
 			</div>
 
-			<div id="login_form">
-				<form onsubmit="make_new_panel();return false;" action="" method="post">
-				<label>User name:</label><input type="text" id="tw_user"/><br class="clear_both"/>
-				<br class="clear_both"/>
-				<label>Password:</label><input type="password" id="tw_pass"/><br class="clear_both"/><br class="clear_both"/>
-				<label>Type:</label>
-				<select id="account_type">
-					<option value="twitter">Twitter</option>
-					<option value="shizzow">Shizzow</option>
-				</select>
-				<br class="clear_both"/>
-				<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
-				</form>
-			</div>
+			
 		</div> <!-- end header -->
 
+
+		<div id="login_form">
+			<form onsubmit="make_new_panel();return false;" action="" method="post">
+			<label>User name:</label><input type="text" id="tw_user"/><br class="clear_both"/>
+			<br class="clear_both"/>
+			<label>Password:</label><input type="password" id="tw_pass"/><br class="clear_both"/><br class="clear_both"/>
+			<label>Type:</label>
+			<select id="account_type">
+				<option value="twitter">Twitter</option>
+				<option value="shizzow">Shizzow</option>
+			</select>
+			<br class="clear_both"/>
+			<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
+			</form>
+		</div>
 
 	<div id="canvas">
 
