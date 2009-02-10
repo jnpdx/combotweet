@@ -919,6 +919,8 @@ function remove_panel(panel_id) {
 	
 	if (!TABBED_PANELS) {
 		$('#panels').width($('#panels').width() - 520)
+	} else {
+		$('.show_panel_' + panel_id).remove();
 	}
 	
 	$('#show_panel_' + panel_id).remove();
@@ -1330,7 +1332,8 @@ function get_settings_in_cookie() {
 			if (vals[1] == 'false') {
 				TABBED_PANELS = false
 			} else {
-				TABBED_PANELS = true	
+				TABBED_PANELS = true
+				$('#header_nav_buttons').show()	
 			}
 		}
 		

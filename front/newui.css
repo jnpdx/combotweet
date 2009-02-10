@@ -72,10 +72,10 @@ p {
 
 div#header {
 	
-	padding: 2px 0px;
+	padding: 2px 0px 0px 0px;
 	position: fixed;
 	top: 0px;
-	height: 85px;
+	height: 82px;
 	background: #333;
 	width: 100%;
 	z-index: 100;
@@ -341,6 +341,12 @@ div.more_tweets {
 	
 }
 
+div#header_nav_buttons {
+	
+	display: none;
+	
+}
+
 div.tweet_type_button,div#header_nav_buttons div.nav_button {
 	
 	background: #f3f3f3;
@@ -362,7 +368,7 @@ div.tweet_type_button:hover, div#header_nav_buttons div.nav_button:hover {
 
 }
 
-div.button_highlighted, div#header_nav_buttons div.button_highlighted {
+div.button_highlighted {
 	
 	color: #000;
 	border: 1px solid #aaa;
@@ -371,6 +377,12 @@ div.button_highlighted, div#header_nav_buttons div.button_highlighted {
 	background: #fff;
 	margin-left: 1px;
 	margin-right: 1px;	
+	
+}
+
+div#header_nav_buttons div.button_highlighted {
+	
+	background: #fff;
 	
 }
 
