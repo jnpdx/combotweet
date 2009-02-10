@@ -5,7 +5,7 @@ function display_panel($panel) {
 	
 	
 	?>
-	<div class="twitter_panel proxy_panel" id="panel_<?=$panel->id?>">
+	<div class="panel twitter_panel proxy_panel" id="panel_<?=$panel->id?>">
 		<input type="hidden" class="panel_id" value="<?=$panel->id?>"/>
 		<input type="hidden" class="panel_user_name" value="<?=$panel->user?>"/>
 		<input type="hidden" class="panel_background" value="<?=$panel->gen_info->profile_background_image_url?>" />
@@ -41,7 +41,7 @@ function display_search_panel($panel) {
 	
 	?>
 	
-	<div class="twitter_panel proxy_panel" id="panel_<?=$panel->id?>">
+	<div class="panel twitter_panel proxy_panel" id="panel_<?=$panel->id?>">
 		<input type="hidden" class="panel_id" value="<?=$panel->id?>"/>
 		<input type="hidden" class="panel_user_name" value="<?=$panel->user?>"/>
 		<input type="hidden" class="panel_type" value="search_panel"/>

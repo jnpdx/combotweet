@@ -54,20 +54,25 @@ if (isset($_GET['search'])) {
 		<?php endforeach; ?>
 		<?php endif; ?>
 	</script>
-
 	<script type="text/javascript">
 	var MOBILE = <?php if ($GLOBALS['mobile']) { echo 'true'; } else { echo 'false'; } ?>;
 	</script>
 
-	<script type="text/javascript" src="js/httpauth.js"></script>
-	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
+	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
 
+	<script type="text/javascript" src="js/shortcut.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.0-min.js"></script>
+	
+	<script type="text/javascript" src="js/httpauth.js"></script>
+	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
+
 	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.local:8888"): ?>
-	<script type="text/javascript" src="js/core.js?v=<?=VERSION?>"></script>
+	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
-	<script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script>
+	<!-- <script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script> -->
+	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
 	<?php endif; ?>
 	
 <title>ComboTweet</title>
@@ -90,47 +95,55 @@ if (isset($_GET['search'])) {
 
 </head>
 <body>
-
-<div id="canvas">
-	<img id="canvas_bg" src="images/bird_bg.png" alt="" style="display: none;"/>
-	
-		
 			<div id="header">
-				<h1>ComboTweet</h1>
-				<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.<br/>  <strong><a href="about">Learn more</a></strong></span>
-			</div>
+				
+				<div id="identifier">
+					<h1>ComboTweet</h1>
+					<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.  <strong><a href="about">Learn more</a></strong></span>
+					<br class="clear_both"/>
+				</div>
+			
 			<img src="images/loader.gif" id="loader" alt="loading..."/>
 			<div id="nav_buttons_wrapper">
 
-			<div id="global_buttons">
-				<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
-				<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
-				<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
-				<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
+					<div id="global_buttons">
+						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
+				
+						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
+				
+				
+						<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
+				
+						<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
+				
+					</div>
+
+					<div id="nav_buttons">
+
+					</div>
+					<br class="clear_both" />
 			</div>
 
-			<div id="nav_buttons">
-
-			</div>
-			<br class="clear_both" />
-			</div>
-
-			<div id="login_form">
-				<form onsubmit="make_new_panel();return false;" action="" method="post">
-				<label>User name:</label><input type="text" id="tw_user"/><br class="clear_both"/>
-				<br class="clear_both"/>
-				<label>Password:</label><input type="password" id="tw_pass"/><br class="clear_both"/><br class="clear_both"/>
-				<label>Type:</label>
-				<select id="account_type">
-					<option value="twitter">Twitter</option>
-					<option value="shizzow">Shizzow</option>
-				</select>
-				<br class="clear_both"/>
-				<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
-				</form>
-			</div>
+			
+		</div> <!-- end header -->
 
 
+		<div id="login_form">
+			<form onsubmit="make_new_panel();return false;" action="" method="post">
+			<label>User name:</label><input type="text" id="tw_user"/><br class="clear_both"/>
+			<br class="clear_both"/>
+			<label>Password:</label><input type="password" id="tw_pass"/><br class="clear_both"/><br class="clear_both"/>
+			<label>Type:</label>
+			<select id="account_type">
+				<option value="twitter">Twitter</option>
+				<option value="shizzow">Shizzow</option>
+			</select>
+			<br class="clear_both"/>
+			<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
+			</form>
+		</div>
+
+	<div id="canvas">
 
 			<div id="panels">
 
@@ -140,6 +153,7 @@ if (isset($_GET['search'])) {
 	
 	
 </div>
+
 
 <div id="footer">
 	(c) 2009 - John Nastos
