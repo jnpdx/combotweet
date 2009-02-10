@@ -41,6 +41,8 @@ var CSS_FILE = 'front/newui.css';
 var FONT_SIZE = 100;
 //Tabbed browsing
 var TABBED_PANELS = false;
+//Panel width
+var PANEL_WIDTH = 500;
 
 
 /******************************** END OPTIONS **********************************/
@@ -918,7 +920,7 @@ function remove_panel(panel_id) {
 	$('#panel_' + panel_id).remove();
 	
 	if (!TABBED_PANELS) {
-		$('#panels').width($('#panels').width() - 520)
+		$('#panels').width($('#panels').width() - (PANEL_WIDTH - 20))
 	} else {
 		$('.show_panel_' + panel_id).remove();
 	}
@@ -1061,7 +1063,7 @@ function set_up_panel(id, data, t_user, t_pass) {
 	$('#panels').append(data);
 
 	if (!TABBED_PANELS) {
-		$('#panels').width($('#panels').width() + 520)
+		$('#panels').width($('#panels').width() + (PANEL_WIDTH + 20))
 	}
 
 	add_new_nav_button(id);
@@ -1252,6 +1254,7 @@ function show_settings_form() {
 		$('#refresh_freq').val('' + (UPDATE_FREQ / 1000));
 		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
 		$('#font_size').val('' + FONT_SIZE);
+		$('#panel_width').val('' + PANEL_WIDTH)
 	}
 	);
 	
@@ -1268,6 +1271,10 @@ function update_settings() {
 	FONT_SIZE = parseInt($('#font_size').val());
 	
 	$('#panels').css('font-size',FONT_SIZE + '%');
+	
+	PANEL_WIDTH = parseInt($('#panel_width').val())
+	
+	update_widths();
 	
 	if (TABBED_PANELS != $('#tabbed_panels').attr('checked')) {
 		TABBED_PANELS = $('#tabbed_panels').attr('checked');
@@ -1298,6 +1305,10 @@ function save_settings_in_cookie() {
 	
 	settings += "DESTROY_TWEETS=" + DESTROY_TWEETS;
 	
+	settings += '&'
+	
+	settings += "PANEL_WIDTH=" + PANEL_WIDTH;
+	
 	$.cookie('combotweet_settings',settings)
 	
 }
@@ -1319,9 +1330,12 @@ function get_settings_in_cookie() {
 		var vals = settings_array[i].split('=');
 		
 		if (vals[0] == 'UPDATE_FREQ') {
-			UPDATE_FREQ = vals[1];
+			UPDATE_FREQ = parseInt(vals[1]);
 		} else if (vals[0] == 'FONT_SIZE') {
-			FONT_SIZE = vals[1];
+			FONT_SIZE = parseInt(vals[1]);
+		} else if (vals[0] == 'PANEL_WIDTH') {
+			PANEL_WIDTH = parseInt(vals[1])
+			update_widths();
 		} else if (vals[0] == 'DESTROY_TWEETS') {
 			if (vals[1] == 'false') {
 				DESTROY_TWEETS = false
@@ -1337,6 +1351,18 @@ function get_settings_in_cookie() {
 			}
 		}
 		
+	}
+	
+}
+
+function update_widths() {
+	
+	$('div.panel').width(PANEL_WIDTH);
+	
+	$('div.the_tweet').width(PANEL_WIDTH - 110)
+	
+	if (!TABBED_PANELS) {
+		$('#panels').width((PANEL_WIDTH + 20) * tw_panels.length)
 	}
 	
 }
@@ -1874,6 +1900,9 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			$(this).addClass('selected_tweet')
 		
 		});
+		
+		update_widths();
+		
 	
 }
 
@@ -2159,7 +2188,8 @@ function proxy_get_session_panels() {
 		//$('.twitter_panel').hide();  //this hides all of them - should only hide front?	
 		
 		if (TABBED_PANELS) {
-			$('#panels').width(520);
+			$('#panels').width(PANEL_WIDTH + 20);
+			$('#header_nav_buttons').show()	
 		}
 		
 		$('#panels').find('.twitter_panel').each(
@@ -2176,7 +2206,7 @@ function proxy_get_session_panels() {
 					//get_last_update(panel_id.value);
 										
 					if (!TABBED_PANELS) {
-						$('#panels').width($('#panels').width() + 520)
+						$('#panels').width($('#panels').width() + PANEL_WIDTH + 20)
 					}
 					
 					show_panel(panel_id.val())

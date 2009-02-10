@@ -383,6 +383,7 @@ div.button_highlighted {
 div#header_nav_buttons div.button_highlighted {
 	
 	background: #fff;
+	border-bottom: 2px solid #fff;
 	
 }
 
