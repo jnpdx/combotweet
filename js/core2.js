@@ -90,7 +90,7 @@ $(document).ready(function() {
 //Adding search panels seems buggy
 function doc_ready_functions() {
 		
-	$('#nav_buttons').sortable();
+	//$('#nav_buttons').sortable();
 
 	get_session_panels();
 	
@@ -184,7 +184,7 @@ function goto_next_panel() {
 
 function scroll_to_tweet(panel_index, index) {
 
-	console.log("going to tweet " + index + " on panel " + panel_index)
+	//console.log("going to tweet " + index + " on panel " + panel_index)
 	
 
 	if (tw_panels.length == 0) {
@@ -195,7 +195,7 @@ function scroll_to_tweet(panel_index, index) {
 
 	var panel_name = tw_panels[selected_tweet_panel].panel_id;
 
-	console.log("removing selected_tweet from " + selected_tweet + " on panel " + panel_name)
+	//console.log("removing selected_tweet from " + selected_tweet + " on panel " + panel_name)
 	
 	//$('#panel_' + panel_name + ' div.tweet:eq(' + selected_tweet + ')').removeClass('selected_tweet')
 	
@@ -274,7 +274,7 @@ function scroll_to_tweet(panel_index, index) {
 	
 	selected_tweet = index;
 	
-	console.log("went to tweet " + selected_tweet + " on panel " + selected_tweet_panel)
+	//console.log("went to tweet " + selected_tweet + " on panel " + selected_tweet_panel)
 	
 }
 
@@ -618,6 +618,12 @@ function reply_to_tweet(panel_id,tweet_id,user_name) {
 	var tweet_input = $('#panel_' + panel_id).find('.tweet_input');
 	tweet_input.focus();
 	
+	$.scrollTo( $('#panel_' + panel_id + ''), 20, {
+	
+		offset: { left: 0, top: -110 }
+	
+	} );
+	
 	
 	if (pan.tweet_type == 'direct') {
 		
@@ -748,15 +754,16 @@ function add_new_nav_button(panel_id) {
 	
 	$('#panel_' + panel_id).prepend('<div class="nav_button" id="show_panel_' + panel_id + '" onclick="show_panel(\'' + panel_id + '\')">' + panel_name + close_button_code + '</div>');
 	
-	$('#panels').sortable(
-		{
-			handle: '.nav_button',
-			update: function() {
-				//save_user_pref('panel_order',$('#nav_buttons').sortable('serialize'));
-			},
-		} 
-		);
-	
+	if (!AIR) {
+		$('#panels').sortable(
+			{
+				handle: '.nav_button',
+				update: function() {
+					//save_user_pref('panel_order',$('#nav_buttons').sortable('serialize'));
+				},
+			} 
+			);
+	}
 	
 }
 
