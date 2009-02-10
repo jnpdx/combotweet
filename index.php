@@ -149,7 +149,8 @@ if (isset($_GET['search'])) {
 			<form onsubmit="update_settings();return false;" action="" method="post">
 				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
 				<label>Remove old tweets:</label><input type="checkbox" id="remove_old_tweets"/><br class="clear_both"/>
-				<input id="update_settings_button" type="submit" value="Submit" />
+				<label>Font size (%):</label><input type="text" id="font_size"/><br class="clear_both"/>
+				<input id="update_settings_button" type="submit" value="Save" />
 			</form>
 		</div>
 

@@ -431,7 +431,18 @@ div#login_form, div#settings_form {
 	background: white;
 	position:fixed;
 	z-index: 101;
+	
+}
+
+div#login_form {
+	
 	width: 400px;
+	
+}
+
+div#settings_form {
+	
+	width: 600px;
 	
 }
 
@@ -449,11 +460,20 @@ input#login_button {
 	
 }
 
-div#login_form label, div#settings_form label {
+div#login_form label {
 	
 	width: 6em;
 	display: block;
 	float: left;
+	
+}
+
+div#settings_form label {
+	
+	width: 10em;
+	display: block;
+	float: left;
+	margin-bottom: 10px;
 	
 }
 

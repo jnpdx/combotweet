@@ -38,6 +38,8 @@ var PROXY = true;
 //Relative URL of the css file for the client
 var CSS_FILE = 'front/newui.css';
 
+var FONT_SIZE = 100;
+
 
 /******************************** END OPTIONS **********************************/
 var shizzow_data = null;  //for debugging
@@ -1227,14 +1229,14 @@ function show_login_form() {
 
 function show_settings_form() {
 	
-	$('#settings_form').css('left',$(window).width() - 420)
+	$('#settings_form').css('left',$(window).width() - 600)
 	
 	$('#settings_form').toggle("slide", { direction: "up" }, 400,
 	function() {
 		
 		$('#refresh_freq').val('' + (UPDATE_FREQ / 1000));
 		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
-		
+		$('#font_size').val('' + FONT_SIZE);
 	}
 	);
 	
@@ -1247,6 +1249,10 @@ function update_settings() {
 	}
 	
 	DESTROY_TWEETS = $('#remove_old_tweets').attr('checked');
+	
+	FONT_SIZE = parseInt($('#font_size').val());
+	
+	$('#panels').css('font-size',FONT_SIZE + '%');
 	
 	show_settings_form();
 	
