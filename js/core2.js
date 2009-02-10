@@ -131,6 +131,7 @@ function bind_shortcuts() {
 			//alert('down')
 			
 		});
+		
 	
 }
 
@@ -154,10 +155,12 @@ function goto_previous_tweet() {
 	t = get_selected_tweet();
 	
 	if (selected_tweet != 0) {
-		selected_tweet = t - 1
+		scroll_to_tweet( t - 1);
+	} else {
+		
+		scroll_to_tweet(0)
 	}
 	
-	scroll_to_tweet(selected_tweet);
 
 }
 
@@ -168,16 +171,16 @@ function goto_next_tweet() {
 	} else {
 		t = get_selected_tweet();
 	}
-	
-	selected_tweet = t + 1
-	
-	scroll_to_tweet(selected_tweet);
+		
+	scroll_to_tweet(t + 1);
 	
 	
 }
 
 function scroll_to_tweet(index) {
 
+	$('.tweet:eq(' + selected_tweet + ')').removeClass('selected_tweet')
+	
 
 	$.scrollTo( $('.tweet:eq(' + index + ')'), 400, {
 		
@@ -185,7 +188,11 @@ function scroll_to_tweet(index) {
 		
 	} );	
 	
-	console.log("going to tweet " + index)
+	$('.tweet:eq(' + index + ')').addClass('selected_tweet')
+	
+	selected_tweet = index;
+	
+	//console.log("going to tweet " + index)
 	
 }
 
@@ -1627,6 +1634,13 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		save_panel(panel_id,pan);
 		
 		update_times(panel_id);
+		
+		$('.tweet').click(function() {
+			
+			//alert('clicked tweet!');
+			selected_tweet = $('.tweet').index(this)
+		
+		});
 	
 }
 

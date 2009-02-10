@@ -179,6 +179,7 @@ div.tweet {
 	
 }
 
+
 div.tweet_top {
 	
 }
@@ -203,9 +204,9 @@ div.the_tweet {
 	
 }
 
-div.the_tweet:hover {
+div.the_tweet:hover, div.selected_tweet div.the_tweet {
 	
-	background: #dfdfdf;
+	background: #cfcfdf;
 	
 }
 
