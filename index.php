@@ -71,7 +71,8 @@ if (isset($_GET['search'])) {
 	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.local:8888"): ?>
 	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
-	<script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script>
+	<!-- <script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script> -->
+	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
 	<?php endif; ?>
 	
 <title>ComboTweet</title>
