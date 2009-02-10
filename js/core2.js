@@ -1274,6 +1274,12 @@ function update_settings() {
 	
 	PANEL_WIDTH = parseInt($('#panel_width').val())
 	
+	if (PANEL_WIDTH < 400) {
+		
+		PANEL_WIDTH = 400;
+		
+	}
+	
 	update_widths();
 	
 	if (TABBED_PANELS != $('#tabbed_panels').attr('checked')) {
