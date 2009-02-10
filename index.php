@@ -65,7 +65,7 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
 
 	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.local:8888"): ?>
-	<script type="text/javascript" src="js/core.js?v=<?=VERSION?>"></script>
+	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
 	<script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script>
 	<?php endif; ?>
@@ -94,25 +94,28 @@ if (isset($_GET['search'])) {
 <div id="canvas">
 	<img id="canvas_bg" src="images/bird_bg.png" alt="" style="display: none;"/>
 	
-		
+		<!--	
 			<div id="header">
+				
 				<h1>ComboTweet</h1>
 				<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.<br/>  <strong><a href="about">Learn more</a></strong></span>
 			</div>
+		-->
+			
 			<img src="images/loader.gif" id="loader" alt="loading..."/>
 			<div id="nav_buttons_wrapper">
 
-			<div id="global_buttons">
-				<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
-				<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
-				<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
-				<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
-			</div>
+					<div id="global_buttons">
+						<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
+						<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
+						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
+						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
+					</div>
 
-			<div id="nav_buttons">
+					<div id="nav_buttons">
 
-			</div>
-			<br class="clear_both" />
+					</div>
+					<br class="clear_both" />
 			</div>
 
 			<div id="login_form">
