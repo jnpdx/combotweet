@@ -341,7 +341,7 @@ div.more_tweets {
 	
 }
 
-div.tweet_type_button {
+div.tweet_type_button,div#header_nav_buttons div.nav_button {
 	
 	background: #f3f3f3;
 	border-top: 1px solid #fff;
@@ -356,13 +356,13 @@ div.tweet_type_button {
 
 }
 
-div.tweet_type_button:hover {
+div.tweet_type_button:hover, div#header_nav_buttons div.nav_button:hover {
 
 	background: #ccc;
 
 }
 
-div.button_highlighted {
+div.button_highlighted, div#header_nav_buttons div.button_highlighted {
 	
 	color: #000;
 	border: 1px solid #aaa;
@@ -380,7 +380,7 @@ div.button_highlighted:hover {
 
 }
 
-div.nav_button {
+div.panel div.nav_button {
 	
 	padding-right: 2px;
 	width: 100%;

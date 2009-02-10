@@ -62,6 +62,7 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
 
+	<script type="text/javascript" src='js/jquery.cookie.js'></script>
 	<script type="text/javascript" src="js/shortcut.js"></script>
 	<script type="text/javascript" src="js/jquery.scrollTo-1.4.0-min.js"></script>
 	
@@ -103,9 +104,14 @@ if (isset($_GET['search'])) {
 					<br class="clear_both"/>
 				</div>
 			
-			<img src="images/loader.gif" id="loader" alt="loading..."/>
+			<div id="header_nav_buttons">
+				
+			</div>
+			
 			<div id="nav_buttons_wrapper">
 
+				<img src="images/loader.gif" id="loader" alt="loading..."/>
+				
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
 				
@@ -147,6 +153,7 @@ if (isset($_GET['search'])) {
 		
 		<div id="settings_form">
 			<form onsubmit="update_settings();return false;" action="" method="post">
+				<label>Tabbed browsing:</label><input type="checkbox" id="tabbed_panels"/><br class="clear_both"/>
 				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
 				<label>Remove old tweets:</label><input type="checkbox" id="remove_old_tweets"/><br class="clear_both"/>
 				<label>Font size (%):</label><input type="text" id="font_size"/><br class="clear_both"/>

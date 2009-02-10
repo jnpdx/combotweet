@@ -37,8 +37,10 @@ var AIR = false;
 var PROXY = true;
 //Relative URL of the css file for the client
 var CSS_FILE = 'front/newui.css';
-
+//Font size in tweets
 var FONT_SIZE = 100;
+//Tabbed browsing
+var TABBED_PANELS = false;
 
 
 /******************************** END OPTIONS **********************************/
@@ -93,6 +95,8 @@ $(document).ready(function() {
 function doc_ready_functions() {
 		
 	//$('#nav_buttons').sortable();
+
+	get_settings_in_cookie();
 
 	get_session_panels();
 	
@@ -754,7 +758,13 @@ function add_new_nav_button(panel_id) {
 	
 	var close_button_code = '<img src="' + URL_BASE + 'images/Cancel.png" id="remove_panel_' + panel_id + '"  class="close_panel" onclick="remove_panel(\'' + panel_id + '\')" alt="Close Panel" title="Close this panel" />';
 	
-	$('#panel_' + panel_id).prepend('<div class="nav_button" id="show_panel_' + panel_id + '" onclick="show_panel(\'' + panel_id + '\')">' + panel_name + close_button_code + '</div>');
+	var nav_button_code = '<div class="nav_button show_panel_' + panel_id + '" onclick="show_panel(\'' + panel_id + '\')">' + panel_name + close_button_code + '</div>';
+	
+	$('#header_nav_buttons').append(nav_button_code);
+	
+	
+	$('#panel_' + panel_id).prepend(nav_button_code);
+	
 	
 	if (!AIR) {
 		$('#panels').sortable(
@@ -907,8 +917,9 @@ function remove_panel(panel_id) {
 	
 	$('#panel_' + panel_id).remove();
 	
-	$('#panels').width($('#panels').width() - 520)
-	
+	if (!TABBED_PANELS) {
+		$('#panels').width($('#panels').width() - 520)
+	}
 	
 	$('#show_panel_' + panel_id).remove();
 	
@@ -1047,7 +1058,9 @@ function set_up_panel(id, data, t_user, t_pass) {
 	
 	$('#panels').append(data);
 
-	$('#panels').width($('#panels').width() + 520)
+	if (!TABBED_PANELS) {
+		$('#panels').width($('#panels').width() + 520)
+	}
 
 	add_new_nav_button(id);
 	show_panel(id);
@@ -1075,18 +1088,18 @@ function show_panel(panel_id) {
 	
 	front_panel = panel_id;
 	
-	
-	//$('.twitter_panel').hide();
+	if (TABBED_PANELS) {
+		$('.twitter_panel').hide();
+		$('div#header_nav_buttons div.nav_button').removeClass('button_highlighted');
+		$('div#header_nav_buttons div.show_panel_' + panel_id).addClass('button_highlighted');
+	}
 	
 	$('#panel_' + panel_id).show();
 
-	//$('.nav_button').css('background','#eee');
-	//$('.nav_button').css('border','1px solid #aaa');
-	//$('.nav_button').removeClass('button_highlighted');
 	
-	//$('#show_panel_' + panel_id).css('background','white');
-	//$('#show_panel_' + panel_id).css('border-bottom','1px solid white');
-	//$('#show_panel_' + panel_id).addClass('button_highlighted');
+
+	
+	
 	
 	if (pan.tweet_type == null) { pan.tweet_type = 'regular'; save_panel(panel_id,pan); }
 	
@@ -1107,15 +1120,15 @@ function show_panel(panel_id) {
 		
 	});
 	
-	/*
-	var bg_url = $('#panel_' + panel_id).find('.panel_background').val();
+	if (TABBED_PANELS) {
+		var bg_url = $('#panel_' + panel_id).find('.panel_background').val();
 	
-	if (!MOBILE) {
-		//alert("setting background");
-		$('body').css('background',"url('" + bg_url + "') no-repeat fixed");
-		$('body').css('background-color',"#" + $('#panel_' + panel_id).find('.panel_background_color').val());
+		if (!MOBILE) {
+			//alert("setting background");
+			//$('body').css('background',"url('" + bg_url + "') no-repeat fixed");
+			//$('body').css('background-color',"#" + $('#panel_' + panel_id).find('.panel_background_color').val());
+		}
 	}
-	*/
 	
 	
 }
@@ -1233,7 +1246,7 @@ function show_settings_form() {
 	
 	$('#settings_form').toggle("slide", { direction: "up" }, 400,
 	function() {
-		
+		$('#tabbed_panels').attr('checked', TABBED_PANELS );
 		$('#refresh_freq').val('' + (UPDATE_FREQ / 1000));
 		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
 		$('#font_size').val('' + FONT_SIZE);
@@ -1254,7 +1267,81 @@ function update_settings() {
 	
 	$('#panels').css('font-size',FONT_SIZE + '%');
 	
+	if (TABBED_PANELS != $('#tabbed_panels').attr('checked')) {
+		TABBED_PANELS = $('#tabbed_panels').attr('checked');
+		refresh_window();
+	}
+	
+	save_settings_in_cookie();
+	
 	show_settings_form();
+	
+}
+
+function save_settings_in_cookie() {
+	
+	var settings = '';
+	
+	settings += "UPDATE_FREQ=" + UPDATE_FREQ;
+	
+	settings += '&'
+	
+	settings += "TABBED_PANELS=" + TABBED_PANELS;
+	
+	settings += '&'
+	
+	settings += "FONT_SIZE=" + FONT_SIZE;
+	
+	settings += '&'
+	
+	settings += "DESTROY_TWEETS=" + DESTROY_TWEETS;
+	
+	$.cookie('combotweet_settings',settings)
+	
+}
+
+function get_settings_in_cookie() {
+	
+	var settings = $.cookie('combotweet_settings');
+	
+	if (settings == null) {
+		
+		return;
+		
+	}
+	
+	settings_array = settings.split('&');
+	
+	for (i in settings_array) {
+		
+		var vals = settings_array[i].split('=');
+		
+		if (vals[0] == 'UPDATE_FREQ') {
+			UPDATE_FREQ = vals[1];
+		} else if (vals[0] == 'FONT_SIZE') {
+			FONT_SIZE = vals[1];
+		} else if (vals[0] == 'DESTROY_TWEETS') {
+			if (vals[1] == 'false') {
+				DESTROY_TWEETS = false
+			} else {
+				DESTROY_TWEETS = true	
+			}
+		} else if (vals[0] == 'TABBED_PANELS') {	
+			if (vals[1] == 'false') {
+				TABBED_PANELS = false
+			} else {
+				TABBED_PANELS = true	
+			}
+		}
+		
+	}
+	
+}
+
+function refresh_window() {
+	
+	var href = window.location.href;
+	window.location.href = href;
 	
 }
 
@@ -1264,8 +1351,7 @@ function logout() {
 	if (AIR) {
 		
 		air_destroy_db();
-		var href = window.location.href;
-		window.location.href = href;
+		refresh_window();
 		
 	}
 	
@@ -1273,8 +1359,7 @@ function logout() {
 		$.post(URL_BASE + 'bin/ajax.php', {
 			func: "logout",
 		}, function(data) {
-			var href = window.location.href;
-			window.location.href = href;
+			refresh_window();
 		},"html");
 	}
 	
@@ -2070,6 +2155,9 @@ function proxy_get_session_panels() {
 		
 		//$('.twitter_panel').hide();  //this hides all of them - should only hide front?	
 		
+		if (TABBED_PANELS) {
+			$('#panels').width(520);
+		}
 		
 		$('#panels').find('.twitter_panel').each(
 			function(i) {
@@ -2083,8 +2171,10 @@ function proxy_get_session_panels() {
 					add_new_nav_button(panel_id.val());
 					get_tweets(panel_id.val(),"regular",1);
 					//get_last_update(panel_id.value);
-					
-					$('#panels').width($('#panels').width() + 520)
+										
+					if (!TABBED_PANELS) {
+						$('#panels').width($('#panels').width() + 520)
+					}
 					
 					show_panel(panel_id.val())
 					
