@@ -1637,8 +1637,12 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		$('.tweet').click(function() {
 			
+			$('.tweet:eq(' + selected_tweet + ')').removeClass('selected_tweet')
+			
 			//alert('clicked tweet!');
 			selected_tweet = $('.tweet').index(this)
+			
+			$(this).addClass('selected_tweet')
 		
 		});
 	
