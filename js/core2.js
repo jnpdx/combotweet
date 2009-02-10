@@ -60,7 +60,9 @@ if (window.mt_options) {
 
 /********************************** GLOBALS *************************************/
 
-var selected_tweet = null;
+var selected_tweet = -1;
+
+var selected_tweet_panel = 0;
 
 var tw_panels = new Array();
 
@@ -132,67 +134,147 @@ function bind_shortcuts() {
 			
 		});
 		
+		shortcut.add("left",function() {
+			
+			goto_previous_panel();
+			//alert('down')
+			return false;
+			
+		});
+		
+		shortcut.add("right",function() {
+			
+			goto_next_panel();
+			//alert('down')
+			return false;
+			
+		});
+		
 	
 }
 
 /******** GOTO *******/
 
 
-function get_selected_tweet() {
-	
-	if (selected_tweet == null) {
-		
-		//selected_tweet = $('#panels').find('.tweet:first').find('.tweet_id').val();
-		selected_tweet = 0;
-		
-	}
-		
-	return selected_tweet;
-	
-}
 
 function goto_previous_tweet() {
-	t = get_selected_tweet();
 	
-	if (selected_tweet != 0) {
-		scroll_to_tweet( t - 1);
-	} else {
-		
-		scroll_to_tweet(0)
-	}
-	
+		scroll_to_tweet(selected_tweet_panel,selected_tweet - 1);
 
 }
 
 function goto_next_tweet() {
-	
-	if (selected_tweet == null) {
-		t = -1;
-	} else {
-		t = get_selected_tweet();
-	}
 		
-	scroll_to_tweet(t + 1);
+	scroll_to_tweet(selected_tweet_panel,selected_tweet + 1);
 	
 	
 }
 
-function scroll_to_tweet(index) {
+function goto_previous_panel() {
 
-	$('.tweet:eq(' + selected_tweet + ')').removeClass('selected_tweet')
+	scroll_to_tweet(selected_tweet_panel - 1,selected_tweet)
+	
+}
+
+function goto_next_panel() {
+	
+	scroll_to_tweet(selected_tweet_panel + 1,selected_tweet)
+	
+}
+
+function scroll_to_tweet(panel_index, index) {
+
+	console.log("going to tweet " + index + " on panel " + panel_index)
 	
 
-	$.scrollTo( $('.tweet:eq(' + index + ')'), 400, {
+	if (tw_panels.length == 0) {
 		
-		offset: { left: 0, top: -90 }
+		return;
 		
-	} );	
+	}
+
+	var panel_name = tw_panels[selected_tweet_panel].panel_id;
+
+	console.log("removing selected_tweet from " + selected_tweet + " on panel " + panel_name)
 	
-	$('.tweet:eq(' + index + ')').addClass('selected_tweet')
+	//$('#panel_' + panel_name + ' div.tweet:eq(' + selected_tweet + ')').removeClass('selected_tweet')
+	
+	$('.tweet').removeClass('selected_tweet')
+	
+	if (panel_index != selected_tweet_panel) {
+		
+		if ((panel_index > -1) && (panel_index < tw_panels.length)) {
+			
+			if (index >= tw_panels[panel_index].panel_data.length) {
+				
+				index = tw_panels[panel_index].panel_data.length - 1;
+				
+			}
+			
+			selected_tweet_panel = panel_index;
+			
+		}
+		
+	}
+	
+	if (index == -2) {
+		
+		if (selected_tweet_panel == 0) {
+			//already on the first panel - can't go back any more
+			index = -1;
+		} else {
+			
+			selected_tweet_panel = selected_tweet_panel - 1;
+			
+			panel_name = tw_panels[selected_tweet_panel].panel_id;
+			
+			index = tw_panels[selected_tweet_panel].panel_data.length - 1;
+			
+		}
+		
+	}
+	
+	if (index >= tw_panels[selected_tweet_panel].panel_data.length) {
+		
+		if (selected_tweet_panel < (tw_panels.length -1)) {
+			
+			selected_tweet_panel++;
+			
+			panel_name = tw_panels[selected_tweet_panel].panel_id;
+			
+			index = -1;
+			
+		} else {
+			
+			index = tw_panels[selected_tweet_panel].panel_data.length - 1;
+			
+		}
+		
+	}
+	
+	if (index != -1) {
+
+		$.scrollTo( $('#panel_' + panel_name + ' div.tweet:eq(' + index + ')'), 400, {
+		
+			offset: { left: 0, top: -90 }
+		
+		} );	
+	
+		$('#panel_' + panel_name + ' div.tweet:eq(' + index + ')').addClass('selected_tweet')
+	} else {
+		//scroll to the twitter inputs
+		
+		$.scrollTo( $('#panel_' + panel_name + ''), 400, {
+		
+			offset: { left: 0, top: -110 }
+		
+		} );
+		
+	}
 	
 	selected_tweet = index;
 	
-	//console.log("going to tweet " + index)
+	console.log("went to tweet " + selected_tweet + " on panel " + selected_tweet_panel)
 	
 }
 
@@ -852,6 +934,7 @@ function remove_panel(panel_id) {
 	
 	show_panel(front_panel);
 	
+		
 }
 
 //Asks the user to enter a search term
@@ -1639,8 +1722,22 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			
 			$('.tweet:eq(' + selected_tweet + ')').removeClass('selected_tweet')
 			
+			selected_tweet_panel_id = $(this).parent().parent()[0].id
+			
+			
 			//alert('clicked tweet!');
-			selected_tweet = $('.tweet').index(this)
+			selected_tweet = $('#' + selected_tweet_panel_id + ' div.tweet').index(this)
+			
+			
+			for (i in tw_panels) {
+				
+				if (('panel_' + tw_panels[i].panel_id) == selected_tweet_panel_id) {
+					
+					selected_tweet_panel = i;
+					
+				}
+				
+			}
 			
 			$(this).addClass('selected_tweet')
 		
