@@ -1439,8 +1439,11 @@ function length_notify(panel_id) {
 		char_span = '<span>';
 	}
 	
-	$('#panel_' + panel_id).find('.length_notify_box').html(char_span + (140 - chars_typed) + " characters left</span>");
-
+	if (chars_typed == 0) {
+	   $('#panel_' + panel_id).find('.length_notify_box').html('');
+	} else {
+		$('#panel_' + panel_id).find('.length_notify_box').html(char_span + (140 - chars_typed) + " characters left</span>");
+  }
 	
 }
 
