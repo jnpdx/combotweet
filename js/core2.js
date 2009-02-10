@@ -43,7 +43,8 @@ var FONT_SIZE = 100;
 var TABBED_PANELS = false;
 //Panel width
 var PANEL_WIDTH = 500;
-
+//Add a hashtag automatically
+var ADD_HASHTAG = false;
 
 /******************************** END OPTIONS **********************************/
 var shizzow_data = null;  //for debugging
@@ -527,6 +528,24 @@ function get_more_tweets(panel_id) {
 function send_tweet(panel_id) {
 	
 	var tweet = $('#panel_' + panel_id).find('.tweet_input').val();
+	
+	if (ADD_HASHTAG) {
+	  	  
+	  var hashtag = $('#panel_' + panel_id).find('input.add_hashtag').val();
+	  
+	  if (hashtag != "") {
+	  
+      if (hashtag.charAt(0) != '#') {
+    
+        hashtag = '#' + hashtag;
+    
+      }
+  
+      tweet += " " + hashtag;
+      
+    }
+	  
+	}
 	
 	var pan = get_panel_by_id(panel_id);
 	
@@ -1251,6 +1270,8 @@ function show_settings_form() {
 	$('#settings_form').toggle("slide", { direction: "up" }, 400,
 	function() {
 		$('#tabbed_panels').attr('checked', TABBED_PANELS );
+		$('#add_hashtag').attr('checked', ADD_HASHTAG );
+		
 		$('#refresh_freq').val('' + (UPDATE_FREQ / 1000));
 		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
 		$('#font_size').val('' + FONT_SIZE);
@@ -1267,6 +1288,21 @@ function update_settings() {
 	}
 	
 	DESTROY_TWEETS = $('#remove_old_tweets').attr('checked');
+	
+	ADD_HASHTAG = $('#add_hashtag').attr('checked');
+	
+	if (ADD_HASHTAG) {
+	  
+	  $('.add_hashtag').css('display','normal')
+	  $('.add_hashtag').show()
+	  
+	} else {
+	  
+	  $('.add_hashtag').css('display','hidden')
+	  $('.add_hashtag').hide()
+	  
+	}
+	
 	
 	FONT_SIZE = parseInt($('#font_size').val());
 	
@@ -1315,6 +1351,10 @@ function save_settings_in_cookie() {
 	
 	settings += "PANEL_WIDTH=" + PANEL_WIDTH;
 	
+	settings += '&'
+	
+	settings += "ADD_HASHTAG=" + ADD_HASHTAG;
+	
 	$.cookie('combotweet_settings',settings)
 	
 }
@@ -1339,6 +1379,7 @@ function get_settings_in_cookie() {
 			UPDATE_FREQ = parseInt(vals[1]);
 		} else if (vals[0] == 'FONT_SIZE') {
 			FONT_SIZE = parseInt(vals[1]);
+			$('#panels').css('font-size','' + FONT_SIZE + '%')
 		} else if (vals[0] == 'PANEL_WIDTH') {
 			PANEL_WIDTH = parseInt(vals[1])
 			update_widths();
@@ -1348,11 +1389,19 @@ function get_settings_in_cookie() {
 			} else {
 				DESTROY_TWEETS = true	
 			}
+		} else if (vals[0] == 'ADD_HASHTAG') {
+			if (vals[1] == 'false') {
+				ADD_HASHTAG = false
+			} else {
+				ADD_HASHTAG = true	
+			}
+			$('.add_hashtag').css('display','normal')
 		} else if (vals[0] == 'TABBED_PANELS') {	
 			if (vals[1] == 'false') {
 				TABBED_PANELS = false
 			} else {
 				TABBED_PANELS = true
+				$('#header_nav_buttons').css('display','normal')
 				$('#header_nav_buttons').show()	
 			}
 		}
@@ -1423,6 +1472,11 @@ function length_notify(panel_id) {
 	
 	var chars_typed = input_box.val().length;
 	
+	if (ADD_HASHTAG) {
+	  
+	  chars_typed += $('#panel_' + panel_id).find('input.add_hashtag').val().length;
+	  
+	}
 	
 	if (chars_typed >= 140) {
 		
@@ -2467,7 +2521,7 @@ function js_get_panel(panel_id, t_user, t_pass, gen_info) {
 	panel_html += '<input type="hidden" class="panel_background" value="' + bg_img + '" /><input type="hidden" class="panel_background_color" value="' + bg_col + '" />';
 	panel_html += '<input type="hidden" class="panel_type" value="regular_panel"/>';	
 
-	panel_html += '<div class="twitter_inputs"><span class="dm_notify_box"></span><textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea><input type="button" class="tweet_submit" onclick="send_tweet(\'' + panel_id + '\')" value="Update"/><span class="length_notify_box" id="chars_left_panel_' + panel_id + '"></span><br class="clear_both"/></div>';
+	panel_html += '<div class="twitter_inputs"><span class="dm_notify_box"></span><textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea><span class="add_hashtag">Add hashtag: </span><input type="text" class="add_hashtag" value=""/><input type="button" class="tweet_submit" onclick="send_tweet(\'' + panel_id + '\')" value="Update"/><span class="length_notify_box" id="chars_left_panel_' + panel_id + '"></span><br class="clear_both"/></div>';
 	panel_html += '<div class="last_update"></div>';
 	panel_html += '<div class="tweet_type_menu"><div class="tweet_type_button" id="panel_' + panel_id + '_regular" onclick="get_tweets(\'' + panel_id + '\',\'regular\',1)">Timeline</div><div class="tweet_type_button" id="panel_' + panel_id + '_replies" onclick="get_tweets(\'' + panel_id + '\',\'replies\',1)">Replies</div><div class="tweet_type_button" id="panel_' + panel_id + '_direct" onclick="get_tweets(\'' + panel_id + '\',\'direct\',1)">Direct messages</div><br class="clear_both" /></div>';
 

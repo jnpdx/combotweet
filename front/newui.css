@@ -324,6 +324,12 @@ textarea.tweet_input {
 	
 }
 
+.add_hashtag {
+  
+  display: none;
+  
+}
+
 input.tweet_submit {
 	
 	float: right;

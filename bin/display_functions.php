@@ -15,6 +15,7 @@ function display_panel($panel) {
 		<div class="twitter_inputs">
 			<span class="dm_notify_box"></span>
 			<textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea>
+			<span class="add_hashtag">Add hashtag: </span><input type="text" class="add_hashtag" value=""/>
 			<input type="button" class="tweet_submit" onclick="send_tweet('<?=$panel->id?>')" value="Update"/>
 			<span class="length_notify_box" id="chars_left_panel_<?=$panel->id?>"></span>
 			<br class="clear_both"/>
