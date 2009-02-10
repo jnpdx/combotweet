@@ -1,7 +1,7 @@
 <?php
 ////////
 
-define( 'VERSION', '0008' );
+define( 'VERSION', '0009' );
 
 ////////
 
