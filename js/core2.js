@@ -562,7 +562,7 @@ function send_tweet(panel_id) {
 	if (pan.tweet_type == 'direct') {
 		
 		dm = true;
-		$('#panel_' + panel_id).find('dm_notify_box').html('')
+		$('#panel_' + panel_id).find('.dm_notify_box').html('')
 		
 	}
 	
@@ -1225,6 +1225,33 @@ function show_login_form() {
 	);
 }
 
+function show_settings_form() {
+	
+	$('#settings_form').css('left',$(window).width() - 420)
+	
+	$('#settings_form').toggle("slide", { direction: "up" }, 400,
+	function() {
+		
+		$('#refresh_freq').val('' + (UPDATE_FREQ / 1000));
+		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
+		
+	}
+	);
+	
+}
+
+function update_settings() {
+	
+	if ( parseInt($('#refresh_freq').val()) != NaN) {
+		UPDATE_FREQ = parseInt($('#refresh_freq').val()) * 1000;
+	}
+	
+	DESTROY_TWEETS = $('#remove_old_tweets').attr('checked');
+	
+	show_settings_form();
+	
+}
+
 //Removes all panels and refreshes the page
 function logout() {
 	
@@ -1664,29 +1691,33 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				display_favorite_icon = false;
 				
 			}
-				
-			if (display_reply_icon) {
-				//alert("is reply comparing" + tweet.from_user + " to " + pan.user);
-				tweet_div += '<div id="reply_' + tweet.id + '" class="reply_icon" ';
-	
-				tweet_div +=  'onclick="reply_to_tweet(\'' + panel_id +'\',' + tweet.id + ",'" + from_sn + "')\">";
-				tweet_div += '<img src="' + URL_BASE + 'images/reply.gif" alt="Reply to this tweet" /></div>';
-			}
-	
-			if (display_favorite_icon) {
-				tweet_div += '<div id="favorite_' + tweet.id + '" class="favorite_icon" ';
-
-				tweet_div +=  'onclick="toggle_favorite(\'' + panel_id + '\',' + tweet.id + ')">';
-				tweet_div += '<img src="' + URL_BASE + 'images/star.gif" alt="Favorite" title="Favorite this tweet" /></div>';
-			}
 			
-			if (type != 'direct') {
-				if (!is_search) {
-					tweet_div += '<div id="retweet_' + tweet.id + '" class="retweet_icon" ';
-					tweet_div +=  'onclick="retweet_button(\'' + panel_id + '\',' + tweet.id + ",'" + from_sn + "')\">";
-					tweet_div += '<img src="' + URL_BASE + 'images/Recycle.png" alt="Retweet" title="Retweet" /></div>';
+			tweet_div += '<div class="tweet_buttons">';
+			
+				if (type != 'direct') {
+					if (!is_search) {
+						tweet_div += '<div id="retweet_' + tweet.id + '" class="retweet_icon" ';
+						tweet_div +=  'onclick="retweet_button(\'' + panel_id + '\',' + tweet.id + ",'" + from_sn + "')\">";
+						tweet_div += '<img src="' + URL_BASE + 'images/Recycle.png" alt="Retweet" title="Retweet" /></div>';
+					}
 				}
-			}
+			
+				if (display_favorite_icon) {
+					tweet_div += '<div id="favorite_' + tweet.id + '" class="favorite_icon" ';
+
+					tweet_div +=  'onclick="toggle_favorite(\'' + panel_id + '\',' + tweet.id + ')">';
+					tweet_div += '<img src="' + URL_BASE + 'images/star.gif" alt="Favorite" title="Favorite this tweet" /></div>';
+				}
+				
+				if (display_reply_icon) {
+					//alert("is reply comparing" + tweet.from_user + " to " + pan.user);
+					tweet_div += '<div id="reply_' + tweet.id + '" class="reply_icon" ';
+	
+					tweet_div +=  'onclick="reply_to_tweet(\'' + panel_id +'\',' + tweet.id + ",'" + from_sn + "')\">";
+					tweet_div += '<img src="' + URL_BASE + 'images/reply.gif" alt="Reply to this tweet" /></div>';
+				}
+			
+			tweet_div += '</div>';
 			
 			tweet_div += '<div class="the_tweet_right"></div>';
 			tweet_div += '<div class="the_tweet_bottom"></div>';

@@ -83,6 +83,12 @@ div#header {
 	
 }
 
+div#header a {
+	
+	color: #eee;
+	
+}
+
 div#global_buttons {
 	
 	padding-right: 10px;
@@ -216,14 +222,22 @@ div.favorite_tweet .the_tweet {
 	
 }
 
+div.tweet_buttons {
+	
+	width: 65px;
+	float: right;
+	margin-top: 1.25em;
+	
+}
+
 div.reply_icon,div.favorite_icon,div.retweet_icon {
 	
-	float: right;
 	color: #aaa;
 	font-size: .8em;
 	font-style: italic;
 	cursor: pointer;
 	margin-top: 1.5em;
+	display: inline;
 	
 }
 
@@ -385,7 +399,7 @@ img.close_panel {
 	cursor: pointer;
 }
 
-img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button {
+img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button {
 	
 	width: 32px;
 	height: 32px;
@@ -406,7 +420,7 @@ div#nav_buttons_wrapper {
 }
 
 
-div#login_form {
+div#login_form, div#settings_form {
 	
 	display: none;
 	line-height: 1.4em;
@@ -421,6 +435,7 @@ div#login_form {
 	
 }
 
+
 #account_type {
 	
 	
@@ -434,7 +449,7 @@ input#login_button {
 	
 }
 
-div#login_form label {
+div#login_form label, div#settings_form label {
 	
 	width: 6em;
 	display: block;

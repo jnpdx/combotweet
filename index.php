@@ -114,6 +114,8 @@ if (isset($_GET['search'])) {
 				
 						<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
 				
+						<img src="images/Tools.png" id="settings_panel_button" onclick="show_settings_form()" alt="Settings" title="Settings"/>
+				
 						<img src="images/Cancel.png" id="logout_button" onclick="logout()" alt="Logout" title="Logout (All users)" />
 				
 					</div>
@@ -140,6 +142,14 @@ if (isset($_GET['search'])) {
 			</select>
 			<br class="clear_both"/>
 			<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
+			</form>
+		</div>
+		
+		<div id="settings_form">
+			<form onsubmit="update_settings();return false;" action="" method="post">
+				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
+				<label>Remove old tweets:</label><input type="checkbox" id="remove_old_tweets"/><br class="clear_both"/>
+				<input id="update_settings_button" type="submit" value="Submit" />
 			</form>
 		</div>
 
