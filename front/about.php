@@ -4,15 +4,11 @@
 <head>
 	
 <title>About ComboTweet</title>
-<?php if ($_SERVER['HTTP_HOST'] != "twitter.tagal.us"): ?>
-<link href="../front/style.css" media="screen, projection" rel="stylesheet" type="text/css" />
-<?php else: ?>
-<link href="../front/min_style.css" media="screen, projection" rel="stylesheet" type="text/css" />	
-<?php endif; ?>	
+<link href="../front/newui.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	
-<div id="canvas">
+<div id="html_canvas">
 	
 	
 	<div id="about">

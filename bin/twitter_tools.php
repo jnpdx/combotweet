@@ -221,7 +221,7 @@ function send_tweet($user,$pass,$tweet,$reply_to) {
 	
 	$tweet = urlencode($tweet);
 	
-	$post_fields =  "status=$tweet";
+	$post_fields =  "source=combotweet&status=$tweet";
 	
 	if ($reply_to != "0") {
 		
