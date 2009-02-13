@@ -22,6 +22,7 @@ function display_panel($panel) {
 		</div>
 		<div class="last_update"></div>
 		<div class="tweet_type_menu">
+			<br class="clear_both"/>
 			<div class="tweet_type_button" id="panel_<?=$panel->id?>_regular" onclick="get_tweets('<?=$panel->id?>','regular',1)">Timeline</div>
 			<div class="tweet_type_button" id="panel_<?=$panel->id?>_replies" onclick="get_tweets('<?=$panel->id?>','replies',1)">Replies</div>
 			<div class="tweet_type_button" id="panel_<?=$panel->id?>_direct" onclick="get_tweets('<?=$panel->id?>','direct',1)">Direct messages</div>
