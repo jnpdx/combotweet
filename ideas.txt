@@ -1,6 +1,6 @@
 Favorites don't work in AIR
 
-options should be in options.js
+Split JS into multiple files (Proxy/Air/JS/Window/Options/etc) and then combine on compile for deployment
 
 get_tweets shouldn't need type - should discern from pan.tweet_type
 
@@ -25,5 +25,16 @@ Images should be loaded from local directory - not web in AIR
 Greasemonkey script to expand urls/etc
 
 Wordpress plugin - stores $_SESSION data in user table
+
+
+Needed features:
+	Display sent_to in DM
+	Allow DM from Timeline or Replies
+	Allow reply from a search panel - should let you choose which user_n to respond with
+	Instead of a window about a user, open a new panel?
+	Allow search for a user
+	Get the list of people that the user is following and compare it when displaying user info
+		Display follow/unfollow button accordingly
+	Shizzow - shout from places that others have been shouting from
 
 
