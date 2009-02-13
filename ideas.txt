@@ -36,5 +36,6 @@ Needed features:
 	Get the list of people that the user is following and compare it when displaying user info
 		Display follow/unfollow button accordingly
 	Shizzow - shout from places that others have been shouting from
+	Should allow columns for Replies/DMs/Timeline separate instead of single panel
 
 

@@ -2947,7 +2947,7 @@ function js_get_shizzow_panel(panel_id,s_user,s_pass) {
 	panel_html += '<input type="hidden" class="panel_id" value="' + panel_id + '"/><input type="hidden" class="panel_user_name" value="' + s_user + '"/><input type="hidden" class="panel_type" value="shizzow_panel"/><input type="hidden" class="panel_background" value="" /><input type="hidden" class="panel_background_color" value="fff" />';
 	panel_html += '<div class="twitter_inputs"><textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea><br/>Location: <select class="shizzow_favorites"></select><br/><input type="button" class="tweet_submit" onclick="send_shout(\'' + panel_id + '\')" value="Update"/><span class="length_notify_box" id="chars_left_panel_' + panel_id + '"></span><br class="clear_both"/></div>';
 	panel_html += '<div class="tweet_type_menu"></div><div class="tweets"></div>';
-	panel_html += '<div class="more_tweets" onclick="get_more_tweets(\'' + panel_id + '\'); return false;">Load more tweets...</div>';
+	panel_html += '<div class="more_tweets" onclick="get_more_tweets(\'' + panel_id + '\'); return false;">Load more shouts...</div>';
 	panel_html += '</div>';
 	panel_html += '';
 	
