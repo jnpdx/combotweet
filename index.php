@@ -70,7 +70,24 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
 
 	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.local:8888"): ?>
-	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
+	<!-- <script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script> -->
+	<script type="text/javascript" src="js/split/data_parsing.js"></script>
+	<script type="text/javascript" src="js/split/objects.js"></script>
+	<script type="text/javascript" src="js/split/options.js"></script>
+	<script type="text/javascript" src="js/split/panel_functions.js"></script>
+	<script type="text/javascript" src="js/split/plugins.js"></script>
+	<script type="text/javascript" src="js/split/shizzow_functions.js"></script>
+	<script type="text/javascript" src="js/split/startup.js"></script>
+	<script type="text/javascript" src="js/split/time_sorting.js"></script>
+	<script type="text/javascript" src="js/split/twitter_functions.js"></script>
+	<script type="text/javascript" src="js/split/ui_navigation.js"></script>
+	<script type="text/javascript" src="js/split/ui_navigation.js"></script>
+	<script type="text/javascript" src="js/split/variables.js"></script>
+	<script type="text/javascript" src="js/split/window_functions.js"></script>
+	<script type="text/javascript" src="js/split/app_type/air_functions.js"></script>
+	<script type="text/javascript" src="js/split/app_type/javascript_functions.js"></script>
+	<script type="text/javascript" src="js/split/app_type/proxy_functions.js"></script>
+	<script type="text/javascript" src="js/split/outside_code/date_parsing.js"></script>
 	<?php else: ?>
 	<!-- <script type="text/javascript" src="js/m.js?v=<?=VERSION?>"></script> -->
 	<script type="text/javascript" src="js/core2.js?v=<?=VERSION?>"></script>
