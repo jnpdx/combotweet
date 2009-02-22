@@ -52,6 +52,8 @@ $to = new TwitterOAuth($consumer_key, $consumer_secret);
 $tok = $to->getRequestToken();
 
 if ($addr == "oauth_start_login") {
+	
+	$_SESSION['oauth'] = array();
 		
 	$_SESSION['oauth']['oauth_request_token'] = $token = $tok['oauth_token'];
   $_SESSION['oauth']['oauth_request_token_secret'] = $tok['oauth_token_secret'];
@@ -80,13 +82,13 @@ switch($state) {
     }
 	
 	
-		echo "whoa - it got returned!";
+		//echo "whoa - it got returned!";
 		
 		$to = new TwitterOAuth($consumer_key, $consumer_secret, $_SESSION['oauth']['oauth_access_token'], $_SESSION['oauth']['oauth_access_token_secret']);
     /* Run request on twitter API as user. */
     $content = json_decode($to->OAuthRequest('https://twitter.com/account/verify_credentials.json', array(), 'POST'));
 
-		var_dump( $content );
+		//var_dump( $content );
 
 		//register the panel in the normal way
 		require_once dirname(__FILE__) . "/../structs.php";
@@ -117,6 +119,8 @@ switch($state) {
 		
 		
 		//echo $content;
+		
+		header( 'Location: '.$_SESSION['client_url'] );
 	
 	break;
 }

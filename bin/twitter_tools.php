@@ -65,7 +65,7 @@ function get_direct_messages($user,$pass,$page) {
 	if ($pass == "__USING_OAUTH") {
 		$to =  $_SESSION['panels'][$user]->oauth;
 		
-		$content = $to->OAuthRequest($url, array(), 'POST');
+		$content = $to->OAuthRequest($url, array(), 'GET');
 		
 		return $content;
 		
@@ -92,7 +92,7 @@ function get_sent_direct_messages($user,$pass,$page) {
 	if ($pass == "__USING_OAUTH") {
 		$to =  $_SESSION['panels'][$user]->oauth;
 		
-		$content = $to->OAuthRequest($url, array(), 'POST');
+		$content = $to->OAuthRequest($url, array(), 'GET');
 		
 		return $content;
 		

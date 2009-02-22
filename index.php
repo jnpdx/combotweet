@@ -4,6 +4,21 @@
 define( 'VERSION', '0009' );
 
 ////////
+if ($_SERVER['HTTP_HOST'] != "twitter.tagal.us") {
+	
+	$GLOBALS['DEV_ENV'] = true;
+	
+} else {
+	
+	$GLOBALS['DEV_ENV'] = false;
+	
+}
+
+
+if (!isset($_SESSION)) {
+	session_start();
+	//echo 'starting session';	
+}
 
 $a = trim($_SERVER['REQUEST_URI'],'/');
 
@@ -34,8 +49,10 @@ if ($addr == '') {
 	include "bin/oauth/oauth_functions.php";
 	exit;
 } elseif ($addr == 'client') {
-	
+		
 	//we'll continue here
+	$_SESSION['client_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	
 	
 }
 
@@ -140,8 +157,6 @@ if (isset($_GET['search'])) {
 
 				<img src="images/loader.gif" id="loader" alt="loading..."/>
 				
-					<a href="oauth_start_login">OAuth Login</a>
-				
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
 				
@@ -179,6 +194,8 @@ if (isset($_GET['search'])) {
 			<br class="clear_both"/>
 			<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
 			</form>
+			<br/>
+			<p>You can also <a href="oauth_start_login">login using OAuth (Beta)</a></p>
 		</div>
 		
 		<div id="settings_form">

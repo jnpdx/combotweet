@@ -87,7 +87,12 @@ class TwitterOAuth {/*{{{*/
    */
   function getAuthorizeURL($token) {/*{{{*/
     if (is_array($token)) $token = $token['oauth_token'];
-    return $this->authorizeURL() . '?oauth_token=' . $token;
+		if ($GLOBALS['DEV_ENV']) {
+			$dev_callback = urlencode('http://combotweet.local:8888/oauth_callback');
+		} else {
+			$dev_callback = urlencode('http://twitter.tagal.us/oauth_callback');
+		}
+    return $this->authorizeURL() . '?oauth_token=' . $token . '&oauth_callback=' . $dev_callback;
   }/*}}}*/
 
   /**
