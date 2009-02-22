@@ -86,20 +86,21 @@ switch($state) {
     /* Run request on twitter API as user. */
     $content = json_decode($to->OAuthRequest('https://twitter.com/account/verify_credentials.json', array(), 'POST'));
 
-		//echo $content;
+		var_dump( $content );
 
 		//register the panel in the normal way
-		require_once dirname(__FILE__) . "/../bin/structs.php";
-		require_once dirname(__FILE__) . "/../bin/twitter_tools.php";
+		require_once dirname(__FILE__) . "/../structs.php";
+		require_once dirname(__FILE__) . "/../twitter_tools.php";
 		
-		$panel_id = $content->name;
-		$panel_user = $content->name;
+		$panel_id = $content->screen_name;
+		$panel_user = $content->screen_name;
 		$panel_pass = '__USING_OAUTH';
 
 		$new_panel = new Panel();
 		$new_panel->user = $panel_user;
 		$new_panel->pass = $panel_pass;
 		$new_panel->id = $panel_id;
+		$new_panel->oauth = $to;
 		$new_panel->gen_info = json_decode(get_twitter_user_info($panel_user));
 
 		//need to check user credentials
@@ -109,7 +110,7 @@ switch($state) {
 
 			$_SESSION['panels'][$panel_id] = $new_panel;
 			
-			var_dump($new_panel);
+			//var_dump($new_panel);
 
 			//display_panel($new_panel);
 

@@ -28,10 +28,10 @@ if ($addr == '') {
 	include 'front/about.php';
 	exit;
 } elseif ($addr == "oauth_start_login") {
-	include "oauth/oauth_functions.php";
+	include "bin/oauth/oauth_functions.php";
 	exit;
 } elseif ($addr == "oauth_callback") {
-	include "oauth/oauth_functions.php";
+	include "bin/oauth/oauth_functions.php";
 	exit;
 } elseif ($addr == 'client') {
 	

@@ -5,6 +5,7 @@ require_once 'twitter_tools.php';
 require 'shizzow_tools.php';
 require_once 'structs.php';
 
+require_once 'oauth/twitterOAuth.php';
 
 if (!isset($_SESSION)) {
 	session_start();
