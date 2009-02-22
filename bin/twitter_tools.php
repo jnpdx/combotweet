@@ -253,7 +253,6 @@ function send_dm($user,$pass,$tweet,$reply_to) {
 	
 	$url = 'http://twitter.com/direct_messages/new.json';
 	
-	$tweet = urlencode($tweet);
 	
 	if ($pass == "__USING_OAUTH") {
 		$to =  $_SESSION['panels'][$user]->oauth;
@@ -263,6 +262,8 @@ function send_dm($user,$pass,$tweet,$reply_to) {
 		return $content;
 		
 	} else {
+		$tweet = urlencode($tweet);
+		
 	
 		$curl_handle = curl_init();
 		curl_setopt($curl_handle, CURLOPT_URL, "$url");
