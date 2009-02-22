@@ -25,6 +25,9 @@ if ($addr == '') {
 } elseif ($addr == 'about') {
 	include 'front/about.php';
 	exit;
+} elseif ($addr = "oauth_start_login") {
+	include "oauth/oauth_functions.php"
+	exit;
 } elseif ($addr == 'client') {
 	
 	//we'll continue here
@@ -132,7 +135,7 @@ if (isset($_GET['search'])) {
 
 				<img src="images/loader.gif" id="loader" alt="loading..."/>
 				
-					<a href="?oauth_login=true">OAuth Login</a>
+					<a href="oauth_start_login">OAuth Login</a>
 				
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
