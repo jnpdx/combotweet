@@ -110,6 +110,7 @@ if (isset($_GET['search'])) {
 		<script type="text/javascript" src="js/split/ui_navigation.js"></script>
 		<script type="text/javascript" src="js/split/variables.js"></script>
 		<script type="text/javascript" src="js/split/window_functions.js"></script>
+		<script type="text/javascript" src="js/split/save_state.js"></script>
 		<script type="text/javascript" src="js/split/app_type/air_functions.js"></script>
 		<script type="text/javascript" src="js/split/app_type/javascript_functions.js"></script>
 		<script type="text/javascript" src="js/split/app_type/proxy_functions.js"></script>
@@ -159,6 +160,8 @@ if (isset($_GET['search'])) {
 				
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
+				
+						<img src="images/Save.png" id="save_state_button" onclick="save_to_openid()" alt="Save State" title="Save State" />
 				
 						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 				

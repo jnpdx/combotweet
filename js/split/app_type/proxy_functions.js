@@ -282,3 +282,19 @@ function proxy_send_shout(panel_id,shout,location) {
 	return '';
 	
 }
+
+function proxy_save_state(openid) {
+  show_loader();
+  
+  $.post(URL_BASE + 'bin/ajax.php', {
+      func: "save_state",
+    }, function (data,textStatus) {
+    hide_loader();
+  },'json');
+  
+  return '';
+  
+  
+}
+
+

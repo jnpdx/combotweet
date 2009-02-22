@@ -274,6 +274,9 @@ if ($func == 'get_panel') {
 	
 	echo send_shout($tw_user,$tw_pass,$shout,$location);
 	
+} elseif($func == 'save_state') {
+	
+	//save the session data to the user's openid in the db
 
 } elseif($func == 'logout') {
 	
