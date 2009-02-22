@@ -87,7 +87,7 @@ class TwitterOAuth {/*{{{*/
    */
   function getAuthorizeURL($token) {/*{{{*/
     if (is_array($token)) $token = $token['oauth_token'];
-		if ($GLOBALS['DEV_ENV']) {
+		if ($GLOBALS['DEV_ENV'] == true) {
 			$dev_callback = urlencode('http://combotweet.local:8888/oauth_callback');
 		} else {
 			$dev_callback = urlencode('http://twitter.tagal.us/oauth_callback');
