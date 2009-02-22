@@ -12,6 +12,8 @@ $addr = '';
 if ($a != '') {
 	
 	$addr = array_pop($items = split('/',$a));
+	$addr = array_shift($items = split('\?',$addr));
+	//echo "$addr";
 	
 }
 
@@ -25,8 +27,11 @@ if ($addr == '') {
 } elseif ($addr == 'about') {
 	include 'front/about.php';
 	exit;
-} elseif ($addr = "oauth_start_login") {
-	include "oauth/oauth_functions.php"
+} elseif ($addr == "oauth_start_login") {
+	include "oauth/oauth_functions.php";
+	exit;
+} elseif ($addr == "oauth_callback") {
+	include "oauth/oauth_functions.php";
 	exit;
 } elseif ($addr == 'client') {
 	
