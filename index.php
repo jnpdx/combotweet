@@ -161,7 +161,7 @@ if (isset($_GET['search'])) {
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
 				
-						<img src="images/Save.png" id="save_state_button" onclick="save_to_openid()" alt="Save State" title="Save State" />
+						<img src="images/Save.png" id="save_state_button" onclick="show_save_state_form()" alt="Save State" title="Save State" />
 				
 						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 				
@@ -212,6 +212,11 @@ if (isset($_GET['search'])) {
 				<label>Panel width (px):</label><input type="text" id="panel_width"/><br class="clear_both"/>
 				<input id="update_settings_button" type="submit" value="Save" />
 			</form>
+		</div>
+		
+		<div id="save_state_form">
+			<label>OpenID: </label><span id="user_openid"></span><br class="clear_both"/>
+			<button onclick="change_openid()" value="Associate new OpenID"/><br/>
 		</div>
 
 	<div id="canvas">

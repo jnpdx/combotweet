@@ -439,7 +439,7 @@ div#nav_buttons_wrapper {
 }
 
 
-div#login_form, div#settings_form {
+div#login_form, div#settings_form, div#save_state_form {
 	
 	display: none;
 	line-height: 1.4em;
@@ -463,6 +463,12 @@ div#settings_form {
 	
 	width: 600px;
 	
+}
+
+div#save_state_form {
+  
+  width: 400px;
+  
 }
 
 

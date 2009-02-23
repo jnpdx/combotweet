@@ -34,3 +34,11 @@ function load_state() {
   
   
 }
+
+function show_save_state_form() {
+  
+  $('#save_state_form').css('left',$(window).width() - 400);
+	
+	$('#save_state_form').toggle("slide", { direction: "up" });
+  
+}
