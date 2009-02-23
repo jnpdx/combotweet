@@ -273,10 +273,42 @@ if ($func == 'get_panel') {
 	header("Content-type: text/javascript");
 	
 	echo send_shout($tw_user,$tw_pass,$shout,$location);
+
+} elseif ($func == 'load_state') {
+
+	require_once 'db/db_functions.php';
 	
+	$data = retrieve_user_data("test_user");
+	
+	header("Content-type: text/javascript");
+	
+	
+	if ($data == null) {
+		
+		echo json_encode('NO_SAVED_STATE');
+		
+	} else {
+	
+		$data = unserialize($data['state']);
+		$_SESSION['panels'] = $data['panels'];
+		
+		echo json_encode("LOADED_SAVED_STATE");
+	
+	}
+
 } elseif($func == 'save_state') {
 	
 	//save the session data to the user's openid in the db
+	
+	require_once 'db/db_functions.php';
+	
+	save_user("test_user",serialize($_SESSION));
+	
+	//save_user("test_user","test_data");
+	
+	header("Content-type: text/javascript");
+	
+	echo json_encode("SAVED_USER");
 
 } elseif($func == 'logout') {
 	

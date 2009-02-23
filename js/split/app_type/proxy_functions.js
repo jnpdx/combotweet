@@ -297,4 +297,26 @@ function proxy_save_state(openid) {
   
 }
 
+function proxy_load_state(openid) {
+  show_loader();
+  
+  $.post(URL_BASE + 'bin/ajax.php', {
+      func: "load_state",
+    }, function (data,textStatus) {
+      if (data == "NO_SAVED_STATE") {
+        
+        alert("There was no saved state to load!");
+        
+      } else {
+        
+        var href = window.location.href;
+      	window.location.href = href;
+        
+      }
+  },'json');
+  
+  return '';
+  
+}
+
 
