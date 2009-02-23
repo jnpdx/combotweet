@@ -81,6 +81,7 @@ if (isset($_GET['search'])) {
 	</script>
 	<script type="text/javascript">
 	var MOBILE = <?php if ($GLOBALS['mobile']) { echo 'true'; } else { echo 'false'; } ?>;
+	var user_openid = '<?php if (isset($_SESSION['user_openid'])) { echo $_SESSION['user_openid']; } ?>';
 	</script>
 
 	
@@ -215,8 +216,11 @@ if (isset($_GET['search'])) {
 		</div>
 		
 		<div id="save_state_form">
-			<label>OpenID: </label><span id="user_openid"></span><br class="clear_both"/>
-			<button onclick="change_openid()" value="Associate new OpenID"/><br/>
+			<form method="post" id="login_form" action="bin/openid_tools.php" onsubmit="return save_state_submit();"><fieldset>
+			<h2>Save state (requires OpenID)</h2>
+			<input type="text" id="openid_identifier" name="openid_identifier" value="">
+			<input type="submit" name="openid_action" value="login">
+			</fieldset></form>
 		</div>
 
 	<div id="canvas">

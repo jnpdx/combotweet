@@ -302,7 +302,7 @@ if ($func == 'get_panel') {
 	
 	require_once 'db/db_functions.php';
 	
-	save_user("test_user",serialize($_SESSION));
+	save_user($_SESSION['user_openid'],serialize($_SESSION));
 	
 	//save_user("test_user","test_data");
 	

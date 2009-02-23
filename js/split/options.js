@@ -10,6 +10,12 @@ if (window.MOBILE == undefined) {
 	
 }
 
+if (window.user_openid == undefined) {
+	
+	//var user_openid = '';
+	
+}
+
 
 /******************************** OPTIONS **********************************/
 

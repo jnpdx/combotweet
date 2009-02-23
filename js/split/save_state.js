@@ -3,12 +3,12 @@
 function save_to_openid() {
   
   
-  if (user_openid = '') {
+  if (user_openid == '') {
     //ask the user for an openid, and check them in
     
     
     
-    
+    return false;
   }
   
   //send a save request to the server
@@ -37,8 +37,25 @@ function load_state() {
 
 function show_save_state_form() {
   
+  $('#openid_identifier').val(user_openid);
+  
   $('#save_state_form').css('left',$(window).width() - 400);
 	
 	$('#save_state_form').toggle("slide", { direction: "up" });
   
+}
+
+function save_state_submit() {
+  entered_open_id = $('#openid_identifier').val();
+  
+  if (entered_open_id != user_openid) {
+    //they've entered a new value - let's check it
+    return true;
+    
+  }
+  
+  save_to_openid();
+  
+  
+  return false;
 }
