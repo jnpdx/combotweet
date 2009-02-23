@@ -37,7 +37,17 @@ function get_tweets($user,$pass,$tweet_type,$page,$since) {
 	if ($pass == "__USING_OAUTH") {
 		$to =  $_SESSION['panels'][$user]->oauth;
 		
-		$content = $to->OAuthRequest($url, array(), 'POST');
+		$post_fields = array();
+		
+		$post_fields['page'] = "".$page;
+		
+		if ($since_req != '') {
+			
+			$post_fields['since'] = $since;
+			
+		}
+		
+		$content = $to->OAuthRequest($url, $post_fields, 'POST');
 		
 		return $content;
 		
