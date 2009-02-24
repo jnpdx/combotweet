@@ -220,8 +220,13 @@ if ($func == 'get_panel') {
 		
 	}
 	
+	header("Content-type: text/javascript");
+	
+	$json_panels = array();
+	
 	foreach($_SESSION['panels'] as $key => $p) {
 		
+		/*
 		if ($p->panel_type == 'search') {
 			
 			display_search_panel($p);
@@ -231,8 +236,20 @@ if ($func == 'get_panel') {
 			display_panel($p);
 			
 		}
+		*/
+		
+		$panel = array();
+		
+		$panel['panel_id'] = $p->id;
+		$panel['panel_type'] = $p->panel_type;
+		$panel['panel_user'] = $p->user;
+		$panel['gen_info'] = $p->gen_info;
+		
+		$json_panels[] = $panel;
 		
 	}
+	
+	echo json_encode($json_panels);
 
 } elseif ($func == "remove_panel") {
 	

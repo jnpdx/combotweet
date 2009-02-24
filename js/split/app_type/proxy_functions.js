@@ -45,7 +45,7 @@ function proxy_get_session_panels() {
 	}, function(data) {
 			
 			
-		$('#panels').append(data);
+		//$('#panels').append(data);
 		
 		//$('.twitter_panel').hide();  //this hides all of them - should only hide front?	
 		
@@ -54,29 +54,59 @@ function proxy_get_session_panels() {
 			$('#header_nav_buttons').show()	
 		}
 		
-		$('#panels').find('.twitter_panel').each(
+		for (i in data) {
+		  
+		  cur_panel = data[i];
+		  var panel_id = cur_panel.panel_id;
+		  var pan_type = cur_panel.panel_type;
+		  var pan_user = cur_panel.panel_user;
+		  var gen_info = cur_panel.gen_info;
+		  tw_panels[tw_panels.length] = new Data_Panel(panel_id,pan_type,pan_user,'',null);
+		  
+		  if (pan_type == 'regular') {
+			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
+			} else if (pan_type == 'search') {
+			  var pan_data = js_get_search_panel(panel_id,pan_user,"_search");
+			}
+			
+			set_up_panel(panel_id, pan_data, pan_user, '')
+			
+			
+		}
+		
+		/*
+		$('' + data).find('.twitter_panel').each(
 			function(i) {
-				
+				alert("here");
 				if ($(this).is('.proxy_panel')) {
 					var panel_id = $(this).find('.panel_id');
 					var pan_type = $(this).find('.panel_type').val();
 					var pan_user = $(this).find('.panel_user_name').val();
 					
 					tw_panels[tw_panels.length] = new Data_Panel(panel_id.val(),pan_type,pan_user,'',null);
-					add_new_nav_button(panel_id.val());
-					get_tweets(panel_id.val(),"regular",1);
-					//get_last_update(panel_id.value);
-										
-					if (!TABBED_PANELS) {
-						$('#panels').width($('#panels').width() + PANEL_WIDTH + 20)
+					
+					if (pan_type == 'regular_panel') {
+					  var pan_data = js_get_panel(panel_id, t_user, t_pass, gen_info);
+					} else if (pan_type == 'search_panel') {
+					  js_get_search_panel(panel_id,pan_user,"_search");
 					}
 					
-					show_panel(panel_id.val())
+					set_up_panel(panel_id, pan_data, pan_user, '')
+					//add_new_nav_button(panel_id.val());
+					//get_tweets(panel_id.val(),"regular",1);
+					//get_last_update(panel_id.value);
+										
+					//if (!TABBED_PANELS) {
+					//	$('#panels').width($('#panels').width() + PANEL_WIDTH + 20)
+					//}
+					
+					//show_panel(panel_id.val())
 					
 				}
 				
 			}
 			);
+			*/
 
 		
 				
@@ -86,7 +116,7 @@ function proxy_get_session_panels() {
 		hide_loader();
 		
 	},
-	"html");
+	"json");
 	
 	
 }
