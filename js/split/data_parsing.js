@@ -283,7 +283,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 			var created_date = new Date(tweet.created_at);
 		
-			tweet_div += '<span id="tweet_time_' + tweet.id + '">' + get_time_text(cur_date,created_date) + "</span>";
+			tweet_div += '<span id="tweet_time_' + tweet.id + '">' + '<a href="http://twitter.com/' + from_sn + '/status/' + tweet.id + '" target="_blank">' + get_time_text(cur_date,created_date) + "</a></span>";
 		
 		
 			if (tweet.in_reply_to_screen_name != undefined) {
