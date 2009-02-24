@@ -5,9 +5,7 @@ function save_to_openid() {
   
   if (user_openid == '') {
     //ask the user for an openid, and check them in
-    
-    
-    
+    alert("You haven't entered an OpenID to save to!");
     return false;
   }
   
@@ -50,6 +48,7 @@ function save_state_submit() {
   
   if (entered_open_id != user_openid) {
     //they've entered a new value - let's check it
+    $("#save_state").submit(); 
     return true;
     
   }

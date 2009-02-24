@@ -418,7 +418,7 @@ img.close_panel {
 	cursor: pointer;
 }
 
-img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, img#save_state_button {
+img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, input#save_state_button {
 	
 	width: 32px;
 	height: 32px;

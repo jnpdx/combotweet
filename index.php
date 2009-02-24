@@ -162,7 +162,7 @@ if (isset($_GET['search'])) {
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
 				
-						<img src="images/Save.png" id="save_state_button" onclick="show_save_state_form()" alt="Save State" title="Save State" />
+						<!--<img src="images/Save.png" id="save_state_button" onclick="show_save_state_form()" alt="Save State" title="Save State" /> -->
 				
 						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 				
@@ -186,6 +186,7 @@ if (isset($_GET['search'])) {
 
 
 		<div id="login_form">
+			<!--
 			<form onsubmit="make_new_panel();return false;" action="" method="post">
 			<label>User name:</label><input type="text" id="tw_user"/><br class="clear_both"/>
 			<br class="clear_both"/>
@@ -200,6 +201,14 @@ if (isset($_GET['search'])) {
 			</form>
 			<br/>
 			<p>You can also <a href="oauth_start_login">login using OAuth (Beta)</a></p>
+		-->
+			<a href="oauth_start_login">Log in to another account using OAuth</a>
+			<br/>
+			<form method="post" id="save_state" action="bin/openid_tools.php" ><fieldset>
+			<h2>Save state (requires OpenID)</h2>
+			<input type="text" id="openid_identifier" name="openid_identifier" value=""/>
+			<input type="image" name="openid_action" src="images/Save.png" id="save_state_button" value="login" onclick="save_state_submit(); return false;"/>
+			</fieldset></form>
 		</div>
 		
 		<div id="settings_form">
@@ -215,6 +224,7 @@ if (isset($_GET['search'])) {
 			</form>
 		</div>
 		
+		<!--
 		<div id="save_state_form">
 			<form method="post" id="login_form" action="bin/openid_tools.php" onsubmit="return save_state_submit();"><fieldset>
 			<h2>Save state (requires OpenID)</h2>
@@ -222,6 +232,7 @@ if (isset($_GET['search'])) {
 			<input type="submit" name="openid_action" value="login">
 			</fieldset></form>
 		</div>
+		-->
 
 	<div id="canvas">
 
