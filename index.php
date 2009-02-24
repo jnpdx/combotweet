@@ -206,6 +206,7 @@ if (isset($_GET['search'])) {
 			<img src="images/Plus.png" id="add_account_button" alt="Add an Account" title="Add Account"/></a>
 			<br/>
 			<form method="post" id="save_state" action="bin/openid_tools.php" ><fieldset>
+				Save your open panels (using an OpenID):<br/>
 			<input type="text" id="openid_identifier" name="openid_identifier" value=""/>
 			<input type="image" name="openid_action" src="images/Key.png" id="load_state_button" value="load" onclick="load_state(); return false;" />
 			<input type="image" name="openid_action" src="images/Save.png" id="save_state_button" value="login" onclick="save_state_submit(); return false;" style="display: none;"/>
