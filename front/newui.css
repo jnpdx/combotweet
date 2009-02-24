@@ -712,3 +712,20 @@ div#html_canvas ul {
   
 }
 
+div#startup_box {
+  
+  width: 80%;
+  margin: 40px auto;
+  border: 1px solid black;
+  padding: 30px;
+  
+}
+
+div#startup_box img {
+  
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  
+}
+

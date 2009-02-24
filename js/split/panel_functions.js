@@ -306,6 +306,8 @@ function add_search_panel(search_term) {
 //Called when a panel is being made
 function set_up_panel(id, data, t_user, t_pass) {
 	
+	$('#startup_box').hide();
+	
 	$('#panels').append(data);
 
 	if (!TABBED_PANELS) {
