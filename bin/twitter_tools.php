@@ -43,7 +43,7 @@ function get_tweets($user,$pass,$tweet_type,$page,$since) {
 		
 		if ($since_req != '') {
 			
-			$post_fields['since'] = $since;
+			$post_fields['since_id'] = $since;
 			
 		}
 		
