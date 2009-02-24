@@ -22,6 +22,14 @@ function doc_ready_functions() {
 
 	get_session_panels();
 	
+	if (user_openid != '') {
+	  
+	  $('#save_state_button').show();
+	  $('#load_state_button').hide();
+	  $('#openid_identifier').attr('disabled','true');
+	  
+	}
+	
 	if (window.request_panes != undefined) {
 		
 		

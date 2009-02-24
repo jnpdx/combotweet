@@ -418,11 +418,12 @@ img.close_panel {
 	cursor: pointer;
 }
 
-img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, input#save_state_button {
+img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, img#add_account_button, input#load_state_button, input#save_state_button {
 	
 	width: 32px;
 	height: 32px;
 	cursor: pointer;
+	vertical-align: middle;
 	
 }
 
@@ -454,9 +455,21 @@ div#login_form, div#settings_form, div#save_state_form {
 }
 
 div#login_form {
+  
+  text-align: left;
+  
+}
+
+div#login_form {
 	
 	width: 400px;
 	
+}
+
+div#login_form a {
+  
+  text-decoration: none;
+  
 }
 
 div#settings_form {
@@ -475,6 +488,15 @@ div#save_state_form {
 #account_type {
 	
 	
+}
+
+input#openid_identifier {
+    border: 1px solid #666;
+    width: 232px;
+    background: url('/images/openid-bg.png') no-repeat;
+    background-position: 4px 4px;
+    padding: 4px 4px 4px 24px;
+    font-size: 14px;
 }
 
 input#login_button {
@@ -502,10 +524,16 @@ div#settings_form label {
 	
 }
 
-div#login_form input[type="text"],  div#login_form input[type="password"]  {
+div#login_form form#old_login_form input[type="text"], div#login_form input[type="password"]  {
 	
 	width: 200px;
 	
+}
+
+form#old_login_form {
+  
+  margin-top: 10px;
+  
 }
 
 div.direct_options a {

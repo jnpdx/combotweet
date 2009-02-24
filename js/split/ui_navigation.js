@@ -125,6 +125,10 @@ function scroll_to_tweet(panel_index, index) {
 //Displays or hides the user/pass form
 //Should be "toggle_login_form" for consistency
 function show_login_form() {
+  $('#openid_identifier').val(user_openid);
+  
+  $('#old_login_form').hide();
+  
 	$('#login_form').css('left',$(window).width() - 420)
 	
 	$('#login_form').toggle("slide", { direction: "up" }, 400,

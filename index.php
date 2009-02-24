@@ -202,13 +202,31 @@ if (isset($_GET['search'])) {
 			<br/>
 			<p>You can also <a href="oauth_start_login">login using OAuth (Beta)</a></p>
 		-->
-			<a href="oauth_start_login">Log in to another account using OAuth</a>
+			<a href="oauth_start_login">Log in to another account (OAuth)
+			<img src="images/Plus.png" id="add_account_button" alt="Add an Account" title="Add Account"/></a>
 			<br/>
 			<form method="post" id="save_state" action="bin/openid_tools.php" ><fieldset>
-			<h2>Save state (requires OpenID)</h2>
 			<input type="text" id="openid_identifier" name="openid_identifier" value=""/>
-			<input type="image" name="openid_action" src="images/Save.png" id="save_state_button" value="login" onclick="save_state_submit(); return false;"/>
+			<input type="image" name="openid_action" src="images/Key.png" id="load_state_button" value="load" onclick="load_state(); return false;" />
+			<input type="image" name="openid_action" src="images/Save.png" id="save_state_button" value="login" onclick="save_state_submit(); return false;" style="display: none;"/>
 			</fieldset></form>
+			<br/>
+			
+			
+			
+			<a href="" onclick="$('#old_login_form').show(); return false;" style="font-size: .9em; display: block;">(Show old login form)</a>
+			<form id="old_login_form" onsubmit="make_new_panel();return false;" action="" method="post" style="display: none;">
+			<label>User name:</label><input type="text" id="tw_user"/><br class="clear_both"/>
+			<br class="clear_both"/>
+			<label>Password:</label><input type="password" id="tw_pass"/><br class="clear_both"/><br class="clear_both"/>
+			<label>Type:</label>
+			<select id="account_type">
+				<option value="twitter">Twitter</option>
+				<option value="shizzow">Shizzow</option>
+			</select>
+			<br class="clear_both"/>
+			<label>&nbsp;</label><input id="login_button" type="submit" value="Login"/>
+			</form>
 		</div>
 		
 		<div id="settings_form">

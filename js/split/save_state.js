@@ -19,9 +19,19 @@ function save_to_openid() {
 
 function load_state() {
   
-  if (user_openid == '') {
+  entered_open_id = $('#openid_identifier').val();
+  
+  if ((user_openid == '') && (entered_open_id == '')) {
     
-    user_openid = prompt("OpenID?");
+    alert("You must enter an OpenID!");
+    return false;
+    
+  }
+  
+  if (user_openid != entered_open_id) {
+    //we'll have to verify the id
+    $("#save_state").submit();
+    return false;
     
   }
   
@@ -34,8 +44,6 @@ function load_state() {
 }
 
 function show_save_state_form() {
-  
-  $('#openid_identifier').val(user_openid);
   
   $('#save_state_form').css('left',$(window).width() - 400);
 	

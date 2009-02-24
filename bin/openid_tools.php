@@ -19,13 +19,17 @@ if ($logged_in == true) {
 	header("Location: ".$_SESSION['client_url']);
 	exit;
 	
+} else {
+	
+	echo "Error! ".$logged_in;
+	
 }
 
 function do_login() {
 
 		$status = "";
-		if (isset($_POST['openid_action']) &&
-		    $_POST['openid_action'] == "login" &&
+		if ( //isset($_POST['openid_action']) &&
+		    //$_POST['openid_action'] == "login" &&
 		    !empty($_POST['openid_identifier'])) {
 
 				$sreg = new Zend_OpenId_Extension_Sreg(array(
