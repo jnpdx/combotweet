@@ -38,7 +38,7 @@ if ($addr == '') {
 	//include 'front/front.php';
 	//exit;
 	//let's continue ==
-	header("Location: " $_SESSION['client_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']. "/client");
+	header("Location: ".'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']. "/client");
 } elseif ($addr == 'm') {
 	$GLOBALS['mobile'] = true;
 } elseif ($addr == 'about') {
