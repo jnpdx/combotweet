@@ -90,7 +90,7 @@ class TwitterOAuth {/*{{{*/
 		if ($GLOBALS['DEV_ENV'] == true) {
 			$dev_callback = urlencode('http://combotweet.local:8888/oauth_callback');
 		} else {
-			$dev_callback = urlencode('http://twitter.tagal.us/oauth_callback');
+			$dev_callback = urlencode('http://combotweet.com/oauth_callback');
 		}
     return $this->authorizeURL() . '?oauth_token=' . $token . '&oauth_callback=' . $dev_callback;
   }/*}}}*/

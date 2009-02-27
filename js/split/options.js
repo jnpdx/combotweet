@@ -59,7 +59,7 @@ var shizzow_data = null;  //for debugging
 if (RUNTIME_LOC == 'air') {
 	
 	BIND_CLICKS = true;
-	URL_BASE = 'http://twitter.tagal.us/';
+	URL_BASE = 'http://combotweet.com/';
 	XS = true;
 	AIR = true;
 	PROXY = false;

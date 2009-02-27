@@ -46,5 +46,8 @@ To Do:
 		Tweetdeck-like
 	Update server DB to handle save_state
 	Error handling!
+	Horizontal scrolling for new panels
+	Domain
+		Blog
 
 

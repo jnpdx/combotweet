@@ -4,7 +4,7 @@
 define( 'VERSION', '0009' );
 
 ////////
-if ($_SERVER['HTTP_HOST'] != "twitter.tagal.us") {
+if ($_SERVER['HTTP_HOST'] != "combotweet.com") {
 	
 	$GLOBALS['DEV_ENV'] = true;
 	
@@ -95,7 +95,7 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="js/httpauth.js"></script>
 	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
 
-	<?php if ($_SERVER['HTTP_HOST'] == "twitter.tagal.us"): ?>
+	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.com"): ?>
 		<script type="text/javascript" src="js/compiledcode.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
 		<script type="text/javascript" src="js/split/data_parsing.js"></script>
@@ -121,7 +121,7 @@ if (isset($_GET['search'])) {
 <title>ComboTweet</title>
 
 <?php if (!$GLOBALS['mobile']): ?>
-	<?php if ($_SERVER['HTTP_HOST'] != "twitter.tagal.us"): ?>
+	<?php if ($_SERVER['HTTP_HOST'] != "combotweet.com"): ?>
 		<script type="text/javascript">
 		 //<![CDATA[
 		
