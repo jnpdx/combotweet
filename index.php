@@ -35,8 +35,10 @@ if ($a != '') {
 $GLOBALS['mobile'] = false;
 
 if ($addr == '') {
-	include 'front/front.php';
-	exit;
+	//include 'front/front.php';
+	//exit;
+	//let's continue ==
+	header("Location: " $_SESSION['client_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']. "/client");
 } elseif ($addr == 'm') {
 	$GLOBALS['mobile'] = true;
 } elseif ($addr == 'about') {
@@ -147,7 +149,7 @@ if (isset($_GET['search'])) {
 				
 				<div id="identifier">
 					<h1>ComboTweet</h1>
-					<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.  <strong><a href="about">Learn more</a></strong></span>
+					<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.  <strong><a href="about">Learn more</a>.  <a href="http://blog.combotweet.com/">Blog</a></strong></span>
 					<br class="clear_both"/>
 				</div>
 			
@@ -259,7 +261,7 @@ if (isset($_GET['search'])) {
 
 		<div id="startup_box">
 			<p><strong>Welcome to ComboTweet!</strong></p>
-			<p>ComboTweet is in Beta, and early Beta at that - we're working quickly to add features.  Please tweet at @jnpdx or @combotweet for help, requests, bug reports, etc.</p>
+			<p>ComboTweet is in Beta, and early Beta at that - we're working quickly to add features.  Please tweet at @jnpdx or @combotweet for help, requests, bug reports, etc.  You can also visit the <a href="http://blog.combotweet.com/">ComboTweet blog</a>.  Source code is <a href="http://github.com/jnpdx/combotweet">available on GitHub</a>.</p>
 			<p>Click on the <img src="images/Plus.png" alt="Plus"/> icon to open a panel for a new user.  ComboTweet uses OAuth by default, meaning you don't have to give your password to third parties - authentication is done directly with Twitter.</p>
 			<p>In the same window, you can (optionally) choose to enter an OpenID to save the state of ComboTweet.  If you choose to do this (click the <img src="images/Key.png" alt="Key"/>), first you will have to verify your OpenID.  After you have verified it, you can choose the <img src="images/Save.png" alt="Save"/> icon to save your open panels.  Next time you log in, you can associate your OpenID (<img src="images/Key.png" alt="Key"/>) and it will reload your open panels.</p>
 			<p>To open a search panel instead of a user panel, use the <img src="images/Magnifier.png" alt="Search"/> icon</p>
