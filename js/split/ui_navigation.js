@@ -153,7 +153,8 @@ function show_settings_form() {
 		$('#refresh_freq').val('' + (UPDATE_FREQ / 1000));
 		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
 		$('#font_size').val('' + FONT_SIZE);
-		$('#panel_width').val('' + PANEL_WIDTH)
+		$('#panel_width').val('' + PANEL_WIDTH);
+		$('#tagalus_api_key').val('' + TAGALUS_API_KEY);
 	}
 	);
 	

@@ -53,7 +53,6 @@ var PANEL_WIDTH = 500;
 var ADD_HASHTAG = false;
 
 var TAGALUS_API_KEY = null;
-TAGALUS_API_KEY = '12362056449a39b0373fca';
 
 /******************************** END OPTIONS **********************************/
 
@@ -118,6 +117,8 @@ function update_settings() {
 		refresh_window();
 	}
 	
+	TAGALUS_API_KEY = $('#tagalus_api_key').val();
+	
 	save_settings_in_cookie();
 	
 	show_settings_form();
@@ -150,6 +151,10 @@ function save_settings_in_cookie() {
 	
 	settings += "ADD_HASHTAG=" + ADD_HASHTAG;
 	
+	settings += '&'
+	
+	settings += "TAGALUS_API_KEY=" + TAGALUS_API_KEY;
+	
 	$.cookie('combotweet_settings',settings)
 	
 }
@@ -178,6 +183,8 @@ function get_settings_in_cookie() {
 		} else if (vals[0] == 'PANEL_WIDTH') {
 			PANEL_WIDTH = parseInt(vals[1])
 			update_widths();
+		} else if (vals[0] == 'TAGALUS_API_KEY') {
+		  TAGALUS_API_KEY = vals[1];
 		} else if (vals[0] == 'DESTROY_TWEETS') {
 			if (vals[1] == 'false') {
 				DESTROY_TWEETS = false

@@ -1,3 +1,6 @@
+TagalusAPI.api_server = "http://api.localtag:3000/";
+
+
 add_definition_form_code = '<div id="add_tagalus_definition">'
 add_definition_form_code += 'Tag: <input type="text" id="add_tagalus_tag_name" /><br/>'
 add_definition_form_code += 'Definition: <br/>'
@@ -5,13 +8,18 @@ add_definition_form_code += '<textarea id="add_tagalus_definition_the_definition
 add_definition_form_code += '<input type="submit" value="Submit" onclick="submit_tagalus_form(); return false;" />'
 add_definition_form_code += '</div>';
 
+
+
 function submit_tagalus_form() {
   
   //alert("submitting");
   
-  if (TAGALUS_API_KEY == null) {
+  show_loader();
+  hide_notify_window();
+	
+  
+  if ((TAGALUS_API_KEY == null) || (TAGALUS_API_KEY == '')) {
     alert("You must enter a Tagalus API key to use that feature!");
-    hide_notify_window();
     return;
   }
   
@@ -29,7 +37,8 @@ function submit_tagalus_form() {
   				  alert("There was an error: " + data.error);
   				  return;
   				}
-  				alert("Set the definition as: " + data.the_definition)
+  				alert("Set the definition as: " + data.the_definition);
+  				hide_loader();
   			});
   
 }
@@ -49,7 +58,6 @@ function bind_hashtag_links() {
       show_loader();
       show_notify_window("Loading definition for #" + the_tag + " from Tagalus...",e);
     
-  		TagalusAPI.api_server = "http://api.localtag:3000/";
       TagalusAPI.api_call('tag/' + the_tag + '/show.json', {} ,function(data) {
       				if (data == null) {
       				  $('#notify_content').html("Tagalus doesn't have a definition for #" + the_tag + "<br/>" + add_definition_form_code);
