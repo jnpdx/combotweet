@@ -4,7 +4,7 @@ compiled='js/compiledcode.js'
 
 rm $compiled
 
-JSFiles=("js/split/save_state.js" "js/split/options.js" "js/split/variables.js" "js/split/objects.js" "js/split/startup.js" "js/split/data_parsing.js" "js/split/panel_functions.js" "js/split/plugins.js" "js/split/shizzow_functions.js" "js/split/time_sorting.js" "js/split/twitter_functions.js" "js/split/ui_navigation.js" "js/split/window_functions.js" "js/split/app_type/air_functions.js" "js/split/app_type/javascript_functions.js" "js/split/app_type/proxy_functions.js" "js/split/outside_code/date_parsing.js")
+JSFiles=("js/split/tagalus_functions.js","js/split/save_state.js" "js/split/options.js" "js/split/variables.js" "js/split/objects.js" "js/split/startup.js" "js/split/data_parsing.js" "js/split/panel_functions.js" "js/split/plugins.js" "js/split/shizzow_functions.js" "js/split/time_sorting.js" "js/split/twitter_functions.js" "js/split/ui_navigation.js" "js/split/window_functions.js" "js/split/app_type/air_functions.js" "js/split/app_type/javascript_functions.js" "js/split/app_type/proxy_functions.js" "js/split/outside_code/date_parsing.js")
 
 JSLibs=("js/httpauth.js" "js/jquery.cookie.js" "js/jquery.dimensions.pack.js" "js/jquery.scrollTo-1.4.0-min.js" "js/shortcut.js")
 

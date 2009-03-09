@@ -53,8 +53,6 @@ h1, h2, h3, h4, h5, h6, address {
 
 }
 
-}
-
 a {
 	
 	text-decoration: none;
@@ -621,8 +619,8 @@ img.button_sample {
 	width: 380px;
 	padding: 10px;
 	display: none;
-	top: 10;
-	left: 10;
+	top: 10px;
+	left: 10px;
 	z-index: 100;
 	
 }

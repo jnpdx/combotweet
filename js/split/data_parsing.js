@@ -423,6 +423,8 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		});
 		
+		bind_hashtag_links();
+		
 		update_widths();
 		
 	
@@ -441,7 +443,7 @@ function parse_tweet(tweet) {
 	new_tweet = new_tweet.replace(hashtag_RE,
 		function(t) {
 				var tag = t.replace("#","")
-				return '<a target="_blank" href="http://tagal.us/tag/' + tag + '" onclick="return follow_link(\'http://tagal.us/tag/' + tag + '\');">' + t + '</a>';
+				return '<a class="hashtag_link" target="_blank" href="http://tagal.us/tag/' + tag + '" onclick="return follow_link(\'http://tagal.us/tag/' + tag + '\');">' + t + '</a>';
 				//return t.link("http://tagal.us/tag/"+tag);
 		}
 		);

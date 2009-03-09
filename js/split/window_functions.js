@@ -15,15 +15,23 @@ function follow_link(l) {
 
 //Shows a notification window
 //Right now, this is a lightbox style window w/dropshaddow
-function show_notify_window(html) {
+function show_notify_window(html, click_event) {
 	
 	$('#notify_overlay').css('opacity','0.5');
 	$('#notify_overlay').css('height',$(document).height());
 	
 	$('#notify_overlay').show();
 	
-	$('#notify_window').css('left',($(window).width() / 2) - 200);
-	$('#notify_window').css('top',$(window).scrollTop() + 50);
+	var win_left = ($(window).width() / 2) - 200;
+	var win_top = $(window).scrollTop() + 50;
+	
+	if (click_event != undefined) {
+	  win_left = click_event.pageX;
+	  win_top = click_event.pageY;
+	}
+	
+	$('#notify_window').css('left',win_left);
+	$('#notify_window').css('top',win_top);
 	$('#notify_window').css('opacity','1');
 	
 	

@@ -52,6 +52,9 @@ var PANEL_WIDTH = 500;
 //Add a hashtag automatically
 var ADD_HASHTAG = false;
 
+var TAGALUS_API_KEY = null;
+TAGALUS_API_KEY = '12362056449a39b0373fca';
+
 /******************************** END OPTIONS **********************************/
 
 var shizzow_data = null;  //for debugging
