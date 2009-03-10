@@ -49,7 +49,6 @@ function submit_tagalus_form() {
   //alert($('#add_tagalus_tag_name').val() + '' + $('#add_tagalus_definition_the_definition').val());
   //return;
   
-  TagalusAPI.api_server = "http://api.localtag:3000/";
   
   TagalusAPI.api_call('definition/create.json', {
   				the_tag: user_tag,
@@ -81,7 +80,6 @@ function bind_hashtag_links() {
       show_loader();
       show_notify_window("Loading definition for #" + the_tag + " from Tagalus...",e);
     
-      TagalusAPI.api_server = "http://api.localtag:3000/";
       
       TagalusAPI.api_call('tag/' + the_tag + '/show.json', {} ,function(data) {
       				if (data == null) {
