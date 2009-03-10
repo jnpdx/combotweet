@@ -129,7 +129,6 @@ if (isset($_GET['search'])) {
 
 <?php if (!$GLOBALS['mobile']): ?>
 	<?php if ($_SERVER['HTTP_HOST'] != "combotweet.com"): ?>
-		<link href="http://localtag:3000/stylesheets/tagalus_widget.css" media="screen, projection" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript">
 		 //<![CDATA[
 		
@@ -147,6 +146,8 @@ if (isset($_GET['search'])) {
 	<link href="front/mobile_style.css?v=<?=VERSION?>" media="screen, projection" rel="stylesheet" type="text/css"/>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 <?php endif; ?>
+<link href="http://tagal.us/stylesheets/tagalus_widget.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+
 
 
 </head>
