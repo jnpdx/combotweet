@@ -18,6 +18,8 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 	
 	var cur_date = new Date();
 	
+	data.results.shouts.reverse();
+	
 	for (i in data.results.shouts) {
 		
 		var to_add = "";
@@ -26,6 +28,10 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		var cur_shout = data.results.shouts[i];
 		
 		var s_id = cur_shout.shouts_history_id;
+		
+		if ($('#shout_' + s_id).length != 0) {
+		  continue;
+		}
 		
 		to_add += '<div class="tweet" id="shout_' + s_id + '">';
 		
@@ -66,7 +72,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		
 		//alert(to_add);
 		
-		$('#panel_' + panel_id).find('.tweets').append(to_add);
+		$('#panel_' + panel_id).find('.tweets').prepend(to_add);
 		
 		$('#panel_' + panel_id).find('#shout_' + s_id).show();
 		

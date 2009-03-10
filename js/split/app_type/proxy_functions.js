@@ -67,10 +67,20 @@ function proxy_get_session_panels() {
 			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
 			} else if (pan_type == 'search') {
 			  var pan_data = js_get_search_panel(panel_id,pan_user,"_search");
+			} else if (pan_type == 'shizzow_panel') {
+			  var pan_data = js_get_shizzow_panel(panel_id,pan_user,'')
+			  //alert("shizzow panel!");
 			}
 			
 			set_up_panel(panel_id, pan_data, pan_user, '')
 			
+			if (pan_type == "shizzow_panel") {
+			  if (PROXY) {
+
+      		proxy_get_shizzow_favorites(panel_id);
+
+      	}
+			}
 			
 		}
 		

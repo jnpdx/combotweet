@@ -59,7 +59,7 @@ if ($func == 'get_panel') {
 	$new_panel->user = $panel_user;
 	$new_panel->pass = $panel_pass;
 	$new_panel->id = $panel_id;
-	$new_panel->panel_type = 'shizzow';
+	$new_panel->panel_type = 'shizzow_panel';
 	
 	$_SESSION['panels'][$panel_id] = $new_panel;
 	
@@ -126,7 +126,7 @@ if ($func == 'get_panel') {
 			
 		}
 		
-	} elseif ($panel_type == 'shizzow') {
+	} elseif ($panel_type == 'shizzow_panel') {
 		
 		$tweets = get_shizzow_shouts($tw_user,$tw_pass);
 		
