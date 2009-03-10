@@ -74,6 +74,8 @@ function bind_hashtag_links() {
     function(e) {
     
       var the_tag = e.target.text.substring(1);
+      
+      var tag_link = '<a target="_blank" href="http://tagal.us/tag/' + the_tag + '">#' + the_tag + '</a>';
     
       //alert("clicked");
     
@@ -83,10 +85,10 @@ function bind_hashtag_links() {
       
       TagalusAPI.api_call('tag/' + the_tag + '/show.json', {} ,function(data) {
       				if (data == null) {
-      				  $('#notify_content').html(TAGALUS_LINK + " doesn't have a definition for #" + the_tag + "<br/>" + get_definition_form_code());
+      				  $('#notify_content').html(TAGALUS_LINK + " doesn't have a definition for " + tag_link + "<br/>" + get_definition_form_code());
       				  $('#add_tagalus_tag_name').val(the_tag)
     				  } else {
-    				    $('#notify_content').html('<span class="small_label">' + TAGALUS_LINK + " defines #" + the_tag + " as:</span><br/>" + data.definition.the_definition + "<br/>" + get_definition_form_code());
+    				    $('#notify_content').html('<span class="small_label">' + TAGALUS_LINK + " defines " + tag_link + " as:</span><br/>" + data.definition.the_definition + "<br/>" + get_definition_form_code());
     				    $('#add_tagalus_tag_name').val(the_tag)
       				  
     				  }
