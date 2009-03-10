@@ -121,8 +121,6 @@ if (isset($_GET['search'])) {
 		<script type="text/javascript" src="js/split/app_type/proxy_functions.js"></script>
 		<script type="text/javascript" src="js/split/outside_code/date_parsing.js"></script>
 		<script type="text/javascript" src="js/split/tagalus_functions.js"></script>
-		
-		<script src="http://localtag:3000/javascripts/tagalus_api_interface.js" type="text/javascript"></script>
 	<?php endif; ?>
 	
 <title>ComboTweet</title>
