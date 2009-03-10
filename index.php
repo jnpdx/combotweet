@@ -272,7 +272,7 @@ if (isset($_GET['search'])) {
 			<p>Click on the <img src="images/Plus.png" alt="Plus"/> icon to open a panel for a new user.  ComboTweet uses OAuth by default, meaning you don't have to give your password to third parties - authentication is done directly with Twitter.</p>
 			<p>In the same window, you can (optionally) choose to enter an OpenID to save the state of ComboTweet.  If you choose to do this (click the <img src="images/Key.png" alt="Key"/>), first you will have to verify your OpenID.  After you have verified it, you can choose the <img src="images/Save.png" alt="Save"/> icon to save your open panels.  Next time you log in, you can associate your OpenID (<img src="images/Key.png" alt="Key"/>) and it will reload your open panels.</p>
 			<p>To open a search panel instead of a user panel, use the <img src="images/Magnifier.png" alt="Search"/> icon</p>
-			<p>To logout of ComboTweet, use the <img src="images/Cancel.png" alt="Close"/> icon - this will close all of your open panels.  Note: this will note delete data associated with your OpenID</p>
+			<p>To logout of ComboTweet, use the <img src="images/Cancel.png" alt="Close"/> icon - this will close all of your open panels.  Note: this will not delete data associated with your OpenID</p>
 		</div>
 
 			<div id="panels">
