@@ -109,6 +109,7 @@ function bind_hashtag_links() {
 
 function bind_hashtag_links() {
   
+  TagalusAPI.api_server = 'http://api.localtag:3000/';
   TagalusAPI.load_widget();
   TagalusAPI.add_buttons_to_elements('a.hashtag_link')
   //TagalusAPI.bind_to_clicks('a.hashtag_link')
