@@ -52,8 +52,6 @@ var PANEL_WIDTH = 500;
 //Add a hashtag automatically
 var ADD_HASHTAG = false;
 
-var TAGALUS_API_KEY = null;
-
 /******************************** END OPTIONS **********************************/
 
 var shizzow_data = null;  //for debugging
@@ -116,9 +114,7 @@ function update_settings() {
 		TABBED_PANELS = $('#tabbed_panels').attr('checked');
 		refresh_window();
 	}
-	
-	TAGALUS_API_KEY = $('#tagalus_api_key').val();
-	
+		
 	save_settings_in_cookie();
 	
 	show_settings_form();
@@ -152,9 +148,7 @@ function save_settings_in_cookie() {
 	settings += "ADD_HASHTAG=" + ADD_HASHTAG;
 	
 	settings += '&'
-	
-	settings += "TAGALUS_API_KEY=" + TAGALUS_API_KEY;
-	
+		
 	$.cookie('combotweet_settings',settings,{expires: 365})
 	
 }
@@ -183,8 +177,6 @@ function get_settings_in_cookie() {
 		} else if (vals[0] == 'PANEL_WIDTH') {
 			PANEL_WIDTH = parseInt(vals[1])
 			update_widths();
-		} else if (vals[0] == 'TAGALUS_API_KEY') {
-		  TAGALUS_API_KEY = vals[1];
 		} else if (vals[0] == 'DESTROY_TWEETS') {
 			if (vals[1] == 'false') {
 				DESTROY_TWEETS = false
