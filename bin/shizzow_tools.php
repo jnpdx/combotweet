@@ -3,7 +3,7 @@
 
 function get_shizzow_shouts($user,$pass) {
 	
-	$url = "https://v0.api.shizzow.com/shouts?who=listening";
+	$url = "https://v0.api.shizzow.com/shouts?who=listening&limit=20";
 
 	    $curl = curl_init($url);
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -19,7 +19,7 @@ function get_shizzow_shouts($user,$pass) {
 
 function get_shizzow_favorites($user,$pass) {
 	
-	$url = "https://v0.api.shizzow.com/people/$user/places/?favorites=true";
+	$url = "https://v0.api.shizzow.com/people/$user/places/?favorites=true&limit=50";
 
 	    $curl = curl_init($url);
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

@@ -47,7 +47,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 			
 		}
 		
-		to_add += cur_shout.people_name + " shouted from " + cur_shout.places_name;
+		to_add += cur_shout.people_name + ' shouted from <a href="" onclick="add_shizzow_place(' + "'" + panel_id + "'," + "'" + cur_shout.places_name + "'," + "'" + cur_shout.places_key + "'" + '); return false;">' + cur_shout.places_name + '</a>';
 		
 		if (shout_message != '') {
 			

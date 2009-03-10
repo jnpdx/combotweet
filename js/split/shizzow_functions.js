@@ -14,6 +14,19 @@ function send_shout(panel_id) {
 	
 }
 
+function add_shizzow_place(panel_id,place_name,place_key) {
+  
+  $('#panel_' + panel_id).find('.shizzow_favorites').append('<option value="' + place_key + '">' + place_name + '</option>')
+  $('#panel_' + panel_id).find('.shizzow_favorites').val(place_key)
+  $('#panel_' + panel_id).find('.tweet_input').focus();
+  
+  $.scrollTo( $('#panel_' + panel_id + ''), 20, {
+	
+		offset: { left: 0, top: -110 }
+	
+	} );
+  
+}
 
 //Make a new Shizzow panel
 function make_new_shizzow_panel(u,p) {
