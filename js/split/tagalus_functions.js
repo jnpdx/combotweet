@@ -1,3 +1,4 @@
+/*
 TAGALUS_LINK = '<a target="_blank" href="http://tagal.us/">Tagalus</a>';
 
 
@@ -49,7 +50,7 @@ function submit_tagalus_form() {
   //alert($('#add_tagalus_tag_name').val() + '' + $('#add_tagalus_definition_the_definition').val());
   //return;
   
-  
+  TagalusAPI.api_server = "http://api.localtag:3000/";
   TagalusAPI.api_call('definition/create.json', {
   				the_tag: user_tag,
   				the_definition: user_def,
@@ -82,7 +83,7 @@ function bind_hashtag_links() {
       show_loader();
       show_notify_window("Loading definition for #" + the_tag + " from Tagalus...",e);
     
-      
+      TagalusAPI.api_server = "http://api.localtag:3000/";
       TagalusAPI.api_call('tag/' + the_tag + '/show.json', {} ,function(data) {
       				if (data == null) {
       				  $('#notify_content').html(TAGALUS_LINK + " doesn't have a definition for " + tag_link + "<br/>" + get_definition_form_code());
@@ -103,4 +104,14 @@ function bind_hashtag_links() {
   );
 
 
+}
+*/
+
+function bind_hashtag_links() {
+  
+  //TagalusAPI.api_key = '12362056449a39b0373fca'
+  TagalusAPI.load_widget();
+  TagalusAPI.add_buttons_to_elements('a.hashtag_link')
+  //TagalusAPI.bind_to_clicks('a.hashtag_link')
+  
 }

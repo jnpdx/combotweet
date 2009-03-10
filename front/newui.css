@@ -727,10 +727,6 @@ div#startup_box img {
   
 }
 
-div#add_tagalus_definition {
-  margin-top: 10px;
-}
-
 span.small_label {
   
   font-weight: bold;
@@ -738,11 +734,3 @@ span.small_label {
   
 }
 
-input#add_tagalus_tag_name {
-  width: 90%;
-}
-
-textarea#add_tagalus_definition_the_definition {
-  width: 90%;
-  height: 100px;
-}

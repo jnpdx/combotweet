@@ -96,6 +96,8 @@ if (isset($_GET['search'])) {
 	
 	<script type="text/javascript" src="js/httpauth.js"></script>
 	<script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
+	<script src="http://tagal.us/javascripts/tagalus_api_interface.js" type="text/javascript"></script>
+	
 
 	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.com"): ?>
 		<script type="text/javascript" src="js/compiledcode.js?v=<?=VERSION?>"></script>
@@ -127,6 +129,7 @@ if (isset($_GET['search'])) {
 
 <?php if (!$GLOBALS['mobile']): ?>
 	<?php if ($_SERVER['HTTP_HOST'] != "combotweet.com"): ?>
+		<link href="http://localtag:3000/stylesheets/tagalus_widget.css" media="screen, projection" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript">
 		 //<![CDATA[
 		
