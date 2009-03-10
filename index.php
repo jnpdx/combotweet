@@ -244,7 +244,7 @@ if (isset($_GET['search'])) {
 				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
 				<label>Font size (%):</label><input type="text" id="font_size"/><br class="clear_both"/>
 				<label>Panel width (px):</label><input type="text" id="panel_width"/><br class="clear_both"/>
-				<label>Tagalus API Key:</label><input type="text" id="tagalus_api_key"/><br class="clear_both"/>
+				<label>Tagalus API Key <a target="_blank" href="http://blog.tagal.us/api-documentation/">(?)</a>:</label><input type="text" id="tagalus_api_key"/><br class="clear_both"/>
 				
 				<input id="update_settings_button" type="submit" value="Save" />
 			</form>
@@ -277,7 +277,7 @@ if (isset($_GET['search'])) {
 				
 			</div>
 	
-			<div id="notify_overlay" onclick="hide_notify_window()"></div><div id="notify_window"><img src="images/Cancel.png" id="notify_close_button" onclick="hide_notify_window()" alt="Close" title="Close window" /><div id="notify_content"></div></div>
+			<div id="notify_overlay" onclick="hide_notify_window()"></div><div id="notify_window"><img src="images/Cancel.png" id="notify_close_button" onclick="hide_open_windows()" alt="Close" title="Close window" /><div id="notify_content"></div></div>
 	
 	
 </div>

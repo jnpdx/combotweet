@@ -13,14 +13,31 @@ function follow_link(l) {
 	
 }
 
+function show_overlay() {
+  
+  $('#notify_overlay').css('opacity','0.5');
+	$('#notify_overlay').css('height',$(document).height());
+	
+	$('#notify_overlay').show();
+  
+}
+
+function hide_overlay() {
+  $('#notify_overlay').hide();
+	
+}
+
+function hide_open_windows() {
+  hide_notify_window();
+  $('#settings_form:visible').hide();
+  $('#login_form:visible').hide();
+}
+
 //Shows a notification window
 //Right now, this is a lightbox style window w/dropshaddow
 function show_notify_window(html, click_event) {
 	
-	$('#notify_overlay').css('opacity','0.5');
-	$('#notify_overlay').css('height',$(document).height());
-	
-	$('#notify_overlay').show();
+  show_overlay();
 	
 	var win_left = ($(window).width() / 2) - 200;
 	var win_top = $(window).scrollTop() + 50;
@@ -45,7 +62,8 @@ function show_notify_window(html, click_event) {
 //Hides the notification window
 function hide_notify_window() {
 	
-	$('#notify_overlay').hide();
+
+	hide_overlay();
 	
 	$('#notify_content').html('');
 	
