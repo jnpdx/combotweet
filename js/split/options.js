@@ -155,7 +155,7 @@ function save_settings_in_cookie() {
 	
 	settings += "TAGALUS_API_KEY=" + TAGALUS_API_KEY;
 	
-	$.cookie('combotweet_settings',settings)
+	$.cookie('combotweet_settings',settings,{expires: 365})
 	
 }
 

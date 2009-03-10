@@ -3,7 +3,7 @@ TAGALUS_LINK = '<a target="_blank" href="http://tagal.us/">Tagalus</a>';
 
 function get_definition_form_code() {
   if ((TAGALUS_API_KEY == null) || (TAGALUS_API_KEY == '')) {
-    return "";
+    return '<span class="small_label">You can add a definition to Tagalus if you <a href="http://blog.tagal.us/api-documentation/">enter a Tagalus API key</a></span>';
   }
   
   add_definition_form_code = '<div id="add_tagalus_definition">'
@@ -34,8 +34,16 @@ function submit_tagalus_form() {
   
   var user_tag = $('#add_tagalus_tag_name').val();
   var user_def = $('#add_tagalus_definition_the_definition').val();
-  
   hide_notify_window();
+  
+  
+  if ((user_tag == '') || (user_def == '')) {
+    
+    alert("You must enter both a tag and a definition");
+    return;
+    
+  }
+  
   
   
   //alert($('#add_tagalus_tag_name').val() + '' + $('#add_tagalus_definition_the_definition').val());
@@ -81,6 +89,8 @@ function bind_hashtag_links() {
       				  $('#add_tagalus_tag_name').val(the_tag)
     				  } else {
     				    $('#notify_content').html('<span class="small_label">' + TAGALUS_LINK + " defines #" + the_tag + " as:</span><br/>" + data.definition.the_definition + "<br/>" + get_definition_form_code());
+    				    $('#add_tagalus_tag_name').val(the_tag)
+      				  
     				  }
     				  hide_loader();
       			});
