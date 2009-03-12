@@ -20,6 +20,8 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 	
 	data.results.shouts.reverse();
 	
+	pan = get_panel_by_id(panel_id);
+	
 	for (i in data.results.shouts) {
 		
 		var to_add = "";
@@ -33,7 +35,11 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		  continue;
 		}
 		
-		to_add += '<div class="tweet" id="shout_' + s_id + '">';
+		cur_shout['id'] = cur_shout.shouts_history_id;
+		
+		pan.panel_data.push(cur_shout);
+		
+		to_add += '<div class="tweet shout" id="shout_' + s_id + '">';
 		
 		to_add += '<div class="avatar_container"><img class="avatar" src="' + data.results.shouts[i].people_images.people_image_48 + '" alt="Avatar"/></div>';
 		
@@ -78,7 +84,10 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		
 	}
 	
+	save_panel(panel_id,pan);
 	
+	
+	update_times(panel_id);
 	
 	//alert(data.results.shouts);
 	
