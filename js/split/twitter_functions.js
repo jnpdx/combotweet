@@ -354,11 +354,11 @@ function auto_update_tweets() {
 		
 		for(i in tw_panels) {
 			
-			if (tw_panels[i].panel_type != "shizzow_panel") {
+			//if (tw_panels[i].panel_type != "shizzow_panel") {
 			
 				get_tweets(tw_panels[i].panel_id,tw_panels[i].tweet_type,1);
 			
-			}
+			//}
 			
 		}
 		
