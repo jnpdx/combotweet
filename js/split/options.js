@@ -51,6 +51,8 @@ var TABBED_PANELS = false;
 var PANEL_WIDTH = 500;
 //Add a hashtag automatically
 var ADD_HASHTAG = false;
+//Display URL shortener
+var SHOW_URL_SHORTNER = false;
 
 /******************************** END OPTIONS **********************************/
 
@@ -77,6 +79,17 @@ function update_settings() {
 	
 	if ( parseInt($('#refresh_freq').val()) != NaN) {
 		UPDATE_FREQ = parseInt($('#refresh_freq').val()) * 1000;
+	}
+	
+	SHOW_URL_SHORTENER = $('#show_url_shortener').attr('checked');
+	
+	if (SHOW_URL_SHORTENER == false) {
+	  $('.url_shortener_container').hide();
+	  //alert("nope")
+	} else {
+	  
+	  $('.add_hashtag').css('display','normal')
+	  $('.url_shortener_container').show();
 	}
 	
 	DESTROY_TWEETS = $('#remove_old_tweets').attr('checked');

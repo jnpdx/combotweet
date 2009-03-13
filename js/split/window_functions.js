@@ -255,6 +255,31 @@ function hide_loader() {
 	
 }
 
+function shorten_url(panel_id) {
+  
+  url_to_shorten = $('#panel_' + panel_id).find('.url_shortener').val();
+  
+  $.getJSON("http://tr.im/api/trim_url.json?url=" + url_to_shorten + "&callback=?",
+  
+    function(data) {
+      
+      if (data.status.result == "ERROR") {
+        
+        alert("There was an error shortening your URL.  Please check that it is valid.");
+        return;
+        
+      }
+      
+      shortened_url = data.url;
+      
+      $('#panel_' + panel_id).find('.url_shortener').val(shortened_url);
+      
+    }
+    
+    );
+  
+}
+
 //Lets the user know how many more characters are available
 function length_notify(panel_id) {
 	

@@ -328,14 +328,15 @@ textarea.tweet_input {
   
 }
 
-input.tweet_submit {
+input.tweet_submit, input.url_shortener_submit {
 	
 	float: right;
-	width: 200px;
-	height: 40px;
+	width: 160px;
 	margin-top: 4px;
 	
 }
+
+
 
 /* nav */
 
@@ -752,5 +753,11 @@ div.login_hr {
   height: 3px;
   background: #999;
   margin: 10px auto;
+  
+}
+
+div.url_shortener_container {
+  
+  display: none;
   
 }
