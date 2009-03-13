@@ -330,6 +330,7 @@ function proxy_save_state(openid) {
       func: "save_state",
     }, function (data,textStatus) {
     hide_loader();
+    alert("Your open panels have been saved.");
   },'json');
   
   return '';

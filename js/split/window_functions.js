@@ -172,7 +172,7 @@ function follow_user_window(user_name) {
 	
 	for (i in tw_panels) {
 		
-		if (tw_panels[i].panel_type != "search_panel") {
+		if (tw_panels[i].panel_type == "regular") {
 			
 			user_panels.push(tw_panels[i]);
 			
@@ -271,8 +271,8 @@ function length_notify(panel_id) {
 	
 	if (chars_typed >= 140) {
 		
-		input_box.val(input_box.val().substring(0,140));
-		chars_typed = max_length;
+		//input_box.val(input_box.val().substring(0,140));
+		//chars_typed = max_length;
 		
 	}
 	
