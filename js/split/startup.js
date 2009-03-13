@@ -36,7 +36,9 @@ function doc_ready_functions() {
 	  
 	}
 	
-	setTimeout("hide_flash_message()",5000);
+	if ($('#flash_message').length != 0) {
+	  setTimeout("hide_flash_message()",5000);
+	}
 	
 	if (window.request_panes != undefined) {
 		

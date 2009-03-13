@@ -288,17 +288,22 @@ if (isset($_GET['search'])) {
 
 	<div id="canvas">
 
-		<div id="flash_message">
+		
 		<?php 
 			if (isset($_SESSION['flash_message']))  { 
-				echo $_SESSION['flash_message'];
-				unset($_SESSION['flash_message']);
+				
+				?>
+				<div id="flash_message">
+					<?=$_SESSION['flash_message'];?>
+					<img id="close_flash_message" class="close_panel" title="Close this message" alt="Close Message" onclick="hide_flash_message()" src="images/Cancel.png"/>
+				</div>
+				<?php
+					unset($_SESSION['flash_message']);
 		 	} else {
-				echo "Welcome!";
+				//echo "Welcome!";
 			}
 		?>
-		<img id="close_flash_message" class="close_panel" title="Close this message" alt="Close Message" onclick="hide_flash_message()" src="images/Cancel.png"/>
-		</div>
+		
 
 		<div id="startup_box">
 			<p><strong>Welcome to ComboTweet!</strong></p>
