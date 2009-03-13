@@ -291,7 +291,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			tweet_div += '<input type="hidden" class="tweet_id" value="' + tweet.id + '"/>';
 			
 			
-			tweet_div += '<a class="user_name" onclick="return display_twitter_user(\'' + from_sn + '\');" href="">' + from_sn + "</a>: ";
+			tweet_div += '<a class="user_name" onclick="return display_twitter_user(\'' + from_sn + '\');" href="http://twitter.com/' + from_sn + '">' + from_sn + "</a>: ";
 		
 		
 			var tweet_text = parse_tweet(tweet.text);

@@ -78,6 +78,8 @@ function display_twitter_user(user) {
 	
 	var user_info = '';
 	
+	show_loader();
+	
 	if (PROXY) {
 		user_info = proxy_get_twitter_user_info(user);
 	}
@@ -85,6 +87,8 @@ function display_twitter_user(user) {
 	if (XS) {
 		user_info = js_get_twitter_user_info(user);
 	}
+	
+	hide_loader();
 	
 	var info_div = '';
 	
@@ -121,19 +125,44 @@ function display_twitter_user(user) {
 
 //Displays a user's tweets
 function display_user_tweets(data, container) {
-	var tweets_html = '<ul>';
+	var tweets_html = '';
 
-
+  $('#notify_window').width(PANEL_WIDTH);
 
 	for (i = 0; i < data.length; i ++) {
 	
-		tweets_html += '<li>' + parse_tweet(data[i].text) + '</li>';
+	  tweet = data[i];
+	  
+	  tweets_html += '<div class="tweet" style="display: block">'
+	  
+	  tweets_html += '<div class="avatar_container"><img class="avatar" src="' + tweet.user.profile_image_url + '" alt="Avatar"/></div>';
+		
+	  tweets_html += '<div class="the_tweet">'
+		
+		tweet_text = parse_tweet(tweet.text);
+		
+		tweets_html += '<span class="tweet_text">' + tweet_text + '</span>';
+	
+		tweets_html += '<span class="tweet_meta">';
+	
+		var created_date = new Date(tweet.created_at);
+		
+		from_sn = tweet.user.screen_name;
+	
+		tweets_html += '<span id="tweet_time_' + tweet.id + '">' + '<a href="http://twitter.com/' + from_sn + '/status/' + tweet.id + '" target="_blank">' + get_time_text(cur_date,created_date) + "</a></span>";
+		
+		tweets_html += '</span>'
+		
+		tweets_html += '</div>'
+		tweets_html += '</div>'
+		tweets_html += '<br class="clear_both"/>'
 	
 	}
 
-	tweets_html += "</ul>"
+	tweets_html += "";
 
 	container.append(tweets_html);
+	
 }
 
 //Displays a window asking which acct to use to follow a user
