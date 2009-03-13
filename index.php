@@ -101,7 +101,7 @@ if (isset($_GET['search'])) {
 	<script src="http://tagal.us/javascripts/tagalus_api_interface.js" type="text/javascript"></script>
 	
 
-	<?php if ($_SERVER['HTTP_HOST'] == "combotweet.com"): ?>
+	<?php if (strpos($_SERVER['HTTP_HOST'],"combotweet.com") !== FALSE): ?>
 		<script type="text/javascript" src="js/compiledcode.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
 		<script type="text/javascript" src="js/split/data_parsing.js"></script>
