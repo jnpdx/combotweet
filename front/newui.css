@@ -416,7 +416,7 @@ img.close_panel {
 	cursor: pointer;
 }
 
-img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, img#add_account_button, input#load_state_button, input#save_state_button {
+img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, img#add_account_button, img#load_state_button, img#save_state_button {
 	
 	width: 32px;
 	height: 32px;
@@ -734,3 +734,23 @@ span.small_label {
   
 }
 
+div#flash_message {
+  z-index: 1000;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.8;
+  color: white;
+  background: red;
+}
+
+div.login_hr {
+  
+  width: 70%;
+  height: 3px;
+  background: #999;
+  margin: 10px auto;
+  
+}

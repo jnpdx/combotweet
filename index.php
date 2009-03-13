@@ -1,7 +1,7 @@
 <?php
 ////////
 
-define( 'VERSION', '0010' );
+define( 'VERSION', '0011' );
 
 ////////
 if ($_SERVER['HTTP_HOST'] != "combotweet.com") {
@@ -21,6 +21,8 @@ if (!isset($_SESSION)) {
 }
 
 $a = trim($_SERVER['REQUEST_URI'],'/');
+
+$rpx_token = 'http://'.$_SERVER['HTTP_HOST'].'/rpx/token.php';
 
 $addr = '';
 
@@ -150,10 +152,11 @@ if (isset($_GET['search'])) {
 
 </head>
 <body>
-			<div id="header">
+	<div id="header">
 				
 				<div id="identifier">
 					<h1>ComboTweet</h1>
+					
 					<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.  <strong><a href="about">Learn more</a>.  <a href="http://blog.combotweet.com/">Blog</a></strong></span>
 					<br class="clear_both"/>
 				</div>
@@ -209,16 +212,35 @@ if (isset($_GET['search'])) {
 			<br/>
 			<p>You can also <a href="oauth_start_login">login using OAuth (Beta)</a></p>
 		-->
-			<a href="oauth_start_login">Log in to another account (OAuth)
-			<img src="images/Plus.png" id="add_account_button" alt="Add an Account" title="Add Account"/></a>
+			<a href="oauth_start_login"><img src="images/Plus.png" id="add_account_button" alt="Add an Account" title="Add Account"/> Log in to another account (OAuth)
+			</a>
 			<br/>
+			<div class="login_hr">&nbsp;</div>
+			<!-->
 			<form method="post" id="save_state" action="bin/openid_tools.php" ><fieldset>
 				Save your open panels (using an OpenID):<br/>
 			<input type="text" id="openid_identifier" name="openid_identifier" value=""/>
 			<input type="image" name="openid_action" src="images/Key.png" id="load_state_button" value="load" onclick="load_state(); return false;" />
 			<input type="image" name="openid_action" src="images/Save.png" id="save_state_button" value="login" onclick="save_state_submit(); return false;" style="display: none;"/>
 			</fieldset></form>
+			-->
+			
+			<?php if (!isset($_SESSION['user_openid'])): ?>
+			<a class="rpxnow" onclick="return false;"
+			   href="https://combotweet.rpxnow.com/openid/v2/signin?token_url=<?=$rpx_token?>">
+			<img src="images/Key.png" id="load_state_button" value="load" />
+			  Sign In (to be able to save open panels)
+			</a>
+			<?php else: ?>
+			<a href="" onclick="save_state_submit(); return false;">
+			<img src="images/Save.png" id="save_state_button" value="login" />
+			  Save state
+			</a>
+			<?php endif; ?>
+			
 			<br/>
+			
+			<div class="login_hr">&nbsp;</div>
 			
 			
 			
@@ -266,6 +288,18 @@ if (isset($_GET['search'])) {
 
 	<div id="canvas">
 
+		<div id="flash_message">
+		<?php 
+			if (isset($_SESSION['flash_message']))  { 
+				echo $_SESSION['flash_message'];
+				unset($_SESSION['flash_message']);
+		 	} else {
+				echo "Welcome!";
+			}
+		?>
+		<img id="close_flash_message" class="close_panel" title="Close this message" alt="Close Message" onclick="hide_flash_message()" src="images/Cancel.png"/>
+		</div>
+
 		<div id="startup_box">
 			<p><strong>Welcome to ComboTweet!</strong></p>
 			<p>ComboTweet is in Beta, and early Beta at that - we're working quickly to add features.  Please tweet at @jnpdx or @combotweet for help, requests, bug reports, etc.  You can also visit the <a href="http://blog.combotweet.com/">ComboTweet blog</a>.  Source code is <a href="http://github.com/jnpdx/combotweet">available on GitHub</a>.</p>
@@ -291,6 +325,16 @@ if (isset($_GET['search'])) {
 </div>
 
 <?php include 'bin/tracking.php' ?>
+
+<script src="https://rpxnow.com/openid/v2/widget"
+        type="text/javascript"></script>
+<script type="text/javascript">
+  RPXNOW.token_url = "<?=$rpx_token?>";
+  RPXNOW.realm = "combotweet";
+  RPXNOW.overlay = true;
+  RPXNOW.language_preference = 'en';
+</script>
+
 
 </body>
 </html>

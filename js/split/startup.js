@@ -11,6 +11,12 @@ $(document).ready(function() {
 	
 });
 
+function hide_flash_message() {
+  
+  $('#flash_message').fadeOut('slow')
+  
+}
+
 //Startup functions
 //Loads the session panels, and starts the auto_update routines to refresh tweets
 //Adding search panels seems buggy
@@ -29,6 +35,8 @@ function doc_ready_functions() {
 	  $('#openid_identifier').attr('disabled','true');
 	  
 	}
+	
+	setTimeout("hide_flash_message()",5000);
 	
 	if (window.request_panes != undefined) {
 		
