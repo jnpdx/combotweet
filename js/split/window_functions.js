@@ -39,8 +39,8 @@ function show_notify_window(html, click_event) {
 	
   show_overlay();
 	
-	var win_left = ($(window).width() / 2) - 200;
-	var win_top = $(window).scrollTop() + 50;
+	var win_left = $(window).scrollLeft() + 100;
+	var win_top = $(window).scrollTop() + 150;
 	
 	if (click_event != undefined) {
 	  win_left = click_event.pageX;

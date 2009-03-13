@@ -53,7 +53,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 			
 		}
 		
-		to_add += cur_shout.people_name + ' shouted from <a href="" onclick="add_shizzow_place(' + "'" + panel_id + "'," + "'" + cur_shout.places_name + "'," + "'" + cur_shout.places_key + "'" + '); return false;">' + cur_shout.places_name + '</a>';
+		to_add += '<a href="http://shizzow.com/people/' + cur_shout.people_name + '" target="_blank">' + cur_shout.people_name + '</a> shouted from <a href="" onclick="add_shizzow_place(' + "'" + panel_id + "'," + "'" + cur_shout.places_name + "'," + "'" + cur_shout.places_key + "'" + '); return false;">' + cur_shout.places_name + '</a>';
 		
 		if (shout_message != '') {
 			
@@ -251,7 +251,11 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				
 				} else {
 					
-					profile_image_url = tweet.sender.profile_image_url;
+					if (tweet.sender_screen_name != panel_id) {
+					  profile_image_url = tweet.sender.profile_image_url;
+					} else {
+					  profile_image_url = tweet.recipient.profile_image_url;
+					}
 					
 				}
 				
@@ -310,6 +314,8 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			if (!is_search) {
 				if (type != 'direct') {
 					tweet_div += 'from ' + tweet.source;
+				} else if (type == 'direct') {
+				  tweet_div += 'to ' + tweet.recipient_screen_name;
 				}
 			}
 		
