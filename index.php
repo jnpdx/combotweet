@@ -228,7 +228,7 @@ if (isset($_GET['search'])) {
 			<?php if (!isset($_SESSION['user_openid'])): ?>
 			<a class="rpxnow" onclick="return false;"
 			   href="https://combotweet.rpxnow.com/openid/v2/signin?token_url=<?=$rpx_token?>">
-			<img src="images/Key.png" id="load_state_button" value="load" />
+			<img src="images/Key.png" id="load_state_button" alt="Load" />
 			  Sign In (to be able to save open panels)
 			</a>
 			<?php else: ?>

@@ -87,7 +87,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 	save_panel(panel_id,pan);
 	
 	
-	update_times(panel_id);
+	//update_times(panel_id);
 	
 	//alert(data.results.shouts);
 	
