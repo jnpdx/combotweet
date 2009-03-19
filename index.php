@@ -72,7 +72,7 @@ if (isset($_GET['search'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 
 	<script type="text/javascript">
@@ -242,7 +242,10 @@ if (isset($_GET['search'])) {
 			
 			<div class="login_hr">&nbsp;</div>
 			
+			<fb:login-button onlogin="myfunc();"></fb:login-button>
 			
+			
+			<div class="login_hr">&nbsp;</div>
 			
 			<a href="" onclick="$('#old_login_form').show(); return false;" style="font-size: .9em; display: block;">(Show old login form)</a>
 			<form id="old_login_form" onsubmit="make_new_panel();return false;" action="" method="post" style="display: none;">
