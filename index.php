@@ -247,7 +247,7 @@ if (isset($_GET['search'])) {
 			
 			<div class="login_hr">&nbsp;</div>
 			
-			<fb:login-button onlogin="fb_login();"></fb:login-button>
+			Open a Facebook panel: <fb:login-button onlogin="fb_login();"></fb:login-button>
 			
 			<div class="login_hr">&nbsp;</div>
 			

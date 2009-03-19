@@ -61,10 +61,10 @@ function fb_get_statuses(panel_id) {
   FACEBOOK_API.requireLogin(function(exception){ 
 		//console.log("Exception: " + exception)
 
-		FACEBOOK_API.fql_query ("select uid,name,pic_small, status FROM user WHERE (uid in (select uid2 from friend where uid1 = " + fb_uid + ")) order by status.time DESC LIMIT 20", function(data) {
+		FACEBOOK_API.fql_query ("select uid,name,pic_small, status FROM user WHERE uid = " + fb_uid + " OR (uid in (select uid2 from friend where uid1 = " + fb_uid + ")) order by status.time DESC LIMIT 20", function(data) {
 			to_add = '';
 	
-			console.log(data)
+			//console.log(data)
 	
 			for (i in data) {
 				//to_ret += '<img src="' + data[i].pic_small + '"/>' + data[i].name + ": " + data[i].status.message + "<br/>";
@@ -95,7 +95,7 @@ function fb_get_statuses(panel_id) {
     		to_add += '</div>';
 			}
 	
-			$('#panel_' + panel_id).find('.tweets').append( to_add );
+			$('#panel_' + panel_id).find('.tweets').prepend( to_add );
 	
 	    $('#panel_' + panel_id).find('.tweet').show();
 	

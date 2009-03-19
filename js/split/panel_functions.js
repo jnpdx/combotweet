@@ -403,6 +403,12 @@ function get_panel_user_name(panel_id) {
 		
 	}
 	
+	if (panel_id.indexOf("Facebook_") != -1) {
+	  
+	  return "Facebook";
+	  
+	}
+	
 	return panel_id;
 	
 	/*
