@@ -37,34 +37,71 @@ function make_new_facebook_panel() {
 	
 	set_up_panel(new_id,panel_code,'__fb','__fb');
 	
+	
+	
+}
+
+function fb_login() {
+  toggle_login_form();
+  FACEBOOK_API.requireLogin(function(exception){ 
+	    window.fb_uid = FACEBOOK_API.get_session().uid;
+	    make_new_facebook_panel();
+	  });
+	  
+  
 }
 
 function fb_get_statuses(panel_id) {
   
-  alert("made it");
+  //alert("made it");
   
-  FACEBOOK_API.requireLogin(function(exception){ 
     
-    alert("made it2");
+  //alert("made it2");
   	
-		console.log("Exception: " + exception)
-		window.uid = FACEBOOK_API.get_session().uid;
+  FACEBOOK_API.requireLogin(function(exception){ 
+		//console.log("Exception: " + exception)
 
-		FACEBOOK_API.fql_query ("select uid,name,pic_small, status FROM user WHERE (uid in (select uid2 from friend where uid1 = " + uid + ")) order by status.time DESC LIMIT 20", function(data) {
-			to_ret = '';
+		FACEBOOK_API.fql_query ("select uid,name,pic_small, status FROM user WHERE (uid in (select uid2 from friend where uid1 = " + fb_uid + ")) order by status.time DESC LIMIT 20", function(data) {
+			to_add = '';
 	
 			console.log(data)
 	
 			for (i in data) {
-				to_ret += '<img src="' + data[i].pic_small + '"/>' + data[i].name + ": " + data[i].status.message + "<br/>";
+				//to_ret += '<img src="' + data[i].pic_small + '"/>' + data[i].name + ": " + data[i].status.message + "<br/>";
+				var cur_status = data[i];
+				
+				if ($('#status_' + cur_status.status.time).length != 0) {
+				  continue;
+				}
+				
+				if (cur_status.status.message == '') {
+				  continue;
+				}
+				
+				//alert(cur_status);
+				
+			  to_add += '<div class="tweet fb_status" id="status_' + cur_status.status.time + '">';
+
+    		to_add += '<div class="avatar_container"><img class="avatar" src="' + cur_status.pic_small + '" alt="Avatar"/></div>';
+
+    		to_add += '<div class="the_tweet">';
+    		
+    		to_add += cur_status.name + ": " + cur_status.status.message;
+    		
+    		to_add += '</div>';
+    		
+    		to_add += '<br class="clear_both"/>'
+    		
+    		to_add += '</div>';
 			}
 	
-			$('#panel_' + panel_id).find('.tweets').append( to_ret );
+			$('#panel_' + panel_id).find('.tweets').append( to_add );
+	
+	    $('#panel_' + panel_id).find('.tweet').show();
 	
 		})
 
-
-	} );
+  });
 	
   
   

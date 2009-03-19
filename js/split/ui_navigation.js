@@ -141,6 +141,12 @@ function show_login_form() {
 	);
 }
 
+function toggle_login_form() {
+  
+  show_login_form();
+  
+}
+
 function show_settings_form() {
 	
 	$('#settings_form').css('left',$(window).width() - 600)
