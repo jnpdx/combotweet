@@ -158,7 +158,9 @@ if (isset($_GET['search'])) {
 	<div id="header">
 				
 				<div id="identifier">
+					
 					<h1>ComboTweet</h1>
+					
 					
 					<span id="header_desc">An AJAX-powered Twitter client that lets you use multiple accounts simultaneously.  <strong><a href="about">Learn more</a>.  <a href="http://blog.combotweet.com/">Blog</a></strong></span>
 					<br class="clear_both"/>
@@ -246,7 +248,7 @@ if (isset($_GET['search'])) {
 			<div class="login_hr">&nbsp;</div>
 			
 			<fb:login-button onlogin="myfunc();"></fb:login-button>
-			
+			<a href="" onclick="make_new_facebook_panel(); return false;">New FB panel</a>
 			
 			<div class="login_hr">&nbsp;</div>
 			
@@ -313,6 +315,7 @@ if (isset($_GET['search'])) {
 		
 
 		<div id="startup_box">
+			
 			<p><strong>Welcome to ComboTweet!</strong></p>
 			<p>ComboTweet is in Beta, and early Beta at that - we're working quickly to add features.  Please tweet at @jnpdx or @combotweet for help, requests, bug reports, etc.  You can also visit the <a href="http://blog.combotweet.com/">ComboTweet blog</a>.  Source code is <a href="http://github.com/jnpdx/combotweet">available on GitHub</a>.</p>
 			<p>Click on the <img src="images/Plus.png" alt="Plus"/> icon to open a panel for a new user.  ComboTweet uses OAuth by default, meaning you don't have to give your password to third parties - authentication is done directly with Twitter.</p>

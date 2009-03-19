@@ -13,6 +13,11 @@ function get_tweets(panel_id,type,page_num) {
 	
 	var pan = get_panel_by_id(panel_id);
 
+  if (pan.panel_type == 'facebook_panel') {
+    fb_get_statuses(panel_id);
+    return;
+  }
+
 	show_loader();
 
 	var tweets = $('#panel_' + panel_id).find('.tweets');
