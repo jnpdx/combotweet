@@ -123,6 +123,7 @@ if (isset($_GET['search'])) {
 		<script type="text/javascript" src="js/split/app_type/proxy_functions.js"></script>
 		<script type="text/javascript" src="js/split/outside_code/date_parsing.js"></script>
 		<script type="text/javascript" src="js/split/tagalus_functions.js"></script>
+		<script type="text/javascript" src="js/split/facebook_functions.js"></script>
 	<?php endif; ?>
 	
 <title>ComboTweet</title>
@@ -152,6 +153,8 @@ if (isset($_GET['search'])) {
 
 </head>
 <body>
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+	
 	<div id="header">
 				
 				<div id="identifier">
