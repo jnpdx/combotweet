@@ -255,9 +255,11 @@ if (isset($_GET['search'])) {
 			<div class="login_hr">&nbsp;</div>
 			-->
 			
+			<!--
 			<a href="" onclick="open_filtered_panel_dialog(); return false;">Create a filtered panel</a>
 			
 			<div class="login_hr">&nbsp;</div>
+			-->
 			
 			<a href="" onclick="$('#old_login_form').show(); return false;" style="font-size: .9em; display: block;">(Show old login form)</a>
 			<form id="old_login_form" onsubmit="make_new_panel();return false;" action="" method="post" style="display: none;">
