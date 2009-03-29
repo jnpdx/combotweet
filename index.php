@@ -92,6 +92,8 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
 
+	<script type="text/javascript" src='js/json2.js'></script>
+
 	<script type="text/javascript" src='js/jquery.cookie.js'></script>
 	<script type="text/javascript" src="js/shortcut.js"></script>
 	<script type="text/javascript" src="js/jquery.scrollTo-1.4.0-min.js"></script>
@@ -252,6 +254,10 @@ if (isset($_GET['search'])) {
 			
 			<div class="login_hr">&nbsp;</div>
 			-->
+			
+			<a href="" onclick="open_filtered_panel_dialog(); return false;">Create a filtered panel</a>
+			
+			<div class="login_hr">&nbsp;</div>
 			
 			<a href="" onclick="$('#old_login_form').show(); return false;" style="font-size: .9em; display: block;">(Show old login form)</a>
 			<form id="old_login_form" onsubmit="make_new_panel();return false;" action="" method="post" style="display: none;">

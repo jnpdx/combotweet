@@ -23,6 +23,10 @@ function Data_Panel(pan_id,type,t_user,t_pass,info) {
 	
 	this.tweet_display_limit = TWEET_DISPLAY_LIMIT;
 	
+	//derivative stuff
+	this.derivative_panels = new Array();
+	this.filter_rules = null;
+	
 }
 
 //Object for plugin

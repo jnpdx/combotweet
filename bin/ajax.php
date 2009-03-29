@@ -249,7 +249,11 @@ if ($func == 'get_panel') {
 		
 	}
 	
-	echo json_encode($json_panels);
+	if (!isset($_SESSION['panels_data'])) {
+		$_SESSION['panels_data'] = "";
+	}
+	
+	echo json_encode(array('panels' => $json_panels, 'panels_data' => stripslashes($_SESSION['panels_data'])));
 
 } elseif ($func == "remove_panel") {
 	
@@ -308,6 +312,7 @@ if ($func == 'get_panel') {
 	
 		$data = unserialize($data['state']);
 		$_SESSION['panels'] = $data['panels'];
+		$_SESSION['panels_data'] = $data['panels_data'];
 		
 		echo json_encode("LOADED_SAVED_STATE");
 	
@@ -319,6 +324,8 @@ if ($func == 'get_panel') {
 	
 	require_once 'db/db_functions.php';
 	
+	$_SESSION['panels_data'] = $_REQUEST['panels_data'];
+		
 	save_user($_SESSION['user_openid'],serialize($_SESSION));
 	
 	//save_user("test_user","test_data");
@@ -326,6 +333,7 @@ if ($func == 'get_panel') {
 	header("Content-type: text/javascript");
 	
 	echo json_encode("SAVED_USER");
+
 
 } elseif($func == 'logout') {
 	

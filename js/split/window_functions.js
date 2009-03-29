@@ -316,3 +316,8 @@ function length_notify(panel_id) {
   }
 	
 }
+
+function open_filtered_panel_dialog() {
+  
+
+}

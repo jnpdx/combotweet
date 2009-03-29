@@ -52,17 +52,10 @@ function show_save_state_form() {
 }
 
 function save_state_submit() {
-  entered_open_id = $('#openid_identifier').val();
-  
-  if (entered_open_id != user_openid) {
-    //they've entered a new value - let's check it
-    $("#save_state").submit(); 
-    return true;
-    
-  }
   
   save_to_openid();
   
+  hide_open_windows();
   
   return false;
 }

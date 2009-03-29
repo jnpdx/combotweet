@@ -54,9 +54,16 @@ function proxy_get_session_panels() {
 			$('#header_nav_buttons').show()	
 		}
 		
-		for (i in data) {
+		if (data.panels_data != '') {
 		  
-		  cur_panel = data[i];
+		  window.OLD_PANELS_DATA = JSON.parse(data.panels_data.replace('\"','"'));
+		  
+		}
+		
+		
+		for (i in data.panels) {
+		  
+		  cur_panel = data.panels[i];
 		  var panel_id = cur_panel.panel_id;
 		  var pan_type = cur_panel.panel_type;
 		  var pan_user = cur_panel.panel_user;
@@ -326,8 +333,15 @@ function proxy_send_shout(panel_id,shout,location) {
 function proxy_save_state(openid) {
   show_loader();
   
+  panels_data = tw_panels;
+  
+  for (i in panels_data) {
+    panels_data[i].panel_data = '';
+  }
+  
   $.post(URL_BASE + 'bin/ajax.php', {
       func: "save_state",
+      panels_data: JSON.stringify(panels_data),
     }, function (data,textStatus) {
     hide_loader();
     alert("Your open panels have been saved.");

@@ -58,6 +58,36 @@ function js_get_panel(panel_id, t_user, t_pass, gen_info) {
 		
 }
 
+function js_get_derivative_panel(panel_id) {
+  var panel_html = "";
+	
+	panel_html += '<div class="panel twitter_panel" id="panel_' + panel_id + '">';
+	panel_html += '<input type="hidden" class="panel_id" value="' + panel_id + '"/><input type="hidden" class="panel_user_name" value="' + t_user + '"/>';
+	panel_html += '<input type="hidden" class="panel_background" value="' + bg_img + '" /><input type="hidden" class="panel_background_color" value="' + bg_col + '" />';
+	panel_html += '<input type="hidden" class="panel_type" value="derivative_panel"/>';	
+
+	//panel_html += '<div class="twitter_inputs"><span class="dm_notify_box"></span><textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea><span class="add_hashtag">Add hashtag: </span><input type="text" class="add_hashtag" value=""/>'
+	
+	//panel_html += '<input type="button" class="tweet_submit" onclick="send_tweet(\'' + panel_id + '\')" value="Update Status"/><span class="length_notify_box" id="chars_left_panel_' + panel_id + '"></span><br class="clear_both"/></div>';
+	
+	
+	//panel_html += '<div class="url_shortener_container"><input type="button" value="Shorten" class="url_shortener_submit" onclick="shorten_url(\'' + panel_id + '\')"/>URL Shortener: <input class="url_shortener" type="text" id="panel_' + panel_id + '_url_shortener"/><br class="clear_both" /></div>'
+	
+	
+	//panel_html += '<div class="last_update"></div>';
+	//panel_html += '<div class="tweet_type_menu"><br class="clear_both"/><div class="tweet_type_button" id="panel_' + panel_id + '_regular" onclick="get_tweets(\'' + panel_id + '\',\'regular\',1)">Timeline</div><div class="tweet_type_button" id="panel_' + panel_id + '_replies" onclick="get_tweets(\'' + panel_id + '\',\'replies\',1)">Replies</div><div class="tweet_type_button" id="panel_' + panel_id + '_direct" onclick="get_tweets(\'' + panel_id + '\',\'direct\',1)">Direct messages</div><br class="clear_both" /></div>';
+
+	panel_html += '<div class="tweets"></div>';
+	//panel_html += '<div class="more_tweets" onclick="get_more_tweets(\'' + panel_id + '\'); return false;">Load more tweets...</div>';
+
+	panel_html += '</div>';
+	
+	
+	panel_html += '';
+	
+	return panel_html;
+}
+
 //Used in XS and PROXY situations now
 function js_get_search_panel(panel_id,t_user,t_pass) {
 	
