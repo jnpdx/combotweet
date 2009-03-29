@@ -3,7 +3,7 @@
 //alert('hi')
 
 FACEBOOK_API_KEY = '71e3796c250559a26a8771161e3f12de'; 
-FB_channel_path = 'fb/xd_receiver.htm';
+FB_channel_path = '/fb/xd_receiver.htm';
 
 function make_new_facebook_panel() {
 	
@@ -43,10 +43,17 @@ function make_new_facebook_panel() {
 
 function fb_login() {
   toggle_login_form();
+  FB.ensureInit(function() {
   FACEBOOK_API.requireLogin(function(exception){ 
+      console.log("EX: " + exception)
 	    window.fb_uid = FACEBOOK_API.get_session().uid;
+	    //FB.ensureInit(function() {
+          FB.Connect.showPermissionDialog('status_update');
+        //});
+      
 	    make_new_facebook_panel();
 	  });
+  });
 	  
   
 }

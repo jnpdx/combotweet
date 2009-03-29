@@ -247,9 +247,11 @@ if (isset($_GET['search'])) {
 			
 			<div class="login_hr">&nbsp;</div>
 			
+			<!-- 
 			Open a Facebook panel: <fb:login-button onlogin="fb_login();"></fb:login-button>
 			
 			<div class="login_hr">&nbsp;</div>
+			-->
 			
 			<a href="" onclick="$('#old_login_form').show(); return false;" style="font-size: .9em; display: block;">(Show old login form)</a>
 			<form id="old_login_form" onsubmit="make_new_panel();return false;" action="" method="post" style="display: none;">
