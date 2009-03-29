@@ -40,7 +40,7 @@ function doc_ready_functions() {
 	  setTimeout("hide_flash_message()",5000);
 	}
 	
-	init_facebook();
+	//init_facebook();
 	
 	
 	if (window.request_panes != undefined) {
