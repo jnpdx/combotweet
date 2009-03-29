@@ -58,13 +58,13 @@ function js_get_panel(panel_id, t_user, t_pass, gen_info) {
 		
 }
 
-function js_get_derivative_panel(panel_id) {
+function js_get_filtered_panel(panel_id) {
   var panel_html = "";
 	
 	panel_html += '<div class="panel twitter_panel" id="panel_' + panel_id + '">';
-	panel_html += '<input type="hidden" class="panel_id" value="' + panel_id + '"/><input type="hidden" class="panel_user_name" value="' + t_user + '"/>';
-	panel_html += '<input type="hidden" class="panel_background" value="' + bg_img + '" /><input type="hidden" class="panel_background_color" value="' + bg_col + '" />';
-	panel_html += '<input type="hidden" class="panel_type" value="derivative_panel"/>';	
+	panel_html += '<input type="hidden" class="panel_id" value="' + panel_id + '"/><input type="hidden" class="panel_user_name" value="' + '' + '"/>';
+	//panel_html += '<input type="hidden" class="panel_background" value="' + bg_img + '" /><input type="hidden" class="panel_background_color" value="' + bg_col + '" />';
+	panel_html += '<input type="hidden" class="panel_type" value="filtered_panel"/>';	
 
 	//panel_html += '<div class="twitter_inputs"><span class="dm_notify_box"></span><textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea><span class="add_hashtag">Add hashtag: </span><input type="text" class="add_hashtag" value=""/>'
 	

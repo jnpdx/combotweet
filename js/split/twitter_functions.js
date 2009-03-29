@@ -9,9 +9,15 @@ function get_tweets(panel_id,type,page_num) {
 		return;
 		
 	}
-	
+
 	
 	var pan = get_panel_by_id(panel_id);
+
+	if (pan.panel_type == 'filtered_panel') {
+	  
+	  return;
+	  
+	}
 
   if (pan.panel_type == 'facebook_panel') {
     fb_get_statuses(panel_id);

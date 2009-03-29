@@ -448,7 +448,47 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		update_widths();
 		
+		if (type == 'regular') {
+		  parse_filtered_tweets(panel_id,page_num,data)
+		}
+		
 	
+}
+
+function parse_filtered_tweets(panel_id,page_num,data) {
+  
+  var pan = get_panel_by_id(panel_id)
+  
+  
+  
+  for (i in pan.derivative_panels) {
+    
+    //filter the data
+    console.log("parsing")
+    
+    d_panel = get_panel_by_id(pan.derivative_panels[i]);
+    
+    tweets_data = new Array();
+    
+    if (d_panel.filter_rules == null) {
+      console.log("no filter rules")
+      continue;
+    }
+    
+    if (d_panel.filter_rules['users'] != undefined) {
+      tweets_data = $.grep(data, function(d) {
+        console.log("comparing " + d.user.screen_name)
+        return (d_panel.filter_rules.users[d.user.screen_name] == true)
+      })
+      console.log("tweets data is " + tweets_data.length)
+      window.FILTER_DATA = tweets_data
+    } else {
+      console.log("no rules to parse")
+    }
+    
+    parse_get_tweets_data(d_panel.panel_id,'regular',page_num,tweets_data)
+  }
+  
 }
 
 //Parses the text of an individual tweet

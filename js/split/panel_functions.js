@@ -431,3 +431,39 @@ function get_panel_user_name(panel_id) {
 	*/
 	
 }
+
+function make_new_filtered_panel(from_panel) {
+  
+  from_panel = get_panel_by_id(from_panel);
+  
+  if (from_panel == null) {
+    alert("Couldn't find panel");
+    return;
+  }
+  
+  var d = new Date();
+	
+	panel_id = "Filtered_" + d.getTime();
+	
+	panel_data = js_get_filtered_panel(panel_id)
+	
+	
+	var new_panel = new Data_Panel(panel_id,'filtered_panel','','_filtered',null);
+	
+	//temp
+	new_panel.filter_rules = new Array();
+	new_panel.filter_rules['users'] = new Array();
+	new_panel.filter_rules.users['camikaos'] = true;
+	new_panel.filter_rules.users['StephStricklen'] = true;
+	
+	tw_panels.push(new_panel);
+	
+	from_panel.derivative_panels.push(panel_id);
+	
+	set_up_panel(panel_id, panel_data, '',"_filtered");
+	
+	parse_filtered_tweets(from_panel.panel_id,2,from_panel.panel_data);
+	
+	return false;
+	
+}

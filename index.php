@@ -155,7 +155,7 @@ if (isset($_GET['search'])) {
 
 </head>
 <body>
-	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+	<!-- <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script> -->
 	
 	<div id="header">
 				

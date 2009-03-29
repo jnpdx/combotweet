@@ -319,5 +319,6 @@ function length_notify(panel_id) {
 
 function open_filtered_panel_dialog() {
   
+  make_new_filtered_panel('jnpdx');
 
 }
