@@ -66,7 +66,7 @@ function js_get_filtered_panel(panel_id) {
 	//panel_html += '<input type="hidden" class="panel_background" value="' + bg_img + '" /><input type="hidden" class="panel_background_color" value="' + bg_col + '" />';
 	panel_html += '<input type="hidden" class="panel_type" value="filtered_panel"/>';	
 
-  panel_html += '<input type="button" value="Edit filter" onclick="edit_filter(\'' + panel_id + '\')"/>'
+  panel_html += '<input type="button" class="edit_filter" value="Edit filter" onclick="edit_filter(\'' + panel_id + '\')"/>'
 
 	//panel_html += '<div class="twitter_inputs"><span class="dm_notify_box"></span><textarea class="tweet_input" name="tweet_input" rows="3" cols="30"></textarea><span class="add_hashtag">Add hashtag: </span><input type="text" class="add_hashtag" value=""/>'
 	

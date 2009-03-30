@@ -13,6 +13,10 @@ function update_times(panel_id) {
 		}
 	}
 	
+	for (i in pan.derivative_panels) {
+	  update_times(pan.derivative_panels[i])
+	}
+	
 }
 
 //Returns a string representing the age of the tweet. Eg "2 minutes ago", "4 hours ago"

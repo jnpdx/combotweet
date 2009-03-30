@@ -78,12 +78,22 @@ function add_new_nav_button(panel_id) {
 			{
 				handle: '.nav_button',
 				update: function() {
-					//save_user_pref('panel_order',$('#nav_buttons').sortable('serialize'));
+					update_panel_order();
 				},
 			} 
 			);
 	}
 	
+}
+
+function update_panel_order() {
+  var displayed_order = $('#panels').sortable('toArray');
+  var new_panel_array = new Array();
+  for (i in displayed_order) {
+    var cur_panel = get_panel_by_id(displayed_order[i].substring(6))
+    new_panel_array.push(cur_panel)
+  }
+  tw_panels = new_panel_array;
 }
 
 //Create a new panel

@@ -766,6 +766,10 @@ div#filter_edit_form {
   margin: 10px 0px;
 }
 
+input.edit_filter {
+  width: 100%;
+}
+
 textarea#users_filter {
   
   width: 370px;
