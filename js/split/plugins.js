@@ -17,7 +17,7 @@ function get_plugins(hook) {
 
 function run_plugins(hook,args) {
 	
-	for(i = 0; i < plugin_hooks.length; i++) {
+	for(var i = 0; i < plugin_hooks.length; i++) {
 		
 		if (plugin_hooks[i].hook == hook) {
 			eval(plugin_hooks.callback_fn);

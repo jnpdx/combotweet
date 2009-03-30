@@ -61,11 +61,11 @@ function proxy_get_session_panels() {
 		  
 		}
 		
-		old_panels_data = JSON.parse(data.panels_data.replace('\"','"'));
+		var old_panels_data = JSON.parse(data.panels_data.replace('\"','"'));
 		
 		for (i in old_panels_data) {
 		  
-		  cur_panel = old_panels_data[i];
+		  var cur_panel = old_panels_data[i];
 		  
 		  var pan_user = cur_panel.user;
 		  var gen_info = cur_panel.gen_info;
@@ -110,9 +110,11 @@ function proxy_get_session_panels() {
 		
 		return;
 		
+		//SHOULD BE ABLE TO COMMENT OUT FOLLOWING
+		
 		for (i in data.panels) {
 		  
-		  cur_panel = data.panels[i];
+		  var cur_panel = data.panels[i];
 		  var panel_id = cur_panel.panel_id;
 		  var pan_type = cur_panel.panel_type;
 		  var pan_user = cur_panel.panel_user;

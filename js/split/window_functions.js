@@ -129,7 +129,7 @@ function display_user_tweets(data, container) {
 
   $('#notify_window').width(PANEL_WIDTH);
 
-	for (i = 0; i < data.length; i ++) {
+	for (var i = 0; i < data.length; i ++) {
 	
 	  tweet = data[i];
 	  
@@ -343,7 +343,7 @@ function open_filtered_panel_dialog() {
 
 function edit_filter(panel_id) {
   
-  code = '<strong>Edit the filter</strong>';
+  var code = '<strong>Edit the filter</strong>';
   
   pan = get_panel_by_id(panel_id);
   

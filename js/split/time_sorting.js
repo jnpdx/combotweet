@@ -3,7 +3,7 @@ function update_times(panel_id) {
 	
 	var pan = get_panel_by_id(panel_id);
 	
-	cur_date = new Date();
+	var cur_date = new Date();
 	
 	if (pan.panel_data != undefined) {
 		for (var t = 0; t < pan.panel_data.length; t++) {

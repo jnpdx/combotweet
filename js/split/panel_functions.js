@@ -207,7 +207,7 @@ function remove_panel(panel_id) {
 	
 	//remove from tw_panels
 	
-	for (i = 0; i < tw_panels.length; i++) {
+	for (var i = 0; i < tw_panels.length; i++) {
 		
 		if (tw_panels[i].panel_id == panel_id) {
 			
@@ -470,7 +470,7 @@ function make_droppables() {
 
 function make_new_filtered_panel(from_panel) {
   
-  from_panel = get_panel_by_id(from_panel);
+  var from_panel = get_panel_by_id(from_panel);
   
   if (from_panel == null) {
     alert("Couldn't find panel");
@@ -510,13 +510,13 @@ function make_new_filtered_panel(from_panel) {
 
 function reload_filter_panel(panel_id) {
   
-  pan = get_panel_by_id(panel_id)
+  var pan = get_panel_by_id(panel_id)
   
   pan.panel_data = new Array();
   
   save_panel(panel_id,pan)
   
-  from_panel = get_panel_by_id(pan.parent_panel)
+  var from_panel = get_panel_by_id(pan.parent_panel)
   
   $('#panel_' + panel_id).find('.tweets').html('');
   

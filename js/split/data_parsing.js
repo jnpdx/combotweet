@@ -162,7 +162,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		//alert ("tweet type: " + pan.tweet_type);
 		
-		for (i = 0; i < num_tweets; i++) {
+		for (var i = 0; i < num_tweets; i++) {
 			
 			var tweet = null;
 			
@@ -184,7 +184,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				}
 			}
 		
-			for (j = 0; j < pan.panel_data.length; j++) {
+			for (var j = 0; j < pan.panel_data.length; j++) {
 			
 				if (pan.panel_data[j].text == tweet.text) {  //wouldn't need if I used since in API call
 				
@@ -489,7 +489,7 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     //filter the data
     //console.log("parsing")
     
-    d_panel = get_panel_by_id(pan.derivative_panels[i]);
+    var d_panel = get_panel_by_id(pan.derivative_panels[i]);
     
     if (d_panel == null) {
       continue;
