@@ -345,7 +345,7 @@ function edit_filter(panel_id) {
   
   var code = '<strong>Edit the filter</strong>';
   
-  pan = get_panel_by_id(panel_id);
+  var pan = get_panel_by_id(panel_id);
   
   code += '<div id="filter_edit_form">'
   
@@ -382,7 +382,7 @@ function edit_filter(panel_id) {
 function save_filter(panel_id) {
   
   
-  pan = get_panel_by_id(panel_id);
+  var pan = get_panel_by_id(panel_id);
   
   pan.user = $('#filter_panel_name').val();
   

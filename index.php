@@ -240,7 +240,7 @@ if (isset($_GET['search'])) {
 			</a>
 			<?php else: ?>
 			<a href="" onclick="save_state_submit(); return false;">
-			<img src="images/Save.png" id="save_state_button" value="login" />
+			<img src="images/Save.png" id="save_state_button" alt="Save state" />
 			  Save state
 			</a>
 			<?php endif; ?>

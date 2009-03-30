@@ -56,8 +56,6 @@ var SHOW_URL_SHORTNER = false;
 
 /******************************** END OPTIONS **********************************/
 
-var shizzow_data = null;  //for debugging
-
 if (RUNTIME_LOC == 'air') {
 	
 	BIND_CLICKS = true;
@@ -176,7 +174,7 @@ function get_settings_in_cookie() {
 		
 	}
 	
-	settings_array = settings.split('&');
+	var settings_array = settings.split('&');
 	
 	for (i in settings_array) {
 		

@@ -43,7 +43,7 @@ function proxy_get_session_panels() {
 	$.post(URL_BASE + 'bin/ajax.php', {
 		func: "get_session_panels",
 	}, function(data) {
-			
+						
 			
 		//$('#panels').append(data);
 		
@@ -57,61 +57,65 @@ function proxy_get_session_panels() {
 		if (data.panels_data == '') {
 		  
 		  //window.OLD_PANELS_DATA = JSON.parse(data.panels_data.replace('\"','"'));
-		  return;
+		  //return;
 		  
 		}
 		
-		var old_panels_data = JSON.parse(data.panels_data.replace('\"','"'));
+		if (data.panels_data.length > 0) {
+		  var old_panels_data = JSON.parse(data.panels_data.replace('\"','"'));
 		
-		for (i in old_panels_data) {
+  		for (i in old_panels_data) {
 		  
-		  var cur_panel = old_panels_data[i];
+  		  var cur_panel = old_panels_data[i];
 		  
-		  var pan_user = cur_panel.user;
-		  var gen_info = cur_panel.gen_info;
-		  var panel_id = cur_panel.panel_id;
-		  var pan_type = cur_panel.panel_type;
+  		  var pan_user = cur_panel.user;
+  		  var gen_info = cur_panel.gen_info;
+  		  var panel_id = cur_panel.panel_id;
+  		  var pan_type = cur_panel.panel_type;
 		  
-		  var new_panel = new Data_Panel(cur_panel.panel_id,cur_panel.panel_type,cur_panel.user,cur_panel.pass,cur_panel.gen_info)
-		  new_panel.derivative_panels = cur_panel.derivative_panels;
-		  new_panel.filter_rules = cur_panel.filter_rules;
-		  new_panel.parent_panel = cur_panel.parent_panel;
+  		  var new_panel = new Data_Panel(cur_panel.panel_id,cur_panel.panel_type,cur_panel.user,cur_panel.pass,cur_panel.gen_info)
+  		  new_panel.derivative_panels = cur_panel.derivative_panels;
+  		  new_panel.filter_rules = cur_panel.filter_rules;
+  		  new_panel.parent_panel = cur_panel.parent_panel;
 		  
-		  tw_panels[i] = new_panel;
+  		  tw_panels[i] = new_panel;
 		  
-		  if (pan_type == 'regular') {
-			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
-			} else if (pan_type == 'search') {
-			  var pan_data = js_get_search_panel(panel_id,pan_user,"_search");
-			} else if (pan_type == 'shizzow_panel') {
-			  var pan_data = js_get_shizzow_panel(panel_id,pan_user,'')
-			  //alert("shizzow panel!");
-			} else if (pan_type == 'filtered_panel') {
-			  var pan_data = js_get_filtered_panel(panel_id)
-			}
+  		  if (pan_type == 'regular') {
+  			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
+  			} else if (pan_type == 'search') {
+  			  var pan_data = js_get_search_panel(panel_id,pan_user,"_search");
+  			} else if (pan_type == 'shizzow_panel') {
+  			  var pan_data = js_get_shizzow_panel(panel_id,pan_user,'')
+  			  //alert("shizzow panel!");
+  			} else if (pan_type == 'filtered_panel') {
+  			  var pan_data = js_get_filtered_panel(panel_id)
+  			}
 			
-			set_up_panel(panel_id, pan_data, pan_user, '')
+  			set_up_panel(panel_id, pan_data, pan_user, '')
 			
-			if (pan_type == "shizzow_panel") {
-			  if (PROXY) {
+  			if (pan_type == "shizzow_panel") {
+  			  if (PROXY) {
 
-      		proxy_get_shizzow_favorites(panel_id);
+        		proxy_get_shizzow_favorites(panel_id);
 
-      	}
-			}
+        	}
+  			}
 		  
-		}
+  		}
 		
-		make_droppables();
 		
-		hide_loader();
+  		make_droppables();
+		
+  		hide_loader();
 
-  	$.scrollTo( { top:0, left:0 });
+    	$.scrollTo( { top:0, left:0 });
 		
-		return;
+  		if (old_panels_data.length != 0) {
+  		  return;
+  		}
 		
-		//SHOULD BE ABLE TO COMMENT OUT FOLLOWING
-		
+	  }
+				
 		for (i in data.panels) {
 		  
 		  var cur_panel = data.panels[i];

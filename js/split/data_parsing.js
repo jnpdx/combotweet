@@ -10,7 +10,7 @@ function parse_last_update(panel_id,data) {
 //Parse Shizzow data and display it
 function parse_get_shouts_data(panel_id,page_num,data) {
 	
-	shizzow_data = data;
+	var shizzow_data = data;
 	
 	hide_loader();
 	
@@ -20,7 +20,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 	
 	data.results.shouts.reverse();
 	
-	pan = get_panel_by_id(panel_id);
+	var pan = get_panel_by_id(panel_id);
 	
 	for (i in data.results.shouts) {
 		
@@ -158,6 +158,10 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			
 			num_tweets = data.results.length;
 			
+		}
+		
+		if (pan.panel_data == "") {
+		  pan.panel_data = new Array();
 		}
 		
 		//alert ("tweet type: " + pan.tweet_type);
@@ -559,7 +563,7 @@ function parse_shizzow_favorites(panel_id,data) {
 		
 	//}
 	
-	shizzow_data = data;
+	var shizzow_data = data;
 	
 	for (i in data.results.places) {
 		
