@@ -181,6 +181,20 @@ function make_new_panel() {
 //Remove a panel
 function remove_panel(panel_id) {
 	
+	var pan = get_panel_by_id(panel_id)
+	
+	if (pan.parent_panel != null) {
+	  var parent_pan = get_panel_by_id(pan.parent_panel)
+	  for (i in parent_pan.derivative_panels) {
+	    if (parent_pan.derivative_panels[i] == panel_id) {
+	      
+	      parent_pan.derivative_panels.splice(i,1)
+	      
+	    }
+	  }
+	  save_panel(parent_pan.panel_id,parent_pan)
+	}
+	
 	$('#panel_' + panel_id).remove();
 	
 	if (!TABBED_PANELS) {
@@ -432,6 +446,42 @@ function get_panel_user_name(panel_id) {
 	
 }
 
+function make_droppables() {
+  $('.twitter_panel').droppable( 'destroy' );
+  for (i in tw_panels) {
+    if (tw_panels[i].panel_type == 'filtered_panel') {
+      panel_id = tw_panels[i].panel_id
+    } else {
+      continue
+    }
+    $('#panel_' + panel_id ).droppable({
+	  
+  	   accept: ".avatar",
+  	   drop: function(ev, ui) {
+
+
+           //console.log(ev)
+           var theId = ev.target.id.substring(7);
+
+           //console.log(theId + ' on panel ' + panel_id);
+
+           pan = get_panel_by_id(panel_id)
+         
+           if (pan.filter_rules['users'] == undefined) {
+             pan.filter_rules['users'] = new Object();
+           }
+         
+           pan.filter_rules.users[theId] = true
+
+          save_panel(pan.panel_id,pan)
+         
+          reload_filter_panel(panel_id)
+      }
+	  
+  	  });
+	}
+}
+
 function make_new_filtered_panel(from_panel) {
   
   from_panel = get_panel_by_id(from_panel);
@@ -453,8 +503,8 @@ function make_new_filtered_panel(from_panel) {
 	new_panel.parent_panel = from_panel.panel_id;
 	
 	//temp
-	new_panel.filter_rules = new Array();
-	new_panel.filter_rules['users'] = new Array();
+	new_panel.filter_rules = new Object();
+	new_panel.filter_rules['users'] = new Object();
 	new_panel.filter_rules.users['ahockley'] = true;
 	new_panel.filter_rules.users['test_dummy'] = true;
 	
@@ -464,33 +514,9 @@ function make_new_filtered_panel(from_panel) {
 	
 	set_up_panel(panel_id, panel_data, '',"_filtered");
 	
-	$('#panel_' + panel_id ).droppable({
-	  
-	   accept: ".avatar",
-	   drop: function(ev, ui) {
-
-
-         //console.log(ev)
-         var theId = ev.target.id.substring(7);
-
-         console.log(theId + ' on panel ' + panel_id);
-
-         pan = get_panel_by_id(panel_id)
-         
-         if (pan.filter_rules['users'] == undefined) {
-           pan.filter_rules['users'] = new Array();
-         }
-         
-         pan.filter_rules.users[theId] = true
-
-        save_panel(pan.panel_id,pan)
-         
-        reload_filter_panel(panel_id)
-    }
-	  
-	  });
-	
 	parse_filtered_tweets(from_panel.panel_id,2,from_panel.panel_data);
+	
+	make_droppables();
 	
 	return false;
 	

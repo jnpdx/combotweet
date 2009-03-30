@@ -54,12 +54,58 @@ function proxy_get_session_panels() {
 			$('#header_nav_buttons').show()	
 		}
 		
-		if (data.panels_data != '') {
+		if (data.panels_data == '') {
 		  
-		  window.OLD_PANELS_DATA = JSON.parse(data.panels_data.replace('\"','"'));
+		  //window.OLD_PANELS_DATA = JSON.parse(data.panels_data.replace('\"','"'));
+		  return;
 		  
 		}
 		
+		old_panels_data = JSON.parse(data.panels_data.replace('\"','"'));
+		
+		for (i in old_panels_data) {
+		  
+		  cur_panel = old_panels_data[i];
+		  
+		  var pan_user = cur_panel.user;
+		  var gen_info = cur_panel.gen_info;
+		  var panel_id = cur_panel.panel_id;
+		  var pan_type = cur_panel.panel_type;
+		  
+		  var new_panel = new Data_Panel(cur_panel.panel_id,cur_panel.panel_type,cur_panel.user,cur_panel.pass,cur_panel.gen_info)
+		  new_panel.derivative_panels = cur_panel.derivative_panels;
+		  new_panel.filter_rules = cur_panel.filter_rules;
+		  new_panel.parent_panel = cur_panel.parent_panel;
+		  
+		  tw_panels[i] = new_panel;
+		  
+		  if (pan_type == 'regular') {
+			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
+			} else if (pan_type == 'search') {
+			  var pan_data = js_get_search_panel(panel_id,pan_user,"_search");
+			} else if (pan_type == 'shizzow_panel') {
+			  var pan_data = js_get_shizzow_panel(panel_id,pan_user,'')
+			  //alert("shizzow panel!");
+			} else if (pan_type == 'filtered_panel') {
+			  var pan_data = js_get_filtered_panel(panel_id)
+			}
+			
+			set_up_panel(panel_id, pan_data, pan_user, '')
+			
+			if (pan_type == "shizzow_panel") {
+			  if (PROXY) {
+
+      		proxy_get_shizzow_favorites(panel_id);
+
+      	}
+			}
+		  
+		}
+		
+		make_droppables();
+		
+		hide_loader();
+		return;
 		
 		for (i in data.panels) {
 		  
@@ -91,44 +137,6 @@ function proxy_get_session_panels() {
 			
 		}
 		
-		/*
-		$('' + data).find('.twitter_panel').each(
-			function(i) {
-				alert("here");
-				if ($(this).is('.proxy_panel')) {
-					var panel_id = $(this).find('.panel_id');
-					var pan_type = $(this).find('.panel_type').val();
-					var pan_user = $(this).find('.panel_user_name').val();
-					
-					tw_panels[tw_panels.length] = new Data_Panel(panel_id.val(),pan_type,pan_user,'',null);
-					
-					if (pan_type == 'regular_panel') {
-					  var pan_data = js_get_panel(panel_id, t_user, t_pass, gen_info);
-					} else if (pan_type == 'search_panel') {
-					  js_get_search_panel(panel_id,pan_user,"_search");
-					}
-					
-					set_up_panel(panel_id, pan_data, pan_user, '')
-					//add_new_nav_button(panel_id.val());
-					//get_tweets(panel_id.val(),"regular",1);
-					//get_last_update(panel_id.value);
-										
-					//if (!TABBED_PANELS) {
-					//	$('#panels').width($('#panels').width() + PANEL_WIDTH + 20)
-					//}
-					
-					//show_panel(panel_id.val())
-					
-				}
-				
-			}
-			);
-			*/
-
-		
-				
-		//now we have to add buttons
-		//and get tweets
 		
 		hide_loader();
 		

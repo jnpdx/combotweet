@@ -485,6 +485,10 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     
     d_panel = get_panel_by_id(pan.derivative_panels[i]);
     
+    if (d_panel == null) {
+      continue;
+    }
+    
     tweets_data = new Array();
     
     if (d_panel.filter_rules == null) {
