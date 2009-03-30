@@ -36,7 +36,7 @@ if ($auth_info['stat'] == 'ok') {
 	
 	$_SESSION['logged_in_user'] = true;
 
-	$_SESSION['flash_message'] = "You are now logged in.  Click the save icon to save your open panels.";
+	$_SESSION['flash_message'] = "You are now logged in.  REMEMBER: Click the save icon to save your open panels.";
 
 } else {
 	
