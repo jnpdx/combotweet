@@ -80,7 +80,7 @@ function js_get_filtered_panel(panel_id) {
 	//panel_html += '<div class="tweet_type_menu"><br class="clear_both"/><div class="tweet_type_button" id="panel_' + panel_id + '_regular" onclick="get_tweets(\'' + panel_id + '\',\'regular\',1)">Timeline</div><div class="tweet_type_button" id="panel_' + panel_id + '_replies" onclick="get_tweets(\'' + panel_id + '\',\'replies\',1)">Replies</div><div class="tweet_type_button" id="panel_' + panel_id + '_direct" onclick="get_tweets(\'' + panel_id + '\',\'direct\',1)">Direct messages</div><br class="clear_both" /></div>';
 
 	panel_html += '<div class="tweets">'
-	panel_html += "You can click the 'Edit filter' button to add items to this panel, or you can drag and drop avatars here.  Tweets from the users whose avatars you dropped will be displayed here";
+	panel_html += '<span class="filter_message">You can click the \'Edit filter\' button to add items to this panel, or you can drag and drop avatars here.  Tweets from the users whose avatars you dropped will be displayed here</span>';
 	panel_html += '</div>';
 	//panel_html += '<div class="more_tweets" onclick="get_more_tweets(\'' + panel_id + '\'); return false;">Load more tweets...</div>';
 
@@ -110,13 +110,45 @@ function js_get_search_panel(panel_id,t_user,t_pass) {
 	
 }
 
+function js_get_search_tweets_through_json(panel_id,page) {
+  
+  show_loader();
+  
+  var pan = get_panel_by_id(panel_id);
+  
+  var search_term = pan.user;
+  
+  var since = pan.latest_tweet_id
+  
+  var since_req = "&since_id=" + since;
+	
+	if (since == '-1') {
+		
+		since_req = '';
+		
+	}
+	
+	if (page != 1) {
+		
+		since_req = '';
+		
+	}
+	
+	$.getJSON("http://search.twitter.com/search.json?q=" + search_term + "&page=" + page + since_req + "&callback=?",
+          function(data){
+            parse_get_tweets_data(panel_id,'regular',page,data);
+          });
+  
+  
+}
+
 function js_get_search_tweets(panel_id,tweet_type,page,since,location,location_search_dist) {
 		
 	var pan = get_panel_by_id(panel_id);
 	
 	var search_term = pan.user;
 	
-	since_req = "&since_id=" + since;
+	var since_req = "&since_id=" + since;
 	
 	if (since == '-1') {
 		

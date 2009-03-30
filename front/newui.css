@@ -780,3 +780,12 @@ textarea#users_filter {
 input#filtered_panel_name {
   
 }
+
+span.filter_message {
+  display: block;
+  font-size: .9em;
+  width: 80%;
+  margin: 10px auto;
+  background: #e8e8e8;
+  padding: 6px;
+}

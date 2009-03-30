@@ -23,6 +23,11 @@ function get_tweets(panel_id,type,page_num) {
     fb_get_statuses(panel_id);
     return;
   }
+  
+  if (pan.panel_type == 'search_panel') {
+    js_get_search_tweets_through_json(panel_id,page_num);
+    return;
+  }
 
 	show_loader();
 
