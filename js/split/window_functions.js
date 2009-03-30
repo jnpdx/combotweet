@@ -324,6 +324,8 @@ function open_filtered_panel_dialog() {
   
   var code = "";
   
+  code += "Choose a name for the panel: <br/>"
+  code += '<input type="text" id="filtered_panel_name" value="Filtered panel"/><br/>'
   code += "Choose a panel to filter tweets from:<br/>"
   code += '<select id="choose_filter">'
     for (i in tw_panels) {
@@ -332,7 +334,7 @@ function open_filtered_panel_dialog() {
       }
     }
   code += '</select><br/><br/>'
-  code += '<input type="button" value="Make filter" onclick="make_new_filtered_panel($(\'#choose_filter\').val()); hide_open_windows()"/>'
+  code += '<input type="button" value="Make filter" onclick="make_new_filtered_panel($(\'#filtered_panel_name\').val(),$(\'#choose_filter\').val()); hide_open_windows()"/>'
   
   show_notify_window(code);
   
