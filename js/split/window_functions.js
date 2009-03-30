@@ -320,5 +320,77 @@ function length_notify(panel_id) {
 function open_filtered_panel_dialog() {
   
   make_new_filtered_panel('jnpdx');
+  
+  hide_open_windows();
 
+}
+
+function edit_filter(panel_id) {
+  
+  code = '<strong>Edit the filter</strong>';
+  
+  pan = get_panel_by_id(panel_id);
+  
+  code += '<div id="filter_edit_form">'
+  
+  if (pan.filter_rules.users != undefined) {
+    
+    code += "Users to display tweets from:<br/>";
+    
+    code += '<textarea id="users_filter">'
+    
+    for (u in pan.filter_rules.users) {
+      
+      if (pan.filter_rules.users[u] == true) {
+        
+        code += u + ','
+        
+      }
+      
+    }
+    
+    code += '</textarea>'
+    
+  }
+  
+  pan += '</div>'
+  
+  code += '<br/><input type="button" value="Save filter" onclick="save_filter(\'' + panel_id + '\')"/>'
+  
+  show_notify_window(code);
+  
+}
+
+function save_filter(panel_id) {
+  
+  
+  pan = get_panel_by_id(panel_id);
+  
+  if ($('#users_filter').length > 0) {
+    
+    pan.filter_rules['users'] = new Array();
+    
+    users_list = $('#users_filter').val();
+    
+    users_list = users_list.split(',');
+    
+    for (i in users_list) {
+      
+      console.log("user " + users_list[i])
+      
+      pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"")] = true
+      
+    }
+    
+  }
+  
+  
+  save_panel(panel_id,pan)
+  
+  reload_filter_panel();
+  
+  hide_notify_window()
+  
+  
+  
 }

@@ -41,7 +41,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		
 		to_add += '<div class="tweet shout" id="shout_' + s_id + '">';
 		
-		to_add += '<div class="avatar_container"><img class="avatar" src="' + data.results.shouts[i].people_images.people_image_48 + '" alt="Avatar"/></div>';
+		to_add += '<div class="avatar_container"><img class="avatar" src="' + data.results.shouts[i].people_images.people_image_48 + '" alt="Avatar" /></div>';
 		
 		to_add += '<div class="the_tweet">';
 		
@@ -265,13 +265,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				
 			}
 
-			tweet_div += '<div class="avatar_container"><img class="avatar" src="' + profile_image_url + '" alt="Avatar"/></div>';
-
-		
-			tweet_div += '<div class="the_tweet">';
-		
-			tweet_div += '<div class="the_tweet_top"></div>';
-			tweet_div += '<div class="the_tweet_left"></div>';
+			
 		
 			var from_sn = '';
 		
@@ -286,6 +280,14 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				from_sn = tweet.from_user;
 				
 			}
+			
+			tweet_div += '<div class="avatar_container"><img class="avatar" src="' + profile_image_url + '" alt="Avatar" id="avatar_' + from_sn + '"/></div>';
+
+		
+			tweet_div += '<div class="the_tweet">';
+		
+			tweet_div += '<div class="the_tweet_top"></div>';
+			tweet_div += '<div class="the_tweet_left"></div>';
 		
 			tweet_div += '<input type="hidden" class="tweet_user_name" value="' + from_sn + '"/>';
 			tweet_div += '<input type="hidden" class="tweet_id" value="' + tweet.id + '"/>';
@@ -448,11 +450,26 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		update_widths();
 		
+		update_draggables();
+		
 		if (type == 'regular') {
 		  parse_filtered_tweets(panel_id,page_num,data)
 		}
 		
 	
+}
+
+function update_draggables() {
+  
+  $('img.avatar').draggable( 'destroy' )
+  
+  $('img.avatar').draggable({
+    appendTo: 'body',
+    helper: 'clone',
+    zIndex: 300,
+  })
+  
+  
 }
 
 function parse_filtered_tweets(panel_id,page_num,data) {
@@ -464,7 +481,7 @@ function parse_filtered_tweets(panel_id,page_num,data) {
   for (i in pan.derivative_panels) {
     
     //filter the data
-    console.log("parsing")
+    //console.log("parsing")
     
     d_panel = get_panel_by_id(pan.derivative_panels[i]);
     
@@ -477,16 +494,16 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     
     if (d_panel.filter_rules['users'] != undefined) {
       tweets_data = $.grep(data, function(d) {
-        console.log("comparing " + d.user.screen_name)
+        //console.log("comparing " + d.user.screen_name)
         return (d_panel.filter_rules.users[d.user.screen_name] == true)
       })
-      console.log("tweets data is " + tweets_data.length)
+      //console.log("tweets data is " + tweets_data.length)
       window.FILTER_DATA = tweets_data
     } else {
       console.log("no rules to parse")
     }
     
-    parse_get_tweets_data(d_panel.panel_id,'regular',page_num,tweets_data)
+    parse_get_tweets_data(d_panel.panel_id,'regular',page_num,tweets_data.reverse())
   }
   
 }

@@ -450,11 +450,13 @@ function make_new_filtered_panel(from_panel) {
 	
 	var new_panel = new Data_Panel(panel_id,'filtered_panel','','_filtered',null);
 	
+	new_panel.parent_panel = from_panel.panel_id;
+	
 	//temp
 	new_panel.filter_rules = new Array();
 	new_panel.filter_rules['users'] = new Array();
-	new_panel.filter_rules.users['camikaos'] = true;
-	new_panel.filter_rules.users['StephStricklen'] = true;
+	new_panel.filter_rules.users['ahockley'] = true;
+	new_panel.filter_rules.users['test_dummy'] = true;
 	
 	tw_panels.push(new_panel);
 	
@@ -462,8 +464,50 @@ function make_new_filtered_panel(from_panel) {
 	
 	set_up_panel(panel_id, panel_data, '',"_filtered");
 	
+	$('#panel_' + panel_id ).droppable({
+	  
+	   accept: ".avatar",
+	   drop: function(ev, ui) {
+
+
+         //console.log(ev)
+         var theId = ev.target.id.substring(7);
+
+         console.log(theId + ' on panel ' + panel_id);
+
+         pan = get_panel_by_id(panel_id)
+         
+         if (pan.filter_rules['users'] == undefined) {
+           pan.filter_rules['users'] = new Array();
+         }
+         
+         pan.filter_rules.users[theId] = true
+
+        save_panel(pan.panel_id,pan)
+         
+        reload_filter_panel(panel_id)
+    }
+	  
+	  });
+	
 	parse_filtered_tweets(from_panel.panel_id,2,from_panel.panel_data);
 	
 	return false;
 	
+}
+
+function reload_filter_panel(panel_id) {
+  
+  pan = get_panel_by_id(panel_id)
+  
+  pan.panel_data = new Array();
+  
+  save_panel(panel_id,pan)
+  
+  from_panel = get_panel_by_id(pan.parent_panel)
+  
+  $('#panel_' + panel_id).find('.tweets').html('');
+  
+  parse_filtered_tweets(from_panel.panel_id,2,from_panel.panel_data);
+  
 }

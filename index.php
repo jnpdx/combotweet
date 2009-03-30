@@ -106,26 +106,26 @@ if (isset($_GET['search'])) {
 	<?php if (strpos($_SERVER['HTTP_HOST'],"combotweet.com") !== FALSE): ?>
 		<script type="text/javascript" src="js/compiledcode.js?v=<?=VERSION?>"></script>
 	<?php else: ?>
-		<script type="text/javascript" src="js/split/data_parsing.js"></script>
-		<script type="text/javascript" src="js/split/objects.js"></script>
-		<script type="text/javascript" src="js/split/options.js"></script>
-		<script type="text/javascript" src="js/split/panel_functions.js"></script>
-		<script type="text/javascript" src="js/split/plugins.js"></script>
-		<script type="text/javascript" src="js/split/shizzow_functions.js"></script>
-		<script type="text/javascript" src="js/split/startup.js"></script>
-		<script type="text/javascript" src="js/split/time_sorting.js"></script>
-		<script type="text/javascript" src="js/split/twitter_functions.js"></script>
-		<script type="text/javascript" src="js/split/ui_navigation.js"></script>
-		<script type="text/javascript" src="js/split/ui_navigation.js"></script>
-		<script type="text/javascript" src="js/split/variables.js"></script>
-		<script type="text/javascript" src="js/split/window_functions.js"></script>
-		<script type="text/javascript" src="js/split/save_state.js"></script>
-		<script type="text/javascript" src="js/split/app_type/air_functions.js"></script>
-		<script type="text/javascript" src="js/split/app_type/javascript_functions.js"></script>
-		<script type="text/javascript" src="js/split/app_type/proxy_functions.js"></script>
-		<script type="text/javascript" src="js/split/outside_code/date_parsing.js"></script>
-		<script type="text/javascript" src="js/split/tagalus_functions.js"></script>
-		<script type="text/javascript" src="js/split/facebook_functions.js"></script>
+		<script type="text/javascript" src="js/split/data_parsing.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/objects.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/options.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/panel_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/plugins.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/shizzow_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/startup.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/time_sorting.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/twitter_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/ui_navigation.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/ui_navigation.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/variables.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/window_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/save_state.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/app_type/air_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/app_type/javascript_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/app_type/proxy_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/outside_code/date_parsing.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/tagalus_functions.js?v=<?=time();?>"></script>
+		<script type="text/javascript" src="js/split/facebook_functions.js?v=<?=time();?>"></script>
 	<?php endif; ?>
 	
 <title>ComboTweet</title>
@@ -255,11 +255,11 @@ if (isset($_GET['search'])) {
 			<div class="login_hr">&nbsp;</div>
 			-->
 			
-			<!--
+			
 			<a href="" onclick="open_filtered_panel_dialog(); return false;">Create a filtered panel</a>
 			
 			<div class="login_hr">&nbsp;</div>
-			-->
+			
 			
 			<a href="" onclick="$('#old_login_form').show(); return false;" style="font-size: .9em; display: block;">(Show old login form)</a>
 			<form id="old_login_form" onsubmit="make_new_panel();return false;" action="" method="post" style="display: none;">

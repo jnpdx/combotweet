@@ -26,6 +26,7 @@ function Data_Panel(pan_id,type,t_user,t_pass,info) {
 	//derivative stuff
 	this.derivative_panels = new Array();
 	this.filter_rules = null;
+	this.parent_panel = null;
 	
 }
 
