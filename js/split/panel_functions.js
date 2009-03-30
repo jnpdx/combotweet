@@ -494,7 +494,7 @@ function make_new_filtered_panel(panel_name,from_panel) {
 	panel_data = js_get_filtered_panel(panel_id)
 	
 	
-	var new_panel = new Data_Panel(panel_id,'filtered_panel',panel_name + " > tweets from " + from_panel.user,'_filtered',null);
+	var new_panel = new Data_Panel(panel_id,'filtered_panel',panel_name + " > from panel " + from_panel.user,'_filtered',null);
 	
 	new_panel.parent_panel = from_panel.panel_id;
 	

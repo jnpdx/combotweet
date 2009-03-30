@@ -129,6 +129,8 @@ function display_user_tweets(data, container) {
 
   $('#notify_window').width(PANEL_WIDTH);
 
+  var cur_date = new Date();
+
 	for (var i = 0; i < data.length; i ++) {
 	
 	  tweet = data[i];
@@ -404,7 +406,7 @@ function save_filter(panel_id) {
       
       if (i == '') { continue; }
       
-      pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"")] = true
+      pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"").replace('@','')] = true
       
     }
     
