@@ -319,9 +319,25 @@ function length_notify(panel_id) {
 
 function open_filtered_panel_dialog() {
   
-  make_new_filtered_panel('jnpdx');
-  
   hide_open_windows();
+  
+  
+  var code = "";
+  
+  code += "Choose a panel to filter tweets from:<br/>"
+  code += '<select id="choose_filter">'
+    for (i in tw_panels) {
+      if (tw_panels[i].panel_type == "regular") {
+        code += '<option value="' + tw_panels[i].panel_id + '">' + tw_panels[i].panel_id + '</option>'
+      }
+    }
+  code += '</select><br/><br/>'
+  code += '<input type="button" value="Make filter" onclick="make_new_filtered_panel($(\'#choose_filter\').val()); hide_open_windows()"/>'
+  
+  show_notify_window(code);
+  
+  //make_new_filtered_panel('jnpdx');
+  
 
 }
 
