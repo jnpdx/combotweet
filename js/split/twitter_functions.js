@@ -435,3 +435,19 @@ function follow_user(panel_id,user_name) {
 	}
 	
 }
+
+function unfollow_user(panel_id,user_name) {
+	
+	if (PROXY) {
+		
+		proxy_unfollow_user(panel_id,user_name);
+		
+	}
+	
+	if (XS) {
+		
+		js_unfollow_user(panel_id,user_name);
+		
+	}
+	
+}

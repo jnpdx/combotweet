@@ -185,6 +185,36 @@ function toggle_favorite($user,$pass,$id,$fav) {
 	
 }
 
+function unfollow_user($user,$pass,$to_follow) {
+	
+	$url = "http://twitter.com/friendships/destroy/$to_follow.json";
+	
+	if ($pass == "__USING_OAUTH") {
+		$to =  $_SESSION['panels'][$user]->oauth;
+		
+		$content = $to->OAuthRequest($url, array(), 'POST');
+		
+		return $content;
+		
+	} else {
+	
+		$curl_handle = curl_init();
+		curl_setopt($curl_handle,CURLOPT_REFERER,"http://tagal.us/");
+		curl_setopt($curl_handle, CURLOPT_URL, "$url");
+		curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl_handle, CURLOPT_POST, 1);
+		curl_setopt($curl_handle, CURLOPT_POSTFIELDS, "");
+		curl_setopt($curl_handle, CURLOPT_USERPWD, "$user:$pass");
+		$buffer = curl_exec($curl_handle);
+		$info = curl_getinfo($curl_handle);
+
+	}
+
+	return $buffer;
+	
+}
+
 function follow_user($user,$pass,$to_follow) {
 	
 	$url = "http://twitter.com/friendships/create/$to_follow.json";

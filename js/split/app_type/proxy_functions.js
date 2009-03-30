@@ -299,6 +299,19 @@ function proxy_follow_user(panel_id,user_name) {
 	
 }
 
+function proxy_unfollow_user(panel_id,user_name) {
+	
+	$.post(URL_BASE + 'bin/ajax.php', {
+		func: "unfollow_user",
+		panel: panel_id,
+		user: user_name,
+	}, function(data) {
+		alert("You have unfollowed @" + user_name);
+	},
+	'json');
+	
+}
+
 
 /** PROXY For Shizzow **/
 function proxy_get_shizzow_panel(id,s_user,s_pass) {

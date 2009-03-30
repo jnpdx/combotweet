@@ -96,7 +96,7 @@ function display_twitter_user(user) {
 	
 	if (display_follow_link) {
 		
-		info_div += ' - <a href="" onclick="follow_user_window(\'' + user + '\'); return false;">Follow</a>';
+		info_div += ' - <a href="" onclick="follow_user_window(\'' + user + '\',' + user_info.id + '); return false;">Follow/Unfollow</a>';
 		
 	}
 	
@@ -168,7 +168,8 @@ function display_user_tweets(data, container) {
 }
 
 //Displays a window asking which acct to use to follow a user
-function follow_user_window(user_name) {
+function follow_user_window(user_name,user_id) {
+	
 	
 	var user_panels = new Array();
 	
@@ -194,7 +195,18 @@ function follow_user_window(user_name) {
 	notify_html += '<h3>Follow @' + user_name + '</h3>';
 	
 	for (i in user_panels) {
-		notify_html += '<a href="" onclick="follow_user(\'' + user_panels[i].panel_id + '\',\'' + user_name + '\'); return false;">Follow with ' + user_panels[i].panel_id + ' account</a>';
+	  
+	  if (user_panels[i].twitter_friends == null) {
+	    notify_html += '<a href="" onclick="follow_user(\'' + user_panels[i].panel_id + '\',\'' + user_name + '\'); return false;">Follow with ' + user_panels[i].panel_id + ' account</a>';
+	  }
+	  
+	  if ($.inArray(user_id,user_panels[i].twitter_friends) == -1) {
+		  notify_html += '<a href="" onclick="follow_user(\'' + user_panels[i].panel_id + '\',\'' + user_name + '\'); return false;">Follow with ' + user_panels[i].panel_id + ' account</a>';
+		} else {
+		  notify_html += '<a href="" onclick="unfollow_user(\'' + user_panels[i].panel_id + '\',\'' + user_name + '\'); return false;">Unfollow with ' + user_panels[i].panel_id + ' account</a>';
+		  
+		}
+		
 		notify_html += '<br/>';
 	}
 	

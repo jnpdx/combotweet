@@ -206,6 +206,19 @@ if ($func == 'get_panel') {
 	
 	echo follow_user($tw_user,$tw_pass,$to_follow);
 
+} elseif ($func == 'unfollow_user') {
+
+		$panel_id = $_REQUEST['panel'];
+
+		$tw_user = $_SESSION['panels'][$panel_id]->user;
+		$tw_pass = $_SESSION['panels'][$panel_id]->pass;
+
+		$to_follow = $_REQUEST['user'];
+
+		header("Content-type: text/javascript");
+
+		echo unfollow_user($tw_user,$tw_pass,$to_follow);
+
 } elseif($func == 'get_session_panels') {
 	
 	if (!isset($_SESSION['user_info']['panel_order']))
