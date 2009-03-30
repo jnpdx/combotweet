@@ -105,6 +105,9 @@ function proxy_get_session_panels() {
 		make_droppables();
 		
 		hide_loader();
+
+  	$.scrollTo( { top:0, left:0 });
+		
 		return;
 		
 		for (i in data.panels) {

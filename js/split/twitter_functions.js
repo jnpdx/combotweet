@@ -254,9 +254,10 @@ function reply_to_tweet(panel_id,tweet_id,user_name) {
 	var tweet_input = $('#panel_' + panel_id).find('.tweet_input');
 	tweet_input.focus();
 	
-	$.scrollTo( $('#panel_' + panel_id + ''), 20, {
+	$.scrollTo( tweet_input, 20, {
 	
-		offset: { left: 0, top: -110 }
+		offset: { left: -20, top: -130 },
+		axis: 'xy',
 	
 	} );
 	

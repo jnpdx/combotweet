@@ -346,6 +346,8 @@ function show_panel(panel_id) {
 	
 	var pan = get_panel_by_id(panel_id);
 	
+	
+	
 	if (pan == null) {
 		
 		return;
@@ -362,9 +364,17 @@ function show_panel(panel_id) {
 	
 	$('#panel_' + panel_id).show();
 
+	if (!TABBED_PANELS) {
+    var tweet_input = $('#panel_' + panel_id).find('.nav_button');
+  	tweet_input.focus();
 	
-
+  	$.scrollTo( tweet_input, 20, {
 	
+  		offset: { left: -20, top: -130 },
+  		axis: 'xy',
+	
+  	} );
+	}
 	
 	
 	if (pan.tweet_type == null) { pan.tweet_type = 'regular'; save_panel(panel_id,pan); }
