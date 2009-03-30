@@ -116,7 +116,7 @@ function js_get_search_tweets_through_json(panel_id,page) {
   
   var pan = get_panel_by_id(panel_id);
   
-  var search_term = pan.user;
+  var search_term = escape(pan.user);
   
   var since = pan.latest_tweet_id
   
