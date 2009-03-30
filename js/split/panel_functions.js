@@ -459,7 +459,7 @@ function make_droppables() {
            
            var drop_panel_id = this.id.substring(6);
 
-           console.log(theId + ' on panel ' + drop_panel_id);
+           //console.log(theId + ' on panel ' + drop_panel_id);
 
            pan = get_panel_by_id(drop_panel_id)
          

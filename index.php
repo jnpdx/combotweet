@@ -256,7 +256,7 @@ if (isset($_GET['search'])) {
 			-->
 			
 			
-			<a href="" onclick="open_filtered_panel_dialog(); return false;">Create a filtered panel</a>
+			<a href="" onclick="open_filtered_panel_dialog(); return false;"><img src="images/Plus.png" class="ui_icon" id="add_filtered_panel_button" alt="Add a filtered panel" /> Create a filtered panel</a>
 			
 			<div class="login_hr">&nbsp;</div>
 			

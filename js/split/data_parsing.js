@@ -502,7 +502,7 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     tweets_data = new Array();
     
     if (d_panel.filter_rules == null) {
-      console.log("no filter rules")
+      //console.log("no filter rules")
       continue;
     }
     
@@ -512,9 +512,9 @@ function parse_filtered_tweets(panel_id,page_num,data) {
         return (d_panel.filter_rules.users[d.user.screen_name] == true)
       })
       //console.log("tweets data is " + tweets_data.length)
-      window.FILTER_DATA = tweets_data
+      //window.FILTER_DATA = tweets_data
     } else {
-      console.log("no rules to parse")
+      //console.log("no rules to parse")
     }
     
     parse_get_tweets_data(d_panel.panel_id,'regular',page_num,tweets_data.reverse())

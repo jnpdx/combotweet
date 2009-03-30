@@ -417,7 +417,7 @@ img.close_panel {
 	cursor: pointer;
 }
 
-img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, img#add_account_button, img#load_state_button, img#save_state_button {
+img.ui_icon, img#new_panel_button, img#logout_button, img#refresh_button, img#search_panel_button, img#settings_panel_button, img#add_account_button, img#load_state_button, img#save_state_button, img#add_filtered_panel_button {
 	
 	width: 32px;
 	height: 32px;
