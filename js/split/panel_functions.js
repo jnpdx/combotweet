@@ -437,6 +437,7 @@ function make_droppables() {
     } else {
       continue
     }
+    //console.log("Making " + panel_id + " droppable")
     $('#panel_' + panel_id ).droppable({
 	  
   	   accept: ".avatar",
@@ -445,10 +446,12 @@ function make_droppables() {
 
            //console.log(ev)
            var theId = ev.target.id.substring(7);
+           
+           var drop_panel_id = this.id.substring(6);
 
-           //console.log(theId + ' on panel ' + panel_id);
+           console.log(theId + ' on panel ' + drop_panel_id);
 
-           pan = get_panel_by_id(panel_id)
+           pan = get_panel_by_id(drop_panel_id)
          
            if (pan.filter_rules['users'] == undefined) {
              pan.filter_rules['users'] = new Object();

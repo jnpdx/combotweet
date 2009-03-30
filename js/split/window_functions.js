@@ -337,7 +337,7 @@ function edit_filter(panel_id) {
   
   if (pan.filter_rules.users != undefined) {
     
-    code += "Users to display tweets from:<br/>";
+    code += "Users to display tweets from (comma separated user names):<br/>";
     
     code += '<textarea id="users_filter">'
     
