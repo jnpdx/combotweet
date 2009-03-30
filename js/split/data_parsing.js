@@ -357,12 +357,18 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				
 			}
 			
+			var panel_id_for_icons = panel_id;
+			
+			if (pan.parent_panel != null) {
+			  panel_id_for_icons = pan.parent_panel
+			}
+			
 			tweet_div += '<div class="tweet_buttons">';
 			
 				if (type != 'direct') {
 					if (!is_search) {
 						tweet_div += '<div id="retweet_' + tweet.id + '" class="retweet_icon" ';
-						tweet_div +=  'onclick="retweet_button(\'' + panel_id + '\',' + tweet.id + ",'" + from_sn + "')\">";
+						tweet_div +=  'onclick="retweet_button(\'' + panel_id_for_icons + '\',' + tweet.id + ",'" + from_sn + "')\">";
 						tweet_div += '<img src="' + URL_BASE + 'images/Recycle.png" alt="Retweet" title="Retweet" /></div>';
 					}
 				}
@@ -370,7 +376,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				if (display_favorite_icon) {
 					tweet_div += '<div id="favorite_' + tweet.id + '" class="favorite_icon" ';
 
-					tweet_div +=  'onclick="toggle_favorite(\'' + panel_id + '\',' + tweet.id + ')">';
+					tweet_div +=  'onclick="toggle_favorite(\'' + panel_id_for_icons + '\',' + tweet.id + ')">';
 					tweet_div += '<img src="' + URL_BASE + 'images/star.gif" alt="Favorite" title="Favorite this tweet" /></div>';
 				}
 				
@@ -378,7 +384,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 					//alert("is reply comparing" + tweet.from_user + " to " + pan.user);
 					tweet_div += '<div id="reply_' + tweet.id + '" class="reply_icon" ';
 	
-					tweet_div +=  'onclick="reply_to_tweet(\'' + panel_id +'\',' + tweet.id + ",'" + from_sn + "')\">";
+					tweet_div +=  'onclick="reply_to_tweet(\'' + panel_id_for_icons +'\',' + tweet.id + ",'" + from_sn + "')\">";
 					tweet_div += '<img src="' + URL_BASE + 'images/reply.gif" alt="Reply to this tweet" /></div>';
 				}
 			

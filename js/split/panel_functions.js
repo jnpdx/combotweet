@@ -65,7 +65,7 @@ function add_new_nav_button(panel_id) {
 	
 	var close_button_code = '<img src="' + URL_BASE + 'images/Cancel.png" id="remove_panel_' + panel_id + '"  class="close_panel" onclick="remove_panel(\'' + panel_id + '\')" alt="Close Panel" title="Close this panel" />';
 	
-	var nav_button_code = '<div class="nav_button show_panel_' + panel_id + '" onclick="show_panel(\'' + panel_id + '\')">' + panel_name + close_button_code + '</div>';
+	var nav_button_code = '<div class="nav_button show_panel_' + panel_id + '" onclick="show_panel(\'' + panel_id + '\')">' + '<span class="panel_name">' + panel_name + '</span>' + close_button_code + '</div>';
 	
 	$('#header_nav_buttons').append(nav_button_code);
 	
@@ -405,17 +405,7 @@ function show_panel(panel_id) {
 //For Shizzow, "Shizzow: USER"
 function get_panel_user_name(panel_id) {
 	
-	if (panel_id.indexOf('Search_') != -1) {
-		
-		return "Search: " + $('#panel_' + panel_id).find('.panel_user_name').val();
-		
-	}
-	
-	if (panel_id.indexOf('Shizzow_') != -1) {
-		
-		return "Shizzow: " + $('#panel_' + panel_id).find('.panel_user_name').val();
-		
-	}
+
 	
 	if (panel_id.indexOf("Facebook_") != -1) {
 	  
@@ -423,26 +413,9 @@ function get_panel_user_name(panel_id) {
 	  
 	}
 	
-	return panel_id;
+	return get_panel_by_id(panel_id).user;
 	
-	/*
-	
-	var n =  $('#panel_' + panel_id).find('.panel_user_name').val();
-	
-	if (n == "location") {
-		
-		return "within " + LOCATION_SEARCH_DISTANCE;
-		
-	}
-	
-	if ($('#panel_' + panel_id).find('.panel_type').val() == "search_panel") {
-		
-		return "Search: " + n;
-	}
-	
-	return n;
-	
-	*/
+
 	
 }
 
@@ -498,7 +471,7 @@ function make_new_filtered_panel(from_panel) {
 	panel_data = js_get_filtered_panel(panel_id)
 	
 	
-	var new_panel = new Data_Panel(panel_id,'filtered_panel','','_filtered',null);
+	var new_panel = new Data_Panel(panel_id,'filtered_panel','Filtered Panel','_filtered',null);
 	
 	new_panel.parent_panel = from_panel.panel_id;
 	

@@ -333,6 +333,8 @@ function edit_filter(panel_id) {
   
   code += '<div id="filter_edit_form">'
   
+  code += 'Panel name: <input type="text" id="filter_panel_name" value="' + pan.user + '"/><br/>'
+  
   if (pan.filter_rules.users != undefined) {
     
     code += "Users to display tweets from:<br/>";
@@ -366,9 +368,13 @@ function save_filter(panel_id) {
   
   pan = get_panel_by_id(panel_id);
   
+  pan.user = $('#filter_panel_name').val();
+  
+  $('#panel_' + panel_id + ' .panel_name').text(pan.user)
+  
   if ($('#users_filter').length > 0) {
     
-    pan.filter_rules['users'] = new Array();
+    pan.filter_rules['users'] = new Object();
     
     users_list = $('#users_filter').val();
     
@@ -376,7 +382,9 @@ function save_filter(panel_id) {
     
     for (i in users_list) {
       
-      console.log("user " + users_list[i])
+      //console.log("user " + users_list[i])
+      
+      if (i == '') { continue; }
       
       pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"")] = true
       
@@ -387,10 +395,8 @@ function save_filter(panel_id) {
   
   save_panel(panel_id,pan)
   
-  reload_filter_panel();
+  reload_filter_panel(panel_id);
   
   hide_notify_window()
-  
-  
   
 }
