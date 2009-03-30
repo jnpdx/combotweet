@@ -110,6 +110,32 @@ function js_get_search_panel(panel_id,t_user,t_pass) {
 	
 }
 
+function js_get_friends_followers(panel_id) {
+  
+  var pan = get_panel_by_id(panel_id);
+  
+  //console.log("Getting friends and followers of" + panel_id + pan.panel_type)
+  
+  
+  if (pan.panel_type != 'regular') {
+    return;
+  }
+  
+  
+  $.getJSON("http://twitter.com/followers/ids.json?screen_name=" + pan.user + '&callback=?',
+  function(data) {
+    pan.twitter_followers = data
+    save_panel(pan.panel_id,pan)
+  });
+  
+  $.getJSON("http://twitter.com/friends/ids.json?screen_name=" + pan.user + '&callback=?',
+  function(data) {
+    pan.twitter_friends = data
+    save_panel(pan.panel_id,pan)
+  });
+  
+}
+
 function js_get_search_tweets_through_json(panel_id,page) {
   
   show_loader();

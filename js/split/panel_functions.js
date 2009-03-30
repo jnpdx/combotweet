@@ -159,7 +159,7 @@ function make_new_panel() {
 	}
 	
 	
-	var new_panel = new Data_Panel(new_id,'regular_panel',u,p,panel_info);
+	var new_panel = new Data_Panel(new_id,'regular',u,p,panel_info);
 	
 	tw_panels.push(new_panel);
 	
@@ -339,7 +339,9 @@ function set_up_panel(id, data, t_user, t_pass) {
 	}
 
 	add_new_nav_button(id);
-	show_panel(id);
+	show_panel(id);	
+	js_get_friends_followers(id);
+	
 	get_tweets(id,'regular',1);
 	
 }

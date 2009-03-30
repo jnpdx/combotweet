@@ -28,6 +28,10 @@ function Data_Panel(pan_id,type,t_user,t_pass,info) {
 	this.filter_rules = null;
 	this.parent_panel = null;
 	
+	//friends and followers
+	this.twitter_friends = null;
+	this.twitter_followers = null;
+	
 }
 
 //Object for plugin
