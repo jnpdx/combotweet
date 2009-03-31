@@ -363,10 +363,13 @@ function proxy_send_shout(panel_id,shout,location) {
 function proxy_save_state(openid,show_alert) {
   show_loader();
   
-  panels_data = cloneObject(tw_panels);
+  panels_data = eval(uneval(tw_panels));
   
   for (i in panels_data) {
     panels_data[i].panel_data = '';
+    panels_data[i].twitter_friends = null;
+    panels_data[i].twitter_followers = null;
+    panels_data[i].auth = null;
   }
   
   $.post(URL_BASE + 'bin/ajax.php', {
@@ -380,16 +383,6 @@ function proxy_save_state(openid,show_alert) {
   return '';
   
   
-}
-
-function cloneObject(what) {
-    for (i in what) {
-        if (typeof what[i] == 'object') {
-            this[i] = new cloneObject(what[i]);
-        }
-        else
-            this[i] = what[i];
-    }
 }
 
 
