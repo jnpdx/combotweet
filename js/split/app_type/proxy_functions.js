@@ -360,7 +360,7 @@ function proxy_send_shout(panel_id,shout,location) {
 	
 }
 
-function proxy_save_state(openid) {
+function proxy_save_state(openid,show_alert) {
   show_loader();
   
   panels_data = tw_panels;
@@ -374,7 +374,7 @@ function proxy_save_state(openid) {
       panels_data: JSON.stringify(panels_data),
     }, function (data,textStatus) {
     hide_loader();
-    alert("Your open panels have been saved.");
+    if (show_alert) { alert("Your open panels have been saved."); }
   },'json');
   
   return '';

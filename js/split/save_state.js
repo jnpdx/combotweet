@@ -11,13 +11,13 @@ function save_to_openid(show_alert) {
   
   if (user_openid == '') {
     //ask the user for an openid, and check them in
-    if (show_alert) { alert("You haven't entered an OpenID to save to!") };
+    alert("You haven't entered an OpenID to save to!");
     return false;
   }
   
   //send a save request to the server
   if (PROXY) {
-    proxy_save_state(user_openid);
+    proxy_save_state(user_openid,show_alert);
   }
   
   
