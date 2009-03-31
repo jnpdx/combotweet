@@ -102,7 +102,7 @@ function make_new_panel() {
 	var u = $('#tw_user').val();
 	var p = $('#tw_pass').val();
 	
-	$('#login_form').hide("slide", { direction: "up" }, 600);	
+	toggle_login_form();	
 	
 	$('#tw_user').val('');
 	$('#tw_pass').val('');

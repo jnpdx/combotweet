@@ -28,6 +28,7 @@ function hide_overlay() {
 }
 
 function hide_open_windows() {
+  hide_overlay();
   hide_notify_window();
   $('#settings_form:visible').hide();
   $('#login_form:visible').hide();

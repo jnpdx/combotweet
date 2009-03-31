@@ -72,7 +72,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		
 		to_add += "</div>";
 		
-		to_add += '<br class="clear_both"/>';
+		//to_add += '<br class="clear_both"/>';
 		
 		to_add += "</div>";
 		

@@ -150,6 +150,7 @@ function show_login_form() {
 function toggle_login_form() {
   
   show_login_form();
+  hide_overlay();
   
 }
 
