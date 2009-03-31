@@ -326,7 +326,7 @@ if (isset($_GET['search'])) {
 		?>
 		
 		<div class="startup_box">
-			<span id="save_warning">Remember: If you would like to save your open panels, click the <img src="images/Plus.png" alt="Plus"/> and then choose "Sign in".  If you've saved panels from a previous session, signing in will load your saved state.</span><br/><span style="color: red">Also remember to save the state of your panels before closing this page (click the <img src="images/Save.png" alt="Save"/> in the top right once you've logged in)</span>
+			<span id="save_warning">Remember: If you would like to save your open panels, click the <img src="images/Plus.png" alt="Plus"/> and then choose "Sign in".  If you've saved panels from a previous session, signing in will load your saved state.</span><br/><span style="color: #a33">Also remember to save the state of your panels before closing this page (click the <img src="images/Save.png" alt="Save"/> in the top right once you've logged in)</span>
 		</div>
 		<div class="startup_box">
 			
@@ -342,7 +342,7 @@ if (isset($_GET['search'])) {
 				
 			</div>
 	
-			<div id="notify_overlay" onclick="hide_notify_window()"></div><div id="notify_window"><img src="images/Cancel.png" id="notify_close_button" onclick="hide_open_windows()" alt="Close" title="Close window" /><div id="notify_content"></div></div>
+			<div id="notify_overlay" onclick="hide_open_windows()"></div><div id="notify_window"><img src="images/Cancel.png" id="notify_close_button" onclick="hide_open_windows()" alt="Close" title="Close window" /><div id="notify_content"></div></div>
 	
 	
 </div>

@@ -526,6 +526,10 @@ function parse_filtered_tweets(panel_id,page_num,data) {
 //Turns user names/urls/hashtags into hyperlinks
 function parse_tweet(tweet) {
 	
+	if (tweet == null) {
+	  return '';
+	}
+	
 	var new_tweet = tweet;
 	
 	var url_RE = /(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/gi;

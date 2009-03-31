@@ -453,7 +453,8 @@ div#login_form, div#settings_form, div#save_state_form {
 	border: 1px solid #aaa;
 	margin-bottom: 10px;
 	text-align: center;
-	background: white;
+	background: #334;
+	color: #aaa;
 	position:fixed;
 	z-index: 101;
 	
@@ -623,7 +624,7 @@ img.button_sample {
 	
 	position: absolute;
 	background-color: #333;
-	color: #333;
+	color: #aaa;
 	border: 1px solid #aaa;
 	width: 380px;
 	padding: 10px;

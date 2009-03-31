@@ -129,6 +129,12 @@ function show_login_form() {
   
   $('#old_login_form').hide();
   
+  if ($('#login_form:visible').length == 0) {
+	  show_overlay();
+	} else {
+	  hide_overlay();
+	}
+  
 	$('#login_form').css('left',$(window).width() - 420)
 	
 	$('#login_form').toggle("slide", { direction: "up" }, 400,
@@ -151,6 +157,12 @@ function show_settings_form() {
 	
 	$('#settings_form').css('left',$(window).width() - 600)
 	
+	if ($('#settings_form:visible').length == 0) {
+	  show_overlay();
+	} else {
+	  hide_overlay();
+	}
+	
 	$('#settings_form').toggle("slide", { direction: "up" }, 400,
 	function() {
 		$('#tabbed_panels').attr('checked', TABBED_PANELS );
@@ -163,6 +175,8 @@ function show_settings_form() {
 		$('#css_file_setting').val(CSS_FILE);
 	}
 	);
+	
+	
 	
 }
 
