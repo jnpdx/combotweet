@@ -94,6 +94,9 @@ function update_panel_order() {
     new_panel_array.push(cur_panel)
   }
   tw_panels = new_panel_array;
+  if (AUTO_SAVE) {
+    save_to_openid();
+  }
 }
 
 //Create a new panel

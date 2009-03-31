@@ -326,7 +326,7 @@ if (isset($_GET['search'])) {
 		?>
 		
 		<div class="startup_box">
-			<span id="save_warning">Remember: If you would like to save your open panels, click the <img src="images/Plus.png" alt="Plus"/> and then choose "Sign in".  If you've saved panels from a previous session, signing in will load your saved state.</span><br/><span style="color: #a33">Also remember to save the state of your panels before closing this page (click the <img src="images/Save.png" alt="Save"/> in the top right once you've logged in)</span>
+			<span id="save_warning">Remember: If you would like to save your open panels, click the <img src="images/Plus.png" alt="Plus"/> and then choose "Sign in".  If you've saved panels from a previous session, signing in will load your saved state.</span><br/><span style="color: #a33">Also remember to save the state of your panels before closing this page (click the <img src="images/Save.png" alt="Save"/> in the top right once you've logged in).</span>  Unless you turn the option off, changes will be periodically auto-saved for you as well.
 		</div>
 		<div class="startup_box">
 			
