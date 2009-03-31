@@ -74,9 +74,16 @@ function add_new_nav_button(panel_id) {
 	
 	
 	if (!AIR) {
+	  $('#panels').sortable('destroy')
 		$('#panels').sortable(
 			{
 				handle: '.nav_button',
+				start: function(ev,ui) {
+				  $('.tweet').hide();
+				},
+				stop: function(ev,ui) {
+				  $('.tweet').show();
+				},
 				update: function() {
 					update_panel_order();
 				},
