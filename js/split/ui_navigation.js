@@ -160,6 +160,7 @@ function show_settings_form() {
 		$('#remove_old_tweets').attr('checked', DESTROY_TWEETS );
 		$('#font_size').val('' + FONT_SIZE);
 		$('#panel_width').val('' + PANEL_WIDTH);
+		$('#css_file_setting').val(CSS_FILE);
 	}
 	);
 	

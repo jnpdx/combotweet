@@ -136,7 +136,7 @@ if (isset($_GET['search'])) {
 		 //<![CDATA[
 		
 			var VERSION = '<?=VERSION?>';
-			document.write('<link href="' + CSS_FILE + '?v=' + VERSION + '" media="screen, projection" rel="stylesheet" type="text/css" />');
+			document.write('<link href="front/' + CSS_FILE + '?v=' + VERSION + '" media="screen, projection" rel="stylesheet" type="text/css" />');
 			
 			//]]>
 			
@@ -287,6 +287,12 @@ if (isset($_GET['search'])) {
 				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
 				<label>Font size (%):</label><input type="text" id="font_size"/><br class="clear_both"/>
 				<label>Panel width (px):</label><input type="text" id="panel_width"/><br class="clear_both"/>
+				<label>Style:</label>
+				<select id="css_file_setting">
+					<option value="newui.css">Default</option>
+					<option value="dark.css">Dark</option>
+				</select>
+				<br class="clear_both"/>
 				
 				<input id="update_settings_button" type="submit" value="Save" />
 			</form>

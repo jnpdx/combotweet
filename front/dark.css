@@ -18,7 +18,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 
-body { line-height: 1.5; background: #fff; margin:1.5em 0; }
+body { line-height: 1.5; background: #222; margin:1.5em 0; }
 
 /* Tables still need 'cellspacing="0"' in the markup. */
 table { border-collapse: separate; border-spacing: 0; }
@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6, address {
 a {
 	
 	text-decoration: none;
+	color: #aaf;
 	
 }
 
@@ -139,7 +140,6 @@ div#canvas {
 	/* width: 400px; */
 	margin: 94px 10px 30px 10px;
 	padding: 0px 20px;
-	background: white;
 	
 }
 
@@ -202,15 +202,15 @@ div.tweet_left {
 
 div.the_tweet {
 	
-	background: #e8e8e8;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	background: #333;
+	color: #aaa;
+	border: 1px solid #aaa;
 	
 }
 
 div.the_tweet:hover, div.selected_tweet div.the_tweet {
 	
-	background: #cfcfdf;
+	background: #3f3f4f;
 	
 }
 
@@ -316,10 +316,16 @@ div.twitter_inputs {
 	
 }
 
+span.length_notify_box {
+  color: #aaa;
+}
+
 textarea.tweet_input {
 	
 	width: 100%;
 	font-size: 1.2em;
+	border: 0px;
+	background: #777;
 	
 }
 
@@ -344,6 +350,7 @@ input.tweet_submit, input.url_shortener_submit {
 div.more_tweets {
 	
 	cursor: pointer;
+	color: #aaa;
 	
 }
 
@@ -355,9 +362,7 @@ div#header_nav_buttons {
 
 div.tweet_type_button,div#header_nav_buttons div.nav_button {
 	
-	background: #f3f3f3;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #aaa;
+	background: #555;
 	padding: 4px 15px;
 	float: left;
 	cursor: pointer;
@@ -377,10 +382,9 @@ div.tweet_type_button:hover, div#header_nav_buttons div.nav_button:hover {
 div.button_highlighted {
 	
 	color: #000;
-	border: 1px solid #aaa;
-	border-bottom: 1px solid #fff;
 	width: auto;
-	background: #fff;
+	border: 1px;
+	background: #bbb;
 	margin-left: 1px;
 	margin-right: 1px;	
 	
@@ -469,6 +473,7 @@ div#login_form {
 div#login_form a {
   
   text-decoration: none;
+  color: #55a;
   
 }
 
@@ -718,6 +723,8 @@ div.startup_box {
   margin: 40px auto;
   border: 1px solid black;
   padding: 30px;
+  color: #aaa;
+  background: #333;
   
 }
 

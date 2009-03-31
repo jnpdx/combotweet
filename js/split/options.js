@@ -42,7 +42,7 @@ var AIR = false;
 //Need a proxy to run?  In browsers, this will be 'true' until XS Ajax is allowed
 var PROXY = true;
 //Relative URL of the css file for the client
-var CSS_FILE = 'front/newui.css';
+var CSS_FILE = 'dark.css';
 //Font size in tweets
 var FONT_SIZE = 100;
 //Tabbed browsing
@@ -72,8 +72,33 @@ if (window.mt_options) {
 	
 }
 
+//CSS FILE STUFF
+
+get_css()
+
+function get_css() {
+  var cookie_css = readCookie('combotweet_css')
+
+  if (cookie_css != null) {
+    CSS_FILE = cookie_css
+  }
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
 
 function update_settings() {
+	
+	var need_refresh = false;
 	
 	if ( parseInt($('#refresh_freq').val()) != NaN) {
 		UPDATE_FREQ = parseInt($('#refresh_freq').val()) * 1000;
@@ -123,10 +148,21 @@ function update_settings() {
 	
 	if (TABBED_PANELS != $('#tabbed_panels').attr('checked')) {
 		TABBED_PANELS = $('#tabbed_panels').attr('checked');
-		refresh_window();
+		need_refresh = true
 	}
 		
+	
+	if (CSS_FILE != $('#css_file_setting').val()) {
+	  CSS_FILE = $('#css_file_setting').val()
+	  need_refresh = true
+	}
+	
 	save_settings_in_cookie();
+	
+	
+	if (need_refresh) {
+	  refresh_window();
+	}
 	
 	show_settings_form();
 	
@@ -159,8 +195,10 @@ function save_settings_in_cookie() {
 	settings += "ADD_HASHTAG=" + ADD_HASHTAG;
 	
 	settings += '&'
+	
 		
 	$.cookie('combotweet_settings',settings,{expires: 365})
+	$.cookie('combotweet_css',CSS_FILE,{expires: 365})
 	
 }
 

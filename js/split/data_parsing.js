@@ -402,7 +402,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			
 
 			
-			tweet_div += '<br class="clear_both"/>';
+			//tweet_div += '<br class="clear_both"/>';
 			tweet_div += '<div class="tweet_right"></div>';
 			tweet_div += '<div class="tweet_bottom"></div>';
 			tweet_div += '</div>';
