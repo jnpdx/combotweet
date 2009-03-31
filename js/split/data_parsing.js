@@ -337,8 +337,11 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				}
 			}
 		
-		  tweet_div += ' / <a href="" onclick="translate_tweet(\'panel_' + panel_id + 'tweet_' + tweet.id + '\'); return false;">Translate</a>';
+		  if (TRANSLATE) {
+		
+		    tweet_div += ' / <a href="" onclick="translate_tweet(\'panel_' + panel_id + 'tweet_' + tweet.id + '\'); return false;">Translate</a>';
 		  
+	    }
 		
 			tweet_div += '</span>';
 			

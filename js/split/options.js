@@ -57,6 +57,8 @@ var PANEL_WIDTH = 500;
 var ADD_HASHTAG = false;
 //Display URL shortener
 var SHOW_URL_SHORTNER = false;
+//Display translate option
+var TRANSLATE = false;
 
 /******************************** END OPTIONS **********************************/
 
