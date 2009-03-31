@@ -140,6 +140,7 @@ div#canvas {
 	/* width: 400px; */
 	margin: 94px 10px 30px 10px;
 	padding: 0px 20px;
+	color: #aaa;
 	
 }
 
@@ -216,7 +217,7 @@ div.the_tweet:hover, div.selected_tweet div.the_tweet {
 
 div.favorite_tweet .the_tweet {
 	
-	background: #FFFEBC;
+	background: #533;
 	
 }
 
@@ -621,7 +622,8 @@ img.button_sample {
 #notify_window {
 	
 	position: absolute;
-	background-color: white;
+	background-color: #333;
+	color: #333;
 	border: 1px solid #aaa;
 	width: 380px;
 	padding: 10px;
@@ -787,6 +789,10 @@ textarea#users_filter {
 
 input#filtered_panel_name {
   
+}
+
+span.panel_name {
+  color: black;
 }
 
 span.filter_message {

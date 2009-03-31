@@ -287,7 +287,7 @@ if (isset($_GET['search'])) {
 				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
 				<label>Font size (%):</label><input type="text" id="font_size"/><br class="clear_both"/>
 				<label>Panel width (px):</label><input type="text" id="panel_width"/><br class="clear_both"/>
-				<label>Style:</label>
+				<label>Theme: </label>
 				<select id="css_file_setting">
 					<option value="newui.css">Default</option>
 					<option value="dark.css">Dark</option>
