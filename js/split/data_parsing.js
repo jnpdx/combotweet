@@ -297,7 +297,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			tweet_div += '<input type="hidden" class="tweet_id" value="' + tweet.id + '"/>';
 			
 			
-			tweet_div += '<a class="user_name" onclick="return display_twitter_user(\'' + from_sn + '\');" href="http://twitter.com/' + from_sn + '">' + from_sn + "</a>: ";
+			tweet_div += '<a class="user_name" target="_blank" onclick="return display_twitter_user(\'' + from_sn + '\');" href="http://twitter.com/' + from_sn + '">' + from_sn + "</a>: ";
 		
 		
 			var tweet_text = parse_tweet(tweet.text);
@@ -545,7 +545,7 @@ function parse_tweet(tweet) {
 	new_tweet = new_tweet.replace(username_RE, function(u) {
 		
 		var username = u.replace("@","");
-		return '<a href="http://twitter.com/' + username + '" onclick="return display_twitter_user(\'' + username + '\');">' + u + '</a>';
+		return '<a target="_blank" href="http://twitter.com/' + username + '" onclick="return display_twitter_user(\'' + username + '\');">' + u + '</a>';
 		//return u.link("http://twitter.com/"+username);
 		
 	});
