@@ -26,3 +26,20 @@ function run_plugins(hook,args) {
 	}
 	
 }
+
+//translate
+
+function translate_tweet(tweet_id) {
+  var the_tweet = $('#' + tweet_id + " .tweet_text")
+  var text = the_tweet.html();
+  
+  console.log('translating ' + text)
+  
+  google.language.translate(text, "", "en", function(result) {
+    console.log('got result')
+    if (!result.error) {
+      the_tweet.html(result.translation);
+    }
+  });
+  
+}

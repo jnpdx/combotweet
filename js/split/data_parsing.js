@@ -316,8 +316,12 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 			var created_date = new Date(tweet.created_at);
 		
-			tweet_div += '<span id="tweet_time_' + panel_id + tweet.id + '">' + '<a href="http://twitter.com/' + from_sn + '/status/' + tweet.id + '" target="_blank">' + get_time_text(cur_date,created_date) + "</a></span>";
+			tweet_div += '<span id="tweet_time_' + panel_id + tweet.id + '">' + '<a href="http://twitter.com/' + from_sn + '/status/' + tweet.id + '" target="_blank">' + get_time_text(cur_date,created_date) + "</a>";
 		
+		  tweet_div += "</span>";
+			
+		
+			
 		
 			if (tweet.in_reply_to_screen_name != undefined) {
 			
@@ -332,6 +336,9 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 				  tweet_div += 'to ' + tweet.recipient_screen_name;
 				}
 			}
+		
+		  tweet_div += ' / <a href="" onclick="translate_tweet(\'panel_' + panel_id + 'tweet_' + tweet.id + '\'); return false;">Translate</a>';
+		  
 		
 			tweet_div += '</span>';
 			
@@ -399,8 +406,11 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 					tweet_div +=  'onclick="reply_to_tweet(\'' + panel_id_for_icons +'\',' + tweet.id + ",'" + from_sn + "')\">";
 					tweet_div += '<img src="' + URL_BASE + 'images/reply.gif" alt="Reply to this tweet" /></div>';
 				}
+				
 			
 			tweet_div += '</div>';
+			
+			
 			
 			tweet_div += '<div class="the_tweet_right"></div>';
 			tweet_div += '<div class="the_tweet_bottom"></div>';

@@ -92,6 +92,11 @@ if (isset($_GET['search'])) {
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
 
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+	  google.load("language", "1");
+	</script>
+
 	<script type="text/javascript" src='js/json2.js'></script>
 
 	<script type="text/javascript" src='js/jquery.cookie.js'></script>
