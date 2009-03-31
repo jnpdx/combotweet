@@ -445,7 +445,7 @@ div#nav_buttons_wrapper {
 }
 
 
-div#login_form, div#settings_form, div#save_state_form {
+div#login_form, div#settings_form, div#save_state_form, div#search_form {
 	
 	display: none;
 	line-height: 1.4em;
@@ -466,7 +466,7 @@ div#login_form {
   
 }
 
-div#login_form {
+div#login_form,div#search_form {
 	
 	width: 400px;
 	
@@ -635,7 +635,7 @@ img.button_sample {
 	
 }
 
-img#notify_close_button {
+img#notify_close_button,img#alert_close_button {
 	
 	float: right;
 	width: 20px;
@@ -804,4 +804,18 @@ span.filter_message {
   background: #e8e8e8;
   padding: 6px;
   color: #333;
+}
+
+div#combotweet_alert_box {
+  position: fixed;
+	background: #a33;
+	width: 500px;
+	padding: 6px;
+	z-index: 101;
+	display: none;
+}
+
+div#combotweet_alert_box p {
+  text-align: center;
+  color: #aaa;
 }

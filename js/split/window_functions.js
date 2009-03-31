@@ -30,8 +30,11 @@ function hide_overlay() {
 function hide_open_windows() {
   hide_overlay();
   hide_notify_window();
+  hide_alert();
   $('#settings_form:visible').hide();
   $('#login_form:visible').hide();
+  $('#search_form:visible').hide();
+  
 }
 
 //Shows a notification window
@@ -432,4 +435,23 @@ function save_filter(panel_id) {
   
   hide_notify_window()
   
+}
+
+function combotweet_alert(msg) {
+  show_overlay();
+  $('#combotweet_alert_box p').text(msg);
+  
+  var win_left = $(window).scrollLeft() + 100;
+	var win_top = $(window).scrollTop() + 150;
+	
+	$('#combotweet_alert_box').css('left',win_left);
+	$('#combotweet_alert_box').css('top',win_top);
+	$('#combotweet_alert_box').css('opacity','1');
+  
+  $('#combotweet_alert_box').show();
+}
+
+function hide_alert() {
+  $('#combotweet_alert_box').hide();
+  hide_overlay();
 }

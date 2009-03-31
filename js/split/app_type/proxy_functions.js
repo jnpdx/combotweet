@@ -82,7 +82,7 @@ function proxy_get_session_panels() {
 		  
   		  if (pan_type == 'regular') {
   			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
-  			} else if (pan_type == 'search') {
+  			} else if (pan_type == 'search_panel') {
   			  var pan_data = js_get_search_panel(panel_id,pan_user,"_search");
   			} else if (pan_type == 'shizzow_panel') {
   			  var pan_data = js_get_shizzow_panel(panel_id,pan_user,'')

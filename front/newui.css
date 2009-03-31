@@ -440,7 +440,7 @@ div#nav_buttons_wrapper {
 }
 
 
-div#login_form, div#settings_form, div#save_state_form {
+div#login_form, div#settings_form, div#save_state_form, div#search_form {
 	
 	display: none;
 	line-height: 1.4em;
@@ -460,7 +460,7 @@ div#login_form {
   
 }
 
-div#login_form {
+div#login_form,div#search_form {
 	
 	width: 400px;
 	
@@ -627,7 +627,7 @@ img.button_sample {
 	
 }
 
-img#notify_close_button {
+img#notify_close_button, img#alert_close_button {
 	
 	float: right;
 	width: 20px;

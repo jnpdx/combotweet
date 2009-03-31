@@ -154,6 +154,23 @@ function toggle_login_form() {
   
 }
 
+function toggle_search_form() {
+  show_overlay();
+  $('#search_form').css('left',$(window).width() - 420)
+	
+  $('#search_form').toggle("slide", { direction: "up" }, 400,
+	function() {
+		
+		if ($('#search_form:visible').length > 0) {
+		  $('#search_term').focus();
+		} else {
+		  hide_overlay();
+		}
+		
+	}
+	);
+}
+
 function show_settings_form() {
 	
 	$('#settings_form').css('left',$(window).width() - 600)

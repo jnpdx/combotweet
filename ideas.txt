@@ -28,28 +28,30 @@ Wordpress plugin - stores $_SESSION data in user table
 
 
 Needed features:
-	Display sent_to in DM
+	Display sent_to in DM +
 	Allow DM from Timeline or Replies
 	Allow reply from a search panel - should let you choose which user_n to respond with
 	Instead of a window about a user, open a new panel?
 	Allow search for a user
-	Get the list of people that the user is following and compare it when displaying user info
-		Display follow/unfollow button accordingly
-	Shizzow - shout from places that others have been shouting from
+	Get the list of people that the user is following and compare it when displaying user info +
+		Display follow/unfollow button accordingly +
+	Shizzow - shout from places that others have been shouting from +
 	Should allow columns for Replies/DMs/Timeline separate instead of single panel
 	
 	
 To Do:
 	Split CSS (same as javascript)
 		Write compiler
-	Alternate style
-		Tweetdeck-like
+	Alternate style +
+		Tweetdeck-like +
 	Update server DB to handle save_state
 	Error handling!
-	Horizontal scrolling for new panels
-	Domain
-		Blog
+	Horizontal scrolling for new panels +
+	Domain +
+		Blog +
 
 
-AUTOSAVE
+AUTOSAVE +
+
+eliminate alerts and prompts and create DOM versions of them
 

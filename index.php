@@ -184,7 +184,7 @@ if (isset($_GET['search'])) {
 						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 				
 				
-						<img src="images/Magnifier.png" id="search_panel_button" onclick="add_search_panel(null)" alt="Search" title="Search"/>
+						<img src="images/Magnifier.png" id="search_panel_button" onclick="toggle_search_form()" alt="Search" title="Search"/>
 				
 						<img src="images/Tools.png" id="settings_panel_button" onclick="show_settings_form()" alt="Settings" title="Settings"/>
 				
@@ -273,6 +273,10 @@ if (isset($_GET['search'])) {
 			</form>
 		</div>
 		
+		<div id="search_form">
+			<input type="text" id="search_term" value="" />&nbsp;<input type="button" value="Search" onclick="add_search_panel($('#search_term').val()); hide_open_windows()"/>
+		</div>
+		
 		<div id="settings_form">
 			<form onsubmit="update_settings();return false;" action="" method="post">
 				<label>Tabbed browsing:</label><input type="checkbox" id="tabbed_panels"/><br class="clear_both"/>
@@ -341,6 +345,8 @@ if (isset($_GET['search'])) {
 			<div id="panels">
 				
 			</div>
+	
+			<div id="combotweet_alert_box"><img src="images/Cancel.png" id="alert_close_button" onclick="hide_alert()" alt="Close" title="Close window" /><p>test alert</p><br class="clear_both"/></div>
 	
 			<div id="notify_overlay" onclick="hide_open_windows()"></div><div id="notify_window"><img src="images/Cancel.png" id="notify_close_button" onclick="hide_open_windows()" alt="Close" title="Close window" /><div id="notify_content"></div></div>
 	

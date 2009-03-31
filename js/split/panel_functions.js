@@ -331,6 +331,8 @@ function add_search_panel(search_term) {
 	
 	set_up_panel(panel_id, data, search_term,"_search");
 	
+	auto_save()
+	
 	return false;
 	
 }
