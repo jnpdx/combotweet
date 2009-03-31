@@ -261,7 +261,7 @@ function reply_to_tweet(panel_id,tweet_id,user_name) {
 	
 	$.scrollTo( tweet_input, 20, {
 	
-		offset: { left: -20, top: -130 },
+		offset: { left: -100, top: -130 },
 		axis: 'xy',
 	
 	} );
