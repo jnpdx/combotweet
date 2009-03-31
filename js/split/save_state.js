@@ -2,16 +2,16 @@
 
 function auto_save() {
   if (AUTO_SAVE && (user_openid != '')) {
-    save_to_openid();
+    save_to_openid(false);
   }
 }
 
-function save_to_openid() {
+function save_to_openid(show_alert) {
   
   
   if (user_openid == '') {
     //ask the user for an openid, and check them in
-    alert("You haven't entered an OpenID to save to!");
+    if (show_alert) { alert("You haven't entered an OpenID to save to!") };
     return false;
   }
   
@@ -59,7 +59,7 @@ function show_save_state_form() {
 
 function save_state_submit() {
   
-  save_to_openid();
+  save_to_openid(true);
   
   hide_open_windows();
   

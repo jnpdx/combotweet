@@ -179,7 +179,7 @@ if (isset($_GET['search'])) {
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
 				
-						<img src="images/Save.png" id="save_state_button" onclick="save_to_openid(); return false;" alt="Save State" title="Save State" /> 
+						<img src="images/Save.png" id="save_state_button" onclick="save_to_openid(true); return false;" alt="Save State" title="Save State" /> 
 				
 						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 				

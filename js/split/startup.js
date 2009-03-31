@@ -63,17 +63,16 @@ function doc_ready_functions() {
 	
 	}
 	
-	setTimeout("auto_save()",AUTO_SAVE_FREQ);
+	setTimeout("auto_save_job()",AUTO_SAVE_FREQ);
 	
 	
 	bind_shortcuts();
 	
 }
 
-function auto_save() {
-  if ((user_openid != '') && AUTO_SAVE) {
-    save_to_openid();
-  }
+function auto_save_job() {
+  auto_save()
+  setTimeout("auto_save_job()",AUTO_SAVE_FREQ);
 }
 
 function bind_shortcuts() {
