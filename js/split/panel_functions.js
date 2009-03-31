@@ -435,7 +435,19 @@ function get_panel_user_name(panel_id) {
 	  
 	}
 	
-	return get_panel_by_id(panel_id).user;
+	if (panel_id.indexOf("Search_") != -1) {
+	  
+	  return "Search: " + get_panel_by_id(panel_id).user
+	  
+	}
+	
+	if (panel_id.indexOf("Shizzow") != -1) {
+	  
+	  return "Shizzow: " + get_panel_by_id(panel_id).user
+	  
+	}
+	
+	return "Twitter: " + get_panel_by_id(panel_id).user;
 	
 
 	
