@@ -123,6 +123,11 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 			
 		}
 		
+		if (data.length == 0) {
+		  update_times(panel_id);
+		  return;
+		}
+		
 		if (pan.panel_type == 'shizzow_panel') {
 			parse_get_shouts_data(panel_id,page_num,data);
 			return;
