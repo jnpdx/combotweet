@@ -179,7 +179,7 @@ if (isset($_GET['search'])) {
 					<div id="global_buttons">
 						<img src="images/Plus.png" id="new_panel_button" onclick="show_login_form()" alt="New Panel" title="New panel"/>
 				
-						<!--<img src="images/Save.png" id="save_state_button" onclick="show_save_state_form()" alt="Save State" title="Save State" /> -->
+						<img src="images/Save.png" id="save_state_button" onclick="save_to_openid(); return false;" alt="Save State" title="Save State" /> 
 				
 						<img src="images/Redo.png" id="refresh_button" onclick="refresh_tweets()" alt="Refresh" title="Refresh tweets"/>
 				
@@ -232,18 +232,15 @@ if (isset($_GET['search'])) {
 			</fieldset></form>
 			-->
 			
-			<?php if (!isset($_SESSION['user_openid'])): ?>
 			<a class="rpxnow" onclick="return false;"
 			   href="https://combotweet.rpxnow.com/openid/v2/signin?token_url=<?=$rpx_token?>">
 			<img src="images/Key.png" id="load_state_button" alt="Load" />
-			  Sign In (to be able to save open panels)
-			</a>
-			<?php else: ?>
-			<a href="" onclick="save_state_submit(); return false;">
-			<img src="images/Save.png" id="save_state_button" alt="Save state" />
-			  Save state
-			</a>
-			<?php endif; ?>
+			  Sign In (to be able to save open panels)</a>
+				<?php if (isset($_SESSION['user_openid'])): ?>
+				<br/>(You are currently signed in as <?=$_SESSION['user_openid']?>)
+				<?php endif; ?>
+			
+			
 			
 			<br/>
 			
@@ -329,14 +326,15 @@ if (isset($_GET['search'])) {
 		?>
 		
 		<div class="startup_box">
-			<span id="save_warning">Remember: If you would like to save your open panels, click the <img src="images/Plus.png" alt="Plus"/> and then choose "Sign in".  If you've saved panels from a previous session, signing in will load your saved state.</span><br/><span style="color: red">Also remember to save the state of your panels before closing this page (click the <img src="images/Plus.png" alt="Plus"/> then <img src="images/Save.png" alt="Save"/>once you've logged in)</span>
+			<span id="save_warning">Remember: If you would like to save your open panels, click the <img src="images/Plus.png" alt="Plus"/> and then choose "Sign in".  If you've saved panels from a previous session, signing in will load your saved state.</span><br/><span style="color: red">Also remember to save the state of your panels before closing this page (click the <img src="images/Save.png" alt="Save"/> in the top right once you've logged in)</span>
 		</div>
 		<div class="startup_box">
 			
 			<p><strong>Welcome to ComboTweet!</strong></p>
 			<p>ComboTweet is in Beta, and early Beta at that - we're working quickly to add features.  Please tweet at @jnpdx or @combotweet for help, requests, bug reports, etc.  You can also visit the <a href="http://blog.combotweet.com/">ComboTweet blog</a>.  Source code is <a href="http://github.com/jnpdx/combotweet">available on GitHub</a>.</p>
 			<p>Click on the <img src="images/Plus.png" alt="Plus"/> icon to open a panel for a new user.  ComboTweet uses OAuth by default, meaning you don't have to give your password to third parties - authentication is done directly with Twitter.</p>
-			<p>To open a search panel instead of a user panel, use the <img src="images/Magnifier.png" alt="Search"/> icon</p>.  To open a filtered panel (if you only want to see tweets from certain users), click the <img src="images/Plus.png" alt="Plus"/> and then choose "Create a filtered panel"
+			<p>To open a search panel instead of a user panel, use the <img src="images/Magnifier.png" alt="Search"/> icon.</p>
+			<p>To open a filtered panel (if you only want to see tweets from certain users), click the <img src="images/Plus.png" alt="Plus"/> and then choose "Create a filtered panel"</p>
 			<p>To logout of ComboTweet, use the <img src="images/Cancel.png" alt="Close"/> icon - this will close all of your open panels.  Note: this will not delete data associated with your OpenID</p>
 		</div>
 

@@ -30,8 +30,8 @@ function doc_ready_functions() {
 	
 	if (user_openid != '') {
 	  
-	  $('#save_state_button').show();
-	  $('#load_state_button').hide();
+	  //$('#save_state_button').show();
+	  //$('#load_state_button').hide();
 	  $('#openid_identifier').attr('disabled','true');
 	  
 	}
