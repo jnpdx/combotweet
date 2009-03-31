@@ -80,6 +80,8 @@ function proxy_get_session_panels() {
 		  
   		  tw_panels[i] = new_panel;
 		  
+		    if (pan_type == 'search') { pan_type = "search_panel" }
+		  
   		  if (pan_type == 'regular') {
   			  var pan_data = js_get_panel(panel_id, pan_user, '', gen_info);
   			} else if (pan_type == 'search_panel') {
