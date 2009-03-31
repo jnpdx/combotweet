@@ -131,7 +131,7 @@ if (isset($_GET['search'])) {
 <title>ComboTweet</title>
 
 <?php if (!$GLOBALS['mobile']): ?>
-	<?php if ($_SERVER['HTTP_HOST'] != "combotweet.com"): ?>
+	<?php //if ($_SERVER['HTTP_HOST'] != "combotweet.com"): ?>
 		<script type="text/javascript">
 		 //<![CDATA[
 		
@@ -141,10 +141,10 @@ if (isset($_GET['search'])) {
 			//]]>
 			
 		</script>
-	<?php else: ?>
+	<?php //else: ?>
 		<!-- <link href="front/bubble_style.css?v=<?=VERSION?>" media="screen, projection" rel="stylesheet" type="text/css" /> -->
-		<link href="front/min_style.css?v=<?=VERSION?>" media="screen, projection" rel="stylesheet" type="text/css" />
-	<?php endif; ?>	
+		<!-- <link href="front/min_style.css?v=<?=VERSION?>" media="screen, projection" rel="stylesheet" type="text/css" /> -->
+	<?php //endif; ?>	
 <?php else: ?>
 	<link href="front/mobile_style.css?v=<?=VERSION?>" media="screen, projection" rel="stylesheet" type="text/css"/>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
