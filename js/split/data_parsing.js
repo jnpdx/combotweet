@@ -125,10 +125,10 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		if (data.length == 0) {
 		  update_times(panel_id);
-		  console.log("updating times bc length is 0")
+		  //console.log("updating times bc length is 0")
 		  return;
 		} else {
-		  console.log('Data is not 0 ' + data.length)
+		  //console.log('Data is not 0 ' + data.length)
 		}
 		
 		if (pan.panel_type == 'shizzow_panel') {

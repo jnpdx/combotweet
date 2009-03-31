@@ -163,6 +163,7 @@ function toggle_search_form() {
 		
 		if ($('#search_form:visible').length > 0) {
 		  $('#search_term').focus();
+		  $('#search_term').select();
 		} else {
 		  hide_overlay();
 		}
