@@ -286,7 +286,7 @@ if (isset($_GET['search'])) {
 				<label>Panel width (px):</label><input type="text" id="panel_width"/><br class="clear_both"/>
 				<label>Theme: </label>
 				<select id="css_file_setting">
-					<option value="newui.css">Default</option>
+					<option value="newui.css">Light</option>
 					<option value="dark.css">Dark</option>
 				</select>
 				<br class="clear_both"/>
