@@ -68,7 +68,7 @@ function parse_get_shouts_data(panel_id,page_num,data) {
 		created_date.setISO8601(cur_shout.arrived);
 	
 		//to_add += '<span id="tweet_time_' + s_id + '">' + get_time_text(cur_date,created_date) + "</span>";
-		to_add += '<span id="tweet_time_' + s_id + '">' + cur_shout.shout_time + "</span>";
+		to_add += '<span id="tweet_time_' + panel_id + s_id + '">' + cur_shout.shout_time + "</span>";
 		
 		to_add += "</div>";
 		
@@ -125,7 +125,10 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 		if (data.length == 0) {
 		  update_times(panel_id);
+		  console.log("updating times bc length is 0")
 		  return;
+		} else {
+		  console.log('Data is not 0 ' + data.length)
 		}
 		
 		if (pan.panel_type == 'shizzow_panel') {
@@ -313,7 +316,7 @@ function parse_get_tweets_data(panel_id,type,page_num,data) {
 		
 			var created_date = new Date(tweet.created_at);
 		
-			tweet_div += '<span id="tweet_time_' + tweet.id + '">' + '<a href="http://twitter.com/' + from_sn + '/status/' + tweet.id + '" target="_blank">' + get_time_text(cur_date,created_date) + "</a></span>";
+			tweet_div += '<span id="tweet_time_' + panel_id + tweet.id + '">' + '<a href="http://twitter.com/' + from_sn + '/status/' + tweet.id + '" target="_blank">' + get_time_text(cur_date,created_date) + "</a></span>";
 		
 		
 			if (tweet.in_reply_to_screen_name != undefined) {

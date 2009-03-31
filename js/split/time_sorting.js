@@ -7,8 +7,8 @@ function update_times(panel_id) {
 	
 	if (pan.panel_data != undefined) {
 		for (var t = 0; t < pan.panel_data.length; t++) {
-	
-			$('#tweet_time_' + pan.panel_data[t].id + ' a').html(get_time_text(cur_date,new Date(pan.panel_data[t].created_at)));
+	    console.log("updating time on panel " + pan.panel_id)
+			$('#tweet_time_' + panel_id + pan.panel_data[t].id + ' a').html(get_time_text(cur_date,new Date(pan.panel_data[t].created_at)));
 	
 		}
 	}
