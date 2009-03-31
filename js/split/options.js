@@ -29,6 +29,10 @@ var LOCATION_SEARCH_DISTANCE = '5mi';
 var UPDATE_LOCATION = false;
 //Frequency of auto-updates
 var UPDATE_FREQ = 45000;
+//auto save to openid?
+var AUTO_SAVE = true;
+//Frequency to auto save
+var AUTO_SAVE_FREQ = 60000;
 //Automatically refresh data?
 var AUTO_UPDATE = true;
 //URL Base of the client - should work with '' in most cases
@@ -150,7 +154,12 @@ function update_settings() {
 		TABBED_PANELS = $('#tabbed_panels').attr('checked');
 		need_refresh = true
 	}
-		
+	
+	AUTO_SAVE = $('auto_save_checkbox').attr('checked');
+	
+	if (AUTO_SAVE) {
+	  save_to_openid();
+	}
 	
 	if (CSS_FILE != $('#css_file_setting').val()) {
 	  CSS_FILE = $('#css_file_setting').val()
@@ -189,6 +198,10 @@ function save_settings_in_cookie() {
 	settings += '&'
 	
 	settings += "PANEL_WIDTH=" + PANEL_WIDTH;
+	
+	settings += '&'
+	
+	settings += "AUTO_SAVE=" + AUTO_SAVE;
 	
 	settings += '&'
 	
@@ -231,6 +244,12 @@ function get_settings_in_cookie() {
 				DESTROY_TWEETS = false
 			} else {
 				DESTROY_TWEETS = true	
+			}
+		} else if (vals[0] == 'AUTO_SAVE') {
+			if (vals[1] == 'false') {
+				AUTO_SAVE = false
+			} else {
+				AUTO_SAVE = true	
 			}
 		} else if (vals[0] == 'ADD_HASHTAG') {
 			if (vals[1] == 'false') {

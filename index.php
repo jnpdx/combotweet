@@ -280,7 +280,7 @@ if (isset($_GET['search'])) {
 				<label>Append hashtag:</label><input type="checkbox" id="add_hashtag"/><br class="clear_both"/>
 				<label>URL Shortener:</label><input type="checkbox" id="show_url_shortener"/><br class="clear_both"/>
 				
-				
+				<label>Auto-save panels:</label><input type="checkbox" id="auto_save_checkbox"/><br class="clear_both"/>
 				<label>Refresh frequency:</label><input type="text" id="refresh_freq"/><br class="clear_both"/>
 				<label>Font size (%):</label><input type="text" id="font_size"/><br class="clear_both"/>
 				<label>Panel width (px):</label><input type="text" id="panel_width"/><br class="clear_both"/>

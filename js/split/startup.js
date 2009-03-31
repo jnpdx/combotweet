@@ -63,8 +63,17 @@ function doc_ready_functions() {
 	
 	}
 	
+	setTimeout("auto_save()",AUTO_SAVE_FREQ);
+	
+	
 	bind_shortcuts();
 	
+}
+
+function auto_save() {
+  if ((user_openid != '') && AUTO_SAVE) {
+    save_to_openid();
+  }
 }
 
 function bind_shortcuts() {

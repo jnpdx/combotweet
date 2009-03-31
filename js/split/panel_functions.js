@@ -185,6 +185,10 @@ function make_new_panel() {
 	//set up panel
 	set_up_panel(new_id,panel_code,u,p);
 	
+	if (AUTO_SAVE) {
+    save_to_openid();
+  }
+	
 }
 
 
@@ -545,5 +549,9 @@ function reload_filter_panel(panel_id) {
   $('#panel_' + panel_id).find('.tweets').html('');
   
   parse_filtered_tweets(from_panel.panel_id,2,from_panel.panel_data);
+  
+  if (AUTO_SAVE) {
+    save_to_openid();
+  }
   
 }

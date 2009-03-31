@@ -174,6 +174,7 @@ function show_settings_form() {
 		$('#font_size').val('' + FONT_SIZE);
 		$('#panel_width').val('' + PANEL_WIDTH);
 		$('#css_file_setting').val(CSS_FILE);
+		$('#auto_save_checkbox').attr('checked',AUTO_SAVE);
 	}
 	);
 	
