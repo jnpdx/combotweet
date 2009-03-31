@@ -1,5 +1,11 @@
 //Functions for saving the state to OpenID
 
+function auto_save() {
+  if (AUTO_SAVE && (user_openid != '')) {
+    save_to_openid();
+  }
+}
+
 function save_to_openid() {
   
   

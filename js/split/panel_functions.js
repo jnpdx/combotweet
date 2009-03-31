@@ -94,9 +94,7 @@ function update_panel_order() {
     new_panel_array.push(cur_panel)
   }
   tw_panels = new_panel_array;
-  if (AUTO_SAVE) {
-    save_to_openid();
-  }
+  auto_save();
 }
 
 //Create a new panel
@@ -188,9 +186,7 @@ function make_new_panel() {
 	//set up panel
 	set_up_panel(new_id,panel_code,u,p);
 	
-	if (AUTO_SAVE) {
-    save_to_openid();
-  }
+	auto_save();
 	
 }
 
@@ -553,8 +549,6 @@ function reload_filter_panel(panel_id) {
   
   parse_filtered_tweets(from_panel.panel_id,2,from_panel.panel_data);
   
-  if (AUTO_SAVE) {
-    save_to_openid();
-  }
+  auto_save();
   
 }

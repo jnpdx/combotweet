@@ -157,9 +157,7 @@ function update_settings() {
 	
 	AUTO_SAVE = $('auto_save_checkbox').attr('checked');
 	
-	if (AUTO_SAVE) {
-	  save_to_openid();
-	}
+	auto_save();
 	
 	if (CSS_FILE != $('#css_file_setting').val()) {
 	  CSS_FILE = $('#css_file_setting').val()
