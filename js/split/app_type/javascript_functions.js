@@ -44,7 +44,7 @@ function js_get_panel(panel_id, t_user, t_pass, gen_info) {
 	
 	
 	panel_html += '<div class="last_update"></div>';
-	panel_html += '<div class="tweet_type_menu"><br class="clear_both"/><div class="tweet_type_button" id="panel_' + panel_id + '_regular" onclick="get_tweets(\'' + panel_id + '\',\'regular\',1)">Timeline</div><div class="tweet_type_button" id="panel_' + panel_id + '_replies" onclick="get_tweets(\'' + panel_id + '\',\'replies\',1)">Replies</div><div class="tweet_type_button" id="panel_' + panel_id + '_direct" onclick="get_tweets(\'' + panel_id + '\',\'direct\',1)">Direct messages</div><br class="clear_both" /></div>';
+	panel_html += '<div class="tweet_type_menu"><br class="clear_both"/><div class="tweet_type_button" id="panel_' + panel_id + '_regular" onclick="get_tweets(\'' + panel_id + '\',\'regular\',1)">Timeline</div><div class="tweet_type_button" id="panel_' + panel_id + '_replies" onclick="get_tweets(\'' + panel_id + '\',\'replies\',1)">@' + t_user + '</div><div class="tweet_type_button" id="panel_' + panel_id + '_direct" onclick="get_tweets(\'' + panel_id + '\',\'direct\',1)">Direct messages</div><br class="clear_both" /></div>';
 
 	panel_html += '<div class="tweets"></div>';
 	panel_html += '<div class="more_tweets" onclick="get_more_tweets(\'' + panel_id + '\'); return false;">Load more tweets...</div>';

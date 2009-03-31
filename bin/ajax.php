@@ -118,13 +118,13 @@ if ($func == 'get_panel') {
 		$tweets = get_search_tweets($tw_user,$location,$location_dist,$page,$since);
 	} elseif ($panel_type == 'regular') {
 		
-		if ($tweet_type != 'replies') {
+		//if ($tweet_type != 'replies') {
 			$tweets = get_tweets($tw_user,$tw_pass,$tweet_type,$page,$since);
-		} else {
+		//} else {
 			
-			$tweets = get_search_tweets($tw_user,$location,$location_dist,$page,$since);
+			//$tweets = get_search_tweets($tw_user,$location,$location_dist,$page,$since);
 			
-		}
+		//}
 		
 	} elseif ($panel_type == 'shizzow_panel') {
 		
