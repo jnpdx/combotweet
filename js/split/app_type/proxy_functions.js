@@ -363,7 +363,7 @@ function proxy_send_shout(panel_id,shout,location) {
 function proxy_save_state(openid,show_alert) {
   show_loader();
   
-  panels_data = tw_panels;
+  panels_data = cloneObject(tw_panels);
   
   for (i in panels_data) {
     panels_data[i].panel_data = '';
@@ -381,6 +381,17 @@ function proxy_save_state(openid,show_alert) {
   
   
 }
+
+function cloneObject(what) {
+    for (i in what) {
+        if (typeof what[i] == 'object') {
+            this[i] = new cloneObject(what[i]);
+        }
+        else
+            this[i] = what[i];
+    }
+}
+
 
 function proxy_load_state(openid) {
   show_loader();
