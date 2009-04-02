@@ -1,7 +1,7 @@
 <?php
 ////////
 
-define( 'VERSION', '0013' );
+define( 'VERSION', '0014' );
 
 ////////
 if ($_SERVER['HTTP_HOST'] != "combotweet.com") {
@@ -89,8 +89,8 @@ if (isset($_GET['search'])) {
 	</script>
 
 	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
 
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 	<script type="text/javascript">
