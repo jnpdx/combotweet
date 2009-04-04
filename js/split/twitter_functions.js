@@ -24,10 +24,10 @@ function get_tweets(panel_id,type,page_num) {
     return;
   }
   
-  if (pan.panel_type == 'search') {
-    js_get_search_tweets_through_json(panel_id,page_num);
-    return;
-  }
+  //if (pan.panel_type == 'search') {
+  //  js_get_search_tweets_through_json(panel_id,page_num);
+  //  return;
+  //}
 
 	show_loader();
 
