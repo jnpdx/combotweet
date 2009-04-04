@@ -422,7 +422,7 @@ function save_filter(panel_id) {
       
       if (i == '') { continue; }
       
-      pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"").replace('@','')] = true
+      pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"").replace('@','').toLowerCase()] = true
       
     }
     

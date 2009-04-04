@@ -346,6 +346,8 @@ if ($func == 'get_panel') {
 	header("Content-type: text/javascript");
 	
 	echo json_encode("SAVED_USER");
+	
+	//echo var_dump($_SESSION);
 
 
 } elseif($func == 'logout') {

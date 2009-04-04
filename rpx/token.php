@@ -63,6 +63,7 @@ function login_user($openid) {
 	
 		$data = unserialize($data['state']);
 		$_SESSION['panels'] = $data['panels'];
+		$_SESSION['panels_data'] = $data['panels_data'];
 		
 	}
 	

@@ -530,7 +530,7 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     if (d_panel.filter_rules['users'] != undefined) {
       tweets_data = $.grep(data, function(d) {
         //console.log("comparing " + d.user.screen_name)
-        return (d_panel.filter_rules.users[d.user.screen_name] == true)
+        return (d_panel.filter_rules.users[d.user.screen_name.toLowerCase()] == true)
       })
       //console.log("tweets data is " + tweets_data.length)
       //window.FILTER_DATA = tweets_data

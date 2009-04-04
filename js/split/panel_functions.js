@@ -487,7 +487,11 @@ function make_droppables() {
            //console.log(ev)
            var theId = ev.target.id.substring(7);
            
+           //alert(JSON.stringify(ev.target))
+           
            var drop_panel_id = this.id.substring(6);
+           
+           //alert(drop_panel_id)
 
            //console.log(theId + ' on panel ' + drop_panel_id);
 
@@ -497,7 +501,7 @@ function make_droppables() {
              pan.filter_rules['users'] = new Object();
            }
          
-           pan.filter_rules.users[theId] = true
+           pan.filter_rules.users[theId.toLowerCase()] = true
 
           save_panel(pan.panel_id,pan)
          

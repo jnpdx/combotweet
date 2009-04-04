@@ -43,7 +43,9 @@ function proxy_get_session_panels() {
 	$.post(URL_BASE + 'bin/ajax.php', {
 		func: "get_session_panels",
 	}, function(data) {
-						
+		
+		//alert(JSON.stringify(data))
+		
 			
 		//$('#panels').append(data);
 		
@@ -56,6 +58,8 @@ function proxy_get_session_panels() {
 		
 		if (data.panels_data == '') {
 		  
+		  //alert("panels_data is empty " + data.panels_data)
+		  
 		  //window.OLD_PANELS_DATA = JSON.parse(data.panels_data.replace('\"','"'));
 		  //return;
 		  
@@ -63,6 +67,8 @@ function proxy_get_session_panels() {
 		
 		if (data.panels_data.length > 0) {
 		  var old_panels_data = JSON.parse(data.panels_data.replace('\"','"'));
+		
+		  //alert(JSON.stringify(old_panels_data))
 		
   		for (i in old_panels_data) {
 		  

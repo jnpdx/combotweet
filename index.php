@@ -1,7 +1,7 @@
 <?php
 ////////
 
-define( 'VERSION', '0014' );
+define( 'VERSION', '0015' );
 
 ////////
 if ($_SERVER['HTTP_HOST'] != "combotweet.com") {
