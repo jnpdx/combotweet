@@ -365,7 +365,9 @@ function proxy_send_shout(panel_id,shout,location) {
 function proxy_save_state(openid,show_alert) {
   show_loader();
   
-  panels_data = eval(uneval(tw_panels));
+  //panels_data = eval(uneval(tw_panels));
+  
+  panels_data = JSON.parse(JSON.stringify(tw_panels))
   
   for (i in panels_data) {
     panels_data[i].panel_data = '';

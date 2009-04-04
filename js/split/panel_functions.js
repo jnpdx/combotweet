@@ -262,7 +262,7 @@ function remove_panel(panel_id) {
 
 //Add a search panel
 function add_search_panel(search_term) {
-	
+
 	if (search_term == null) {
 		
 		search_term = prompt_search_term();
@@ -275,12 +275,12 @@ function add_search_panel(search_term) {
 		
 	}
 	
-	var panel_id = "Search " + search_term;
+	//var panel_id = "Search " + search_term;
 	
 	//panel_id = panel_id.replace(/ /g,'_');
 	var d = new Date();
 	
-	panel_id = "Search_" + d.getTime();
+	var panel_id = "Search_" + d.getTime();
 	
 	if (get_panel_by_id(panel_id) != null) {
 		
@@ -317,6 +317,7 @@ function add_search_panel(search_term) {
 	
 	tw_panels.push(new_panel);
 	
+	
 	if (AIR) {
 		
 		air_save_panels();
@@ -325,13 +326,16 @@ function add_search_panel(search_term) {
 		
 	var data = js_get_search_panel(panel_id,search_term,'_search'); //get the html
 	
+	
+	
 	if (PROXY) {
 		var old_data = proxy_get_search_panel(panel_id,search_term,'_search');//register the panel
 	}
 	
 	set_up_panel(panel_id, data, search_term,"_search");
 	
-	auto_save()
+	
+	auto_save();
 	
 	return false;
 	

@@ -15,6 +15,7 @@ function save_to_openid(show_alert) {
     return false;
   }
   
+  
   //send a save request to the server
   if (PROXY) {
     proxy_save_state(user_openid,show_alert);

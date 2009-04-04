@@ -279,7 +279,7 @@ if (isset($_GET['search'])) {
 		</div>
 		
 		<div id="search_form">
-			<form id="search_form_form" action="">
+			<form id="search_form_form" action="" onsubmit="">
 			<input type="text" id="search_term" value="" />&nbsp;<input type="submit" value="Search" onclick="add_search_panel($('#search_term').val()); hide_open_windows(); return false;"/>
 			</form>
 		</div>
