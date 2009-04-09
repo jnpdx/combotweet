@@ -205,14 +205,21 @@ function remove_panel(panel_id) {
 	
 	if (pan.parent_panel != null) {
 	  var parent_pan = get_panel_by_id(pan.parent_panel)
-	  for (i in parent_pan.derivative_panels) {
-	    if (parent_pan.derivative_panels[i] == panel_id) {
+	  
+	  if (parent_pan != null) {
+	  
+  	  for (i in parent_pan.derivative_panels) {
+  	    if (parent_pan.derivative_panels[i] == panel_id) {
 	      
-	      parent_pan.derivative_panels.splice(i,1)
+  	      parent_pan.derivative_panels.splice(i,1)
 	      
-	    }
+  	    }
+  	  }
+	  
+	    save_panel(parent_pan.panel_id,parent_pan)
+  	  
 	  }
-	  save_panel(parent_pan.panel_id,parent_pan)
+	  
 	}
 	
 	$('#panel_' + panel_id).remove();

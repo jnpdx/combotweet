@@ -528,14 +528,38 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     }
     
     if (d_panel.filter_rules['users'] != undefined) {
-      tweets_data = $.grep(data, function(d) {
-        //console.log("comparing " + d.user.screen_name)
-        return (d_panel.filter_rules.users[d.user.screen_name.toLowerCase()] == true)
-      })
+      
+      if (d_panel.filter_rules['users']['all'] == undefined) {
+        tweets_data = $.grep(data, function(d) {
+          //console.log("comparing " + d.user.screen_name)
+          return (d_panel.filter_rules.users[d.user.screen_name.toLowerCase()] == true)
+        })
+      } else {
+        tweets_data = data
+      }
+      
       //console.log("tweets data is " + tweets_data.length)
       //window.FILTER_DATA = tweets_data
     } else {
       //console.log("no rules to parse")
+    }
+    
+    if (d_panel.filter_rules['content'] != undefined) {
+      for (r in d_panel.filter_rules['content']) {
+        rule = d_panel.filter_rules['content'][r]
+        //console.log("Comparing " + JSON.stringify(rule))
+        tweets_data = $.grep(tweets_data, function(d) {
+          
+          if (rule.rule_type == "CONTAINS") {
+            return (d.text.toLowerCase().indexOf(rule.term.toLowerCase()) != -1)
+          }
+          
+          if (rule.rule_type == "DOES_NOT_CONTAIN") {
+            return (d.text.toLowerCase().indexOf(rule.term.toLowerCase()) == -1)
+          }
+        
+        })
+      }
     }
     
     parse_get_tweets_data(d_panel.panel_id,'regular',page_num,tweets_data.reverse())
