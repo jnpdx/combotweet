@@ -86,7 +86,7 @@ switch($state) {
 		
 		$to = new TwitterOAuth($consumer_key, $consumer_secret, $_SESSION['oauth']['oauth_access_token'], $_SESSION['oauth']['oauth_access_token_secret']);
     /* Run request on twitter API as user. */
-    $content = json_decode($to->OAuthRequest('https://twitter.com/account/verify_credentials.json', array(), 'POST'));
+    $content = json_decode($to->OAuthRequest('https://twitter.com/account/verify_credentials.json', array(), 'GET'));
 
 		//var_dump( $content );
 

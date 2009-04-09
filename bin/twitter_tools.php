@@ -47,7 +47,7 @@ function get_tweets($user,$pass,$tweet_type,$page,$since) {
 			
 		}
 		
-		$content = $to->OAuthRequest($url, $post_fields, 'POST');
+		$content = $to->OAuthRequest($url, $post_fields, 'GET');
 		
 		return $content;
 		
@@ -386,7 +386,7 @@ function get_last_update($user,$pass) {
 	if ($pass == "__USING_OAUTH") {
 		$to =  $_SESSION['panels'][$user]->oauth;
 		
-		$content = $to->OAuthRequest($url, array(), 'POST');
+		$content = $to->OAuthRequest($url, array(), 'GET');
 		
 		return $content;
 		
