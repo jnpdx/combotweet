@@ -781,7 +781,7 @@ input.edit_filter {
   width: 100%;
 }
 
-textarea#users_filter {
+textarea#users_filter, textarea#content_filter {
   
   width: 370px;
   height: 120px;

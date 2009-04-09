@@ -535,7 +535,10 @@ function parse_filtered_tweets(panel_id,page_num,data) {
           return (d_panel.filter_rules.users[d.user.screen_name.toLowerCase()] == true)
         })
       } else {
-        tweets_data = data
+        tweets_data = $.grep(data, function(d) {
+          //console.log("comparing " + d.user.screen_name)
+          return (d_panel.filter_rules.users[d.user.screen_name.toLowerCase()] != true)
+        })
       }
       
       //console.log("tweets data is " + tweets_data.length)
@@ -546,7 +549,12 @@ function parse_filtered_tweets(panel_id,page_num,data) {
     
     if (d_panel.filter_rules['content'] != undefined) {
       for (r in d_panel.filter_rules['content']) {
-        rule = d_panel.filter_rules['content'][r]
+        var rule = d_panel.filter_rules['content'][r]
+        
+        if (rule == null) {
+          continue;
+        }
+        
         //console.log("Comparing " + JSON.stringify(rule))
         tweets_data = $.grep(tweets_data, function(d) {
           

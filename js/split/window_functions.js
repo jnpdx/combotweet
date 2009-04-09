@@ -391,6 +391,26 @@ function edit_filter(panel_id) {
     
   }
   
+  if (pan.filter_rules.content != undefined) {
+    
+    code += "Content filters (syntax CONTAINS ___ or DOES_NOT_CONTAIN ___ - comma separated):<br/>"
+    
+    code += '<textarea id="content_filter">'
+    
+    for (u in pan.filter_rules.content) {
+      
+        
+        var rule = pan.filter_rules.content[u]
+        
+        code += rule.rule_type + ' ' + rule.term + ','
+        
+      
+    }
+    
+    code += '</textarea>'
+    
+  }
+  
   pan += '</div>'
   
   code += '<br/><input type="button" value="Save filter" onclick="save_filter(\'' + panel_id + '\')"/>'
@@ -412,7 +432,7 @@ function save_filter(panel_id) {
     
     pan.filter_rules['users'] = new Object();
     
-    users_list = $('#users_filter').val();
+    var users_list = $('#users_filter').val();
     
     users_list = users_list.split(',');
     
@@ -423,6 +443,33 @@ function save_filter(panel_id) {
       if (i == '') { continue; }
       
       pan.filter_rules.users[users_list[i].replace(/^\s+|\s+$/g,"").replace('@','').toLowerCase()] = true
+      
+    }
+    
+  }
+  
+  if ($('#users_filter').length > 0) {
+    
+    pan.filter_rules['content'] = new Array();
+    
+    var rules_list = $('#content_filter').val();
+    
+    rules_list = rules_list.split(',');
+    
+    for (i in rules_list) {
+      
+      //console.log("user " + users_list[i])
+      
+      if (i == '') { continue; }
+      
+      var words = rules_list[i].split(' ');
+      
+      if (words.length >= 2) {
+        pan.filter_rules.content.push( {
+          rule_type: words[0],
+          term: rules_list[i].substring(words[0].length + 1)
+        } )
+      }
       
     }
     
