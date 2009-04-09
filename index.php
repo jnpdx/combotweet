@@ -4,7 +4,7 @@
 define( 'VERSION', '0015' );
 
 ////////
-if ($_SERVER['HTTP_HOST'] != "combotweet.com") {
+if (strpos($_SERVER['HTTP_HOST'],"combotweet.com") === FALSE) {
 	
 	$GLOBALS['DEV_ENV'] = true;
 	
