@@ -542,8 +542,7 @@ function make_new_filtered_panel(panel_name,from_panel) {
 	//temp
 	new_panel.filter_rules = new Object();
 	new_panel.filter_rules['users'] = new Object();
-	//new_panel.filter_rules.users['ahockley'] = true;
-	//new_panel.filter_rules.users['test_dummy'] = true;
+	new_panel.filter_rules['content'] = new Array();
 	
 	tw_panels.push(new_panel);
 	
